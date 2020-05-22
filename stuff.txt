@@ -1,0 +1,82 @@
+VPS = space ship
+
+Linux systems/directories represeted by various rooms.
+
+Cargo bay = FTP:
+	Can receieve files in this room.
+
+Subsystem:
+	Firewall = Sheild. Can protect the ship from this room.
+	Console gives access to the firewall and firewall settings.
+	Be careful here though because too strict rules and it can block essentials from reaching the ship.
+
+How to gamify, you will need resources, otherwise the game will just be boring no? An interesting tech demo but not a proper game.
+
+Power, the ship needs power. The commands you run consume power.
+Admin. Admin has root can login to root directory.
+
+Root directory = Captains quarters.
+
+Home directory = Crew quarters.
+	Can expand to add new rooms as directories are added/deleted in /home.
+
+Comms = HTTP server, irc server? so many communications protocols on linux.
+
+talk = system chat use a chat program that allows you to talk to other users on linux system.
+
+/var/log the system log. Maybe not a room per se? But users can view the system log. Kind of like the ship log I guess.
+
+Systemd = HAL9000 The friendly AI that controls all of the ships systems.
+	Can use systemd logo CC-BY to represent.
+	Maybe can have some fun here with rogue AI events, that kind of thing.
+
+ssh is the way users connect to the system. If they have a home directory they will end up there, otherwise we could make a special directory on / for "incoming" users.
+User will need to be added to system in order to join the ship.
+
+Weapons room = kali linux (hacking tools)
+	Weapons room is where the user deploys hacking tools.
+	Can make attacks over the network.
+	TCP flood attack, for example.
+
+Networks = galaxies.
+	User can enter different networks as different galaxies.
+
+Scanners = nmap
+	Nmap is used to scan the galaxy.
+
+Bridge = Maybe have a comms station in the bridge (seperate from cargo bay - ftp)
+	Here we could show the nmap display.
+	Something like etherape could be cool, showing a visual display devices in the network.
+
+Universe = internet
+	A network of networks, i.e. a galaxy of galaxies.
+
+ACPI = power system
+	CPU uses power. Player needs to manage this resource.
+	Can extract power from asteroids or something.
+	Solar power is a constant but slow source of power.
+	Here powertop would be used to measure how much power the system is using.
+	If the player does that uses a lot of cpu, power will deplete quickly and
+	maybe it will affect other systems, make them slow down or even freeze
+	for example.
+
+Engine room = CPU and RAM
+	These probably will never break down. Super good technology.
+	Can read from /proc/meminfo and /proc/cpuinfo in order to generate in game representation.
+	For example, if player is using 2vcpu it will show 2cpus, 1 -> 1, etc.
+	Ram, more ram will be bigger?
+
+	Perhaps it is possible to resize these machines. E.g. upgrade cpu, but it will require system shutdown. 
+	at least for Digital ocean. Not sure about others, e.g. virtualbox.
+
+Storage space = disk
+	maybe represented by size of space craft.
+
+/mnt = allow docking to other ships?
+	Using nfs, player can travel through mount in order to visit other ships.
+	Ofcourse they will need an account on the ship in order to login.
+
+	So when join attempt is made, perhaps captain is alerted an can authorize, which will do the necessary user actions.
+
+	In this case will need a login system, with unique user names. And valid users names (i.e. limit special characters).
+	but not really as linux is very flexible with file names.

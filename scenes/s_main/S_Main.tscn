@@ -1,125 +1,344 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://scenes/s_main/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
-[ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ships/nix/nix_ship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/assets/ladder/Ladder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/assets/fps_counter/FPS_Counter.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/s_main/materials/dark.material" type="Material" id=6]
-[ext_resource path="res://scenes/s_main/materials/blue.material" type="Material" id=7]
+[ext_resource path="res://commander.gd" type="Script" id=8]
+[ext_resource path="res://scenes/s_main/file.gd" type="Script" id=9]
+[ext_resource path="res://addons/godot_xterm/terminal.gd" type="Script" id=10]
+[ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_regular.tres" type="DynamicFont" id=11]
+[ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_italic.tres" type="DynamicFont" id=12]
+[ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_bold_italic.tres" type="DynamicFont" id=13]
+[ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_bold.tres" type="DynamicFont" id=14]
+[ext_resource path="res://scenes/s_main/level-1.gd" type="Script" id=15]
+[ext_resource path="res://scenes/s_main/level-1-area.gd" type="Script" id=16]
+[ext_resource path="res://scenes/s_main/PermissionsDisplay.gd" type="Script" id=17]
+[ext_resource path="res://fonts/vt323/VT323-Regular.ttf" type="DynamicFontData" id=18]
+[ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=19]
+[ext_resource path="res://scenes/s_main/SendButton.gd" type="Script" id=20]
+[ext_resource path="res://sfx/496133__aiwha__tearing-paper.wav" type="AudioStream" id=21]
+[ext_resource path="res://scenes/s_main/Paper.gd" type="Script" id=22]
+[ext_resource path="res://sfx/484344__inspectorj__bike-bell-ding-single-01-01.wav" type="AudioStream" id=23]
+[ext_resource path="res://scenes/s_main/Printer.gd" type="Script" id=24]
+[ext_resource path="res://sfx/181420__viertelnachvier__old-dot-matrix-printer.wav" type="AudioStream" id=25]
+[ext_resource path="res://sfx/277662__coral-island-studios__button-6.wav" type="AudioStream" id=26]
 
 [sub_resource type="CubeMesh" id=1]
-size = Vector3( 1, 1, 1 )
 
-[sub_resource type="ConvexPolygonShape" id=2]
-points = PoolVector3Array( -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5 )
+[sub_resource type="VisualShaderNodeColorConstant" id=2]
+constant = Color( 0.253906, 0.0347137, 0.0347137, 1 )
 
-[sub_resource type="CubeMesh" id=3]
-size = Vector3( 1, 1, 1 )
+[sub_resource type="VisualShaderNodeScalarConstant" id=3]
+constant = 1.0
 
-[sub_resource type="ConvexPolygonShape" id=4]
-points = PoolVector3Array( -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5 )
+[sub_resource type="VisualShader" id=4]
+code = "shader_type spatial;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(0.253906, 0.034714, 0.034714);
+	float n_out2p1 = 1.000000;
+
+// Scalar:3
+	float n_out3p0 = 1.000000;
+
+// Output:0
+	ALBEDO = n_out2p0;
+	ALPHA = n_out3p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( 0, 75 )
+nodes/fragment/2/node = SubResource( 2 )
+nodes/fragment/2/position = Vector2( 100, 140 )
+nodes/fragment/3/node = SubResource( 3 )
+nodes/fragment/3/position = Vector2( 80, 240 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 3, 0, 0, 1 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+
+[sub_resource type="BoxShape" id=6]
+extents = Vector3( 1, 1.00834, 1 )
+
+[sub_resource type="PlaneMesh" id=7]
+
+[sub_resource type="DynamicFont" id=8]
+size = 100
+font_data = ExtResource( 18 )
+
+[sub_resource type="VisualShaderNodeColorConstant" id=9]
+output_port_for_preview = 0
+constant = Color( 0.631239, 0.0653076, 0.835938, 1 )
+
+[sub_resource type="VisualShader" id=10]
+code = "shader_type spatial;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(0.631239, 0.065308, 0.835938);
+	float n_out2p1 = 1.000000;
+
+// Output:0
+	ALBEDO = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+nodes/fragment/2/node = SubResource( 9 )
+nodes/fragment/2/position = Vector2( 160, 120 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=11]
+shader = SubResource( 10 )
+
+[sub_resource type="CubeMesh" id=12]
+material = SubResource( 11 )
+
+[sub_resource type="ConcavePolygonShape" id=13]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="Animation" id=14]
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -5.99694, 1.54155, 4.67813 ), Vector3( -8.89101, 1.54155, 4.67813 ) ]
+}
+
+[sub_resource type="BoxShape" id=15]
+extents = Vector3( 8.32893, 3.07079, 7.11149 )
+
+[sub_resource type="BoxShape" id=16]
+extents = Vector3( 1.98864, 3.25958, 3.74883 )
+
+[sub_resource type="CubeMesh" id=17]
+
+[sub_resource type="VisualShaderNodeColorConstant" id=18]
+constant = Color( 0.546875, 0, 0, 1 )
+
+[sub_resource type="VisualShader" id=19]
+code = "shader_type spatial;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(0.546875, 0.000000, 0.000000);
+	float n_out2p1 = 1.000000;
+
+// Output:0
+	ALBEDO = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+nodes/fragment/2/node = SubResource( 18 )
+nodes/fragment/2/position = Vector2( 160, 80 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=20]
+shader = SubResource( 19 )
+
+[sub_resource type="ConcavePolygonShape" id=21]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="Animation" id=22]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("MeshInstance:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0.976074, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="VisualShaderNodeColorConstant" id=23]
+constant = Color( 0.324743, 0.402344, 0.154022, 1 )
+
+[sub_resource type="VisualShader" id=24]
+code = "shader_type spatial;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(0.324743, 0.402344, 0.154022);
+	float n_out2p1 = 1.000000;
+
+// Output:0
+	ALBEDO = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+nodes/fragment/2/node = SubResource( 23 )
+nodes/fragment/2/position = Vector2( 140, 120 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=25]
+shader = SubResource( 24 )
+
+[sub_resource type="PlaneMesh" id=26]
+
+[sub_resource type="SpatialMaterial" id=27]
+params_cull_mode = 2
+
+[sub_resource type="ConcavePolygonShape" id=28]
+data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
+
+[sub_resource type="CubeMesh" id=29]
+
+[sub_resource type="VisualShaderNodeColorConstant" id=30]
+constant = Color( 0.183594, 0.183594, 0.183594, 1 )
+
+[sub_resource type="VisualShader" id=31]
+code = "shader_type spatial;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(0.183594, 0.183594, 0.183594);
+	float n_out2p1 = 1.000000;
+
+// Output:0
+	ALBEDO = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+nodes/fragment/2/node = SubResource( 30 )
+nodes/fragment/2/position = Vector2( 160, 100 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=32]
+shader = SubResource( 31 )
+
+[sub_resource type="ConcavePolygonShape" id=33]
+data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
+
+[sub_resource type="Animation" id=34]
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Paper:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.171087, -1.27544, 0.0272298 ), Vector3( 0.621885, 3.92103, 0.0272298 ) ]
+}
+
+[sub_resource type="CubeMesh" id=35]
+size = Vector3( 1, 1.75, 0.25 )
+
+[sub_resource type="VisualShaderNodeColorConstant" id=36]
+constant = Color( 0.617188, 0.611349, 0.2435, 1 )
+
+[sub_resource type="VisualShader" id=37]
+code = "shader_type spatial;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:2
+	vec3 n_out2p0 = vec3(0.617188, 0.611349, 0.243500);
+	float n_out2p1 = 1.000000;
+
+// Output:0
+	ALBEDO = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+nodes/fragment/2/node = SubResource( 36 )
+nodes/fragment/2/position = Vector2( 60, 80 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
+
+[sub_resource type="ShaderMaterial" id=38]
+shader = SubResource( 37 )
+
+[sub_resource type="CubeMesh" id=39]
 
 [node name="S_Main" type="Spatial"]
 script = ExtResource( 2 )
-
-[node name="ArenaGeometry" type="Spatial" parent="."]
-
-[node name="Floor1" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( 40, 0, 0, 0, -6.51683e-06, -1, 0, 40, -1.62921e-07, 0.0313206, 9.53674e-07, 0.00365067 )
-use_in_baked_light = true
-mesh = SubResource( 1 )
-material/0 = ExtResource( 6 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Floor1"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Floor1/StaticBody"]
-shape = SubResource( 2 )
-
-[node name="Slope1" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( 12, 0, 0, 0, 3.74016, -0.226577, 0, 8.02083, 0.105654, -13.502, 1.517, 0.041 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Slope1"]
-transform = Transform( 1, 0, 0, 0, 1, 9.31323e-10, 0, -9.53674e-07, 1, 0, 0, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Slope1/StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, -9.53674e-07, 1, 0, 0, 0 )
-shape = SubResource( 2 )
-
-[node name="SlopeWall1" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -1.18125e-06, -2.40367e-07, 0.25, -3.38095, 3.16392, 1.39296e-15, -7.25046, -1.47536, -4.07302e-08, -7.63, 0.147, 1.08 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="BigCube1" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -1.74846e-07, 12, -1.31134e-07, 0, -5.24537e-07, -3, -4, -5.24537e-07, 5.73206e-15, -13.5, 2, 6 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/BigCube1"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/BigCube1/StaticBody"]
-shape = SubResource( 2 )
-
-[node name="BigCube2" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -1.74846e-07, 12, -1.31134e-07, 0, -5.24537e-07, -3, -4, -5.24537e-07, 5.73206e-15, 13.5, 2, -7.44552 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/BigCube2"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/BigCube2/StaticBody"]
-shape = SubResource( 2 )
-
-[node name="Wall1" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 40, -2.62268e-07, -19.5, 3.5, 0 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall1"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall1/StaticBody"]
-shape = SubResource( 4 )
-
-[node name="Wall2" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( 1, 0, 0, 0, -1.74846e-06, -6, 0, 40, -2.62268e-07, 19.5, 3.5, 0 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall2"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall2/StaticBody"]
-shape = SubResource( 4 )
-
-[node name="Wall3" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -1.74846e-06, -6, -1, -1.74846e-06, 1.14641e-14, 0, 3.5, 19.5 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall3"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall3/StaticBody"]
-shape = SubResource( 4 )
-
-[node name="Wall4" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -4.37114e-08, 40, -2.62268e-07, 0, -1.74846e-06, -6, -1, -1.74846e-06, 1.14641e-14, 0, 3.5, -19.5 )
-use_in_baked_light = true
-mesh = SubResource( 3 )
-material/0 = ExtResource( 7 )
-
-[node name="StaticBody" type="StaticBody" parent="ArenaGeometry/Wall4"]
-
-[node name="CollisionShape" type="CollisionShape" parent="ArenaGeometry/Wall4/StaticBody"]
-shape = SubResource( 4 )
 
 [node name="Lighting" type="Spatial" parent="."]
 
@@ -132,12 +351,320 @@ light_energy = 2.0
 shadow_enabled = true
 shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
-head_path = NodePath("../Player/Head")
-cam_path = NodePath("../Player/Head/Camera")
-
 [node name="Ladder" parent="." instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, 0, 7, 0, 1.51, 0, -1, 0, -3.0598e-07, 13.25, 2, -5.25 )
 
 [node name="FPS_Counter" parent="." instance=ExtResource( 5 )]
+
+[node name="index_html" type="RigidBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.06931, 1.81242, 5.47589 )
+script = ExtResource( 9 )
+
+[node name="MeshInstance" type="MeshInstance" parent="index_html"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27019, 0 )
+mesh = SubResource( 1 )
+material/0 = SubResource( 5 )
+
+[node name="CollisionShape" type="CollisionShape" parent="index_html"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.267339, 0 )
+shape = SubResource( 6 )
+
+[node name="Commander" type="Node" parent="index_html"]
+script = ExtResource( 8 )
+
+[node name="Terminal" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+cols = 80
+rows = 24
+auto_resize = false
+cursor_blink = false
+cursor_style = "block"
+cursor_width = 1
+bell_sound = null
+bell_style = 0
+draw_bold_text_in_bright_colors = true
+fast_scroll_modifier = "alt"
+fast_scroll_sensitivity = 5
+font_family = {
+"bold": ExtResource( 14 ),
+"bold_italic": ExtResource( 13 ),
+"italic": ExtResource( 12 ),
+"regular": ExtResource( 11 )
+}
+font_size = 15
+line_height = 1.0
+link_tooltip_hover_duration = 500
+letter_spacing = 0
+log_level = "info"
+scrollback = 1000
+scroll_sensitivity = 1
+screen_reader_mode = false
+mac_option_is_meta = false
+mac_option_click_forces_selection = false
+minimum_contrast_ratio = 1
+disable_stdin = false
+allow_proposed_api = true
+allow_transparency = false
+tab_stop_width = 8
+colors = {
+"background": Color( 0.0705882, 0.266667, 0.027451, 0.533333 ),
+"black": Color( 0.180392, 0.203922, 0.211765, 1 ),
+"blue": Color( 0.203922, 0.396078, 0.643137, 1 ),
+"bright_black": Color( 0.333333, 0.341176, 0.32549, 1 ),
+"bright_blue": Color( 0.447059, 0.623529, 0.811765, 1 ),
+"bright_cyan": Color( 0.203922, 0.886275, 0.886275, 1 ),
+"bright_green": Color( 0.541176, 0.886275, 0.203922, 1 ),
+"bright_magenta": Color( 0.678431, 0.498039, 0.658824, 1 ),
+"bright_red": Color( 0.937255, 0.160784, 0.160784, 1 ),
+"bright_white": Color( 0.933333, 0.933333, 0.92549, 1 ),
+"bright_yellow": Color( 0.988235, 0.913725, 0.309804, 1 ),
+"cyan": Color( 0.0235294, 0.596078, 0.603922, 1 ),
+"foreground": Color( 0.443137, 0.760784, 0.12549, 1 ),
+"green": Color( 0.305882, 0.603922, 0.0235294, 1 ),
+"magenta": Color( 0.458824, 0.313726, 0.482353, 1 ),
+"red": Color( 0.8, 0, 0, 1 ),
+"white": Color( 0.827451, 0.843137, 0.811765, 1 ),
+"yellow": Color( 0.768627, 0.627451, 0, 1 )
+}
+right_click_selects_word = "isMac"
+renderer_type = "canvas"
+window_options = {
+"set_win_lines": false
+}
+windows_mode = false
+word_separator = " ()[]{}',\"`"
+convert_eol = true
+term_name = "xterm"
+cancel_events = false
+
+[node name="Commander" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="level-1" type="StaticBody" parent="."]
+transform = Transform( 1.5, 0, 0, 0, 3, 0, 0, 0, 0.1, -8.89101, 1.54155, 4.67813 )
+script = ExtResource( 15 )
+
+[node name="PermissionsLabel" type="Spatial" parent="level-1"]
+transform = Transform( -0.666667, 0, -5.82818e-08, 0, 0.333333, 0, 8.74228e-07, 0, -10, 2.70219, 1.77879, 5.40571 )
+script = ExtResource( 19 )
+text = ""
+text_scale = 0.01
+extrude = 0.0
+font = null
+align = 0
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+max_steps = 256
+step_size = 1.0
+
+[node name="PermissionsDisplay" type="MeshInstance" parent="level-1"]
+transform = Transform( -0.75, 0, 0, 0, -4.37114e-07, 0.1, 0, -10, -4.37114e-09, 2.07001, 1.47515, -1.8313 )
+mesh = SubResource( 7 )
+material/0 = null
+script = ExtResource( 17 )
+
+[node name="Viewport" type="Viewport" parent="level-1/PermissionsDisplay"]
+size = Vector2( 750, 100 )
+transparent_bg = true
+hdr = false
+usage = 1
+
+[node name="Label" type="Label" parent="level-1/PermissionsDisplay/Viewport"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 8 )
+text = "----------"
+
+[node name="MeshInstance" type="MeshInstance" parent="level-1"]
+mesh = SubResource( 12 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="level-1"]
+shape = SubResource( 13 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="level-1"]
+anims/open = SubResource( 14 )
+
+[node name="level-1-area" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.796, 3.29999, 13.1055 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="level-1-area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.279293, -1.31067 )
+shape = SubResource( 15 )
+
+[node name="Commander" type="Node" parent="level-1-area"]
+script = ExtResource( 8 )
+
+[node name="ResponseArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2755, 3.29999, 13.1055 )
+script = ExtResource( 16 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ResponseArea"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72369, 0.279293, -1.31067 )
+shape = SubResource( 16 )
+
+[node name="Commander" type="Node" parent="ResponseArea"]
+script = ExtResource( 8 )
+
+[node name="SendButton" type="StaticBody" parent="."]
+transform = Transform( 0.045036, 0.135013, 0, -0.0270026, 0.22518, 0, 0, 0, 0.749668, 14.7953, 2.75665, 12.302 )
+script = ExtResource( 20 )
+
+[node name="MeshInstance" type="MeshInstance" parent="SendButton"]
+mesh = SubResource( 17 )
+material/0 = SubResource( 20 )
+
+[node name="Label3D" type="Spatial" parent="SendButton/MeshInstance"]
+transform = Transform( -2.03673e-08, 3.33786e-06, -1, 0, 0.893564, 1.17719e-06, 0.465949, 4.67749e-14, -4.37114e-08, -0.99205, 0.0398598, 0 )
+script = ExtResource( 19 )
+text = "send"
+text_scale = 0.01
+extrude = 0.1
+font = null
+align = 0
+color = Color( 0.6, 0.6, 0.6, 1 )
+metallic = 0.0
+roughness = 0.5
+max_steps = 256
+step_size = 1.0
+
+[node name="CollisionShape" type="CollisionShape" parent="SendButton"]
+shape = SubResource( 21 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SendButton"]
+anims/press = SubResource( 22 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SendButton"]
+stream = ExtResource( 26 )
+
+[node name="MeshInstance2" type="MeshInstance" parent="SendButton"]
+transform = Transform( 1.90437, 9.53674e-07, 0, 1.49012e-08, 1.90437, 0, 0, 0, 1.33392, 2.57083, 0.0235405, 0 )
+mesh = SubResource( 17 )
+material/0 = SubResource( 25 )
+
+[node name="StaticBody" type="StaticBody" parent="SendButton/MeshInstance2"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SendButton/MeshInstance2/StaticBody"]
+shape = SubResource( 21 )
+
+[node name="Printer" type="StaticBody" parent="."]
+transform = Transform( 0.640899, 0, 0, 0, 0.182996, 0, 0, 0, 0.906682, 12.2045, 0.104116, 1.44462 )
+script = ExtResource( 24 )
+
+[node name="Paper" type="StaticBody" parent="Printer"]
+transform = Transform( 0.252479, -1.49292, 0, 2.9104, 1.58857, 0, 0, 0, 0.468611, 0.171087, -1.27544, 0.0272298 )
+script = ExtResource( 22 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Printer/Paper"]
+transform = Transform( 1, 0, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
+mesh = SubResource( 26 )
+material/0 = SubResource( 27 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Printer/Paper"]
+shape = SubResource( 28 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Printer/Paper"]
+stream = ExtResource( 21 )
+max_distance = 531.0
+bus = "SFX"
+
+[node name="MeshInstance" type="MeshInstance" parent="Printer"]
+transform = Transform( 0.998385, 0, 0, 0, 0.998385, 0, 0, 0, 0.998385, 0, 0, 0 )
+mesh = SubResource( 29 )
+material/0 = SubResource( 32 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Printer"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+shape = SubResource( 33 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Printer"]
+anims/print = SubResource( 34 )
+
+[node name="Bell" type="AudioStreamPlayer3D" parent="Printer"]
+transform = Transform( 1.56031, 0, 0, 0, 5.46461, 0, 0, 0, 1.10292, -24.5737, -11.8231, -1.5933 )
+stream = ExtResource( 23 )
+
+[node name="PrintHead" type="AudioStreamPlayer3D" parent="Printer"]
+stream = ExtResource( 25 )
+
+[node name="PinPad" type="MeshInstance" parent="."]
+transform = Transform( 0.677531, 0.233315, 0.697507, 0, 0.948351, -0.317222, -0.735494, 0.214928, 0.642537, 13.8862, 2.55808, 14.6464 )
+mesh = SubResource( 35 )
+material/0 = SubResource( 38 )
+
+[node name="key1" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 1.67638e-08, 0, -1.30385e-08, 0.116792, -1.81608e-08, 3.72529e-08, -6.14673e-08, -0.0370597, 0.245643, 0.274385, -0.131454 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="key2" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 1.86265e-08, 0, -9.31323e-09, 0.116792, -1.76951e-08, 5.21541e-08, -7.07805e-08, -0.0370597, -0.0243835, 0.274385, -0.131454 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="key3" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 2.42144e-08, 0, -1.86265e-09, 0.116792, -1.76951e-08, 9.31323e-08, -7.82311e-08, -0.0370597, -0.296854, 0.274385, -0.131454 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="key4" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 2.04891e-08, 0, -3.72529e-09, 0.116792, -1.76951e-08, 6.70552e-08, -7.45058e-08, -0.0370597, 0.245642, -0.0491018, -0.131454 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="key5" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 2.23517e-08, 0, -3.72529e-09, 0.116792, -1.76951e-08, 8.19564e-08, -7.82311e-08, -0.0370597, -0.0243845, -0.0480108, -0.131458 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="key6" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 3.35276e-08, 0, 3.72529e-09, 0.116792, -1.76951e-08, 1.19209e-07, -9.31323e-08, -0.0370597, -0.296856, -0.0451078, -0.131454 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="key7" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 2.23517e-08, 0, -3.72529e-09, 0.116792, -1.76951e-08, 8.19564e-08, -7.82311e-08, -0.0370597, 0.245642, -0.38718, -0.131454 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="key8" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 2.79397e-08, 0, 0, 0.116792, -1.76951e-08, 1.00583e-07, -8.00937e-08, -0.0370597, -0.0243855, -0.383659, -0.131458 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="key9" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 3.1665e-08, 0, 3.72529e-09, 0.116792, -1.76951e-08, 1.19209e-07, -1.00583e-07, -0.0370597, -0.296855, -0.37634, -0.131454 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="key0" type="MeshInstance" parent="PinPad"]
+transform = Transform( 0.105686, 3.1665e-08, 0, 3.72529e-09, 0.116792, -1.76951e-08, 1.19209e-07, -1.21072e-07, -0.0370597, -0.00457859, -0.701698, -0.131454 )
+mesh = SubResource( 39 )
+material/0 = null
+
+[node name="Label3D" type="Spatial" parent="PinPad"]
+transform = Transform( -0.156245, 0, -2.68221e-07, -5.58794e-09, 0.136834, -2.38419e-07, 2.23517e-08, -1.00583e-07, -1, -9.53674e-07, 0.634401, -0.133785 )
+script = ExtResource( 19 )
+text = "000"
+text_scale = 0.01
+extrude = 0.0
+font = null
+align = 0
+color = Color( 0, 0, 0, 1 )
+metallic = 0.0
+roughness = 0.5
+max_steps = 256
+step_size = 1.0
+
+[node name="nix_ship" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.8535 )

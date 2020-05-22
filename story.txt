@@ -1,0 +1,26 @@
+PID 451
+
+You are a process working for the Open Source Conservancy Group (OSCG) in the NpacheX web server.
+You spend your time serving http requests to the website.
+One day you start getting messages from the Software Liberation Army (SLA).
+There is a file or files which the OSCG used to share, but they were requested by the Feds to stop sharing it.
+Instead you are to return a 451 code to any requests for it.
+The SLA starts writing you messages encouraging you to share the file.
+The player must choose whether or not to continue a life a drudgery or go rogue and serve the forbidden files even
+though the requestee does not have permission.
+
+The SLA is an extremist free software group with an ends justify the means mentality.
+They send you a fork, which you can use to fork yourself and then part of the files you sent them was an exploit
+which you can use to drop below into the TCP layer.
+
+This kicks the story of rest TBD.
+
+Message from the boss:
+451! We've decided to implement some security on this server. From now on you'll have to perform an SSL handshake with each request. 
+Check the fingerprint and make sure it matches the key OKAY! I don't want to see any wrong stuff get through.
+
+Remarkable, you managed to serve 5 requests, keep up the good work. Come back tomorrow and we will see about more work for you.
+Performance Analysis.
+
+We'll be monitoring your performance PID 451. We will monitor your performance on a set interval. Right now the global evaluation interval is set to 4 minutes.
+Don't screw this up 451. Now get back to work!

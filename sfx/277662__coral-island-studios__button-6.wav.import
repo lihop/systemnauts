@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/277662__coral-island-studios__button-6.wav-77fe9b7d7e98721f91e0afcadee74ccc.sample"
+
+[deps]
+
+source_file="res://sfx/277662__coral-island-studios__button-6.wav"
+dest_files=[ "res://.import/277662__coral-island-studios__button-6.wav-77fe9b7d7e98721f91e0afcadee74ccc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
