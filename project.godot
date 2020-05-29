@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://commander.gd"
 }, {
+"base": "Area",
+"class": "DirectoryArea",
+"language": "GDScript",
+"path": "res://ships/nix/DirectoryArea.gd"
+}, {
 "base": "Node",
 "class": "HTTPResponse",
 "language": "GDScript",
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "ArrayUtils": "",
 "CanvasRenderingContext2D": "",
 "Commander": "",
+"DirectoryArea": "",
 "HTTPResponse": "",
 "Inotifiera": ""
 }
@@ -51,8 +57,8 @@ config/icon="res://icon.png"
 [autoload]
 
 Inotifier="*res://Inotifier.gd"
-PlayerShell="*res://PlayerShell.gd"
-GodotShell="*res://GodotShell.gd"
+PlayerShell="res://PlayerShell.gd"
+GodotShell="res://GodotShell.gd"
 WebServer="*res://website/web_server.gd"
 
 [editor_plugins]
@@ -1197,6 +1203,7 @@ mouse_input={
 
 3d_physics/layer_1="Objects"
 3d_physics/layer_2="Player"
+3d_physics/layer_3="architecture"
 
 [rendering]
 

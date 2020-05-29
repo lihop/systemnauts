@@ -14,7 +14,7 @@ var testfile: Node
 
 func _ready() -> void:
 	# Make sure the player is in the starting directory.
-	$"/root/PlayerShell".run_command("cd /home/leroy/tmp/test")
+	#$"/root/PlayerShell".run_command("cd /home/leroy/tmp/test")
 	
 	# General directory handler
 	Inotifier.add_event_handler("/home/leroy/tmp/test", self, "general_dir_handler")
@@ -33,7 +33,7 @@ func _ready() -> void:
 	
 	#$Commander.run_command("cd /home/leroy/tmp/test")
 	#$Terminal.connect("output", $Commander, "write")
-	$"/root/PlayerShell".connect("data_received", $Terminal, "write")
+	#$"/root/PlayerShell".connect("data_received", $Terminal, "write")
 	#$Terminal.queue_free()
 	
 	if fast_close:

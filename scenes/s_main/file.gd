@@ -5,7 +5,7 @@ var file_name = "index.html"
 
 
 func _ready():
-	$Commander.run_command("touch /home/leroy/tmp/test/index.html")
+	#$Commander.run_command("touch /home/leroy/tmp/test/index.html")
 	add_to_group("files")
 
 

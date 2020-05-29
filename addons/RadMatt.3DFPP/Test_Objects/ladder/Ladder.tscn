@@ -9,7 +9,7 @@ metallic_specular = 1.0
 roughness = 0.5
 
 [sub_resource type="BoxShape" id=2]
-extents = Vector3( 0.0362228, 1.08676, 0.205497 )
+extents = Vector3( 0.121437, 1.4484, 0.205497 )
 
 [node name="Ladder" type="StaticBody"]
 script = ExtResource( 1 )

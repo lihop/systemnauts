@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/434161__mickthemicguy__space-door-slide-close.wav-5d1ac469df68fe67f5205652dceec336.sample"
+
+[deps]
+
+source_file="res://ships/nix/434161__mickthemicguy__space-door-slide-close.wav"
+dest_files=[ "res://.import/434161__mickthemicguy__space-door-slide-close.wav-5d1ac469df68fe67f5205652dceec336.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

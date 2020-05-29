@@ -1,6 +1,11 @@
 
 extends KinematicBody
 
+
+const PlayerShell = preload("res://addons/RadMatt.3DFPP/PlayerShell.gd")
+
+var shell = PlayerShell.new()
+
 var carried_object = null
 var throw_power = 0
 
@@ -68,6 +73,7 @@ func _ready():
 	if is_network_master():
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		add_child(shell)
 
 func _process(d):
 

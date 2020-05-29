@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/434162__mickthemicguy__space-ship-door-open.wav-11b546f12d1ce369dc433760fb622410.sample"
+
+[deps]
+
+source_file="res://ships/nix/434162__mickthemicguy__space-ship-door-open.wav"
+dest_files=[ "res://.import/434162__mickthemicguy__space-ship-door-open.wav-11b546f12d1ce369dc433760fb622410.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=true
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

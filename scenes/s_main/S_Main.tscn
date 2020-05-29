@@ -3,7 +3,7 @@
 [ext_resource path="res://scenes/s_main/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
 [ext_resource path="res://ships/nix/nix_ship.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/assets/ladder/Ladder.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/RadMatt.3DFPP/Test_Objects/ladder/Ladder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/assets/fps_counter/FPS_Counter.tscn" type="PackedScene" id=5]
 [ext_resource path="res://commander.gd" type="Script" id=8]
 [ext_resource path="res://scenes/s_main/file.gd" type="Script" id=9]
@@ -351,9 +351,6 @@ light_energy = 2.0
 shadow_enabled = true
 shadow_color = Color( 0.6, 0.6, 0.6, 1 )
 
-[node name="Ladder" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 7, 0, 1.51, 0, -1, 0, -3.0598e-07, 13.25, 2, -5.25 )
-
 [node name="FPS_Counter" parent="." instance=ExtResource( 5 )]
 
 [node name="index_html" type="RigidBody" parent="."]
@@ -506,7 +503,7 @@ shape = SubResource( 15 )
 script = ExtResource( 8 )
 
 [node name="ResponseArea" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.2755, 3.29999, 13.1055 )
+transform = Transform( -0.587023, 0, -0.80957, 0, 1, 0, 0.80957, 0, -0.587023, -21.264, 2.65978, -2.69007 )
 script = ExtResource( 16 )
 
 [node name="CollisionShape" type="CollisionShape" parent="ResponseArea"]
@@ -517,7 +514,7 @@ shape = SubResource( 16 )
 script = ExtResource( 8 )
 
 [node name="SendButton" type="StaticBody" parent="."]
-transform = Transform( 0.045036, 0.135013, 0, -0.0270026, 0.22518, 0, 0, 0, 0.749668, 14.7953, 2.75665, 12.302 )
+transform = Transform( -0.0264372, -0.0792557, -0.606909, -0.0270026, 0.22518, 0, 0.0364598, 0.109303, -0.440072, -23.2667, 2.11644, 1.4407 )
 script = ExtResource( 20 )
 
 [node name="MeshInstance" type="MeshInstance" parent="SendButton"]
@@ -558,7 +555,7 @@ material/0 = SubResource( 25 )
 shape = SubResource( 21 )
 
 [node name="Printer" type="StaticBody" parent="."]
-transform = Transform( 0.640899, 0, 0, 0, 0.182996, 0, 0, 0, 0.906682, 12.2045, 0.104116, 1.44462 )
+transform = Transform( 0.640899, 0, 0, 0, 0.182996, 0, 0, 0, 0.906682, -6.12059, 0.249522, -10.661 )
 script = ExtResource( 24 )
 
 [node name="Paper" type="StaticBody" parent="Printer"]
@@ -584,7 +581,6 @@ mesh = SubResource( 29 )
 material/0 = SubResource( 32 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Printer"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 shape = SubResource( 33 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Printer"]
@@ -668,3 +664,9 @@ step_size = 1.0
 
 [node name="nix_ship" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.8535 )
+
+[node name="Ladder" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.583872, -5.35127, 8.14477 )
+
+[node name="Ladder2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.85741, -0.400426, 9.88078 )
