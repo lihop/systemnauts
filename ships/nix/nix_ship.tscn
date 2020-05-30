@@ -28,7 +28,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95118, 0 )
 collision_layer = 4
 collision_mask = 3
 script = ExtResource( 6 )
-path = "/home/leroy"
+path = "/home"
 
 [node name="CollisionShape" type="CollisionShape" parent="home/Area" index="0"]
 transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 26.4975, 2.24379, -10.328 )
@@ -40,7 +40,10 @@ mesh = SubResource( 3 )
 material/0 = null
 script = ExtResource( 3 )
 decal = ExtResource( 2 )
+uv_offset = Vector2( 0, 0 )
 uv_scale = Vector2( 1.001, 1.001 )
+emulate_lighting = true
+brightness = 0.0
 
 [node name="door-small" parent="." index="11" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9302, 1.22436, -0.270265 )

@@ -21,6 +21,7 @@
     environment.systemPackages = with pkgs; [
       godot
       inotify-tools
+      socat
       sshfs
     ];
 

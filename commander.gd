@@ -7,7 +7,7 @@ signal data_received(data)
 var stream_peer = StreamPeerTCP.new()
 
 
-func _ready():
+func _init():
 	# Running socat manually for now.
 	var err = stream_peer.connect_to_host("127.0.0.1", 1778)
 	if err != OK:

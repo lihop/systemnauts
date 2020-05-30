@@ -1,7 +1,15 @@
 extends Node
 
 
+signal connected()
+signal authenticated()
+
+var player
+
+
 func _ready():
+	player = preload("res://addons/RadMatt.3DFPP/Player.tscn").instance()
+	
 	var peer = NetworkedMultiplayerENet.new()
 	var err = peer.create_client("nix", 45122)
 	get_tree().network_peer = peer
@@ -10,12 +18,14 @@ func _ready():
 	world.set_name("world")
 	
 	var id = get_tree().get_network_unique_id()
-	var player = preload("res://addons/RadMatt.3DFPP/Player.tscn").instance()
 	player.set_name(str(id))
 	player.set_network_master(id)
 	player.get_node("Yaw/Camera").current = true
 	world.add_child(player)
 	add_child(world)
+	
+	yield(self, "connected")
+
 
 
 remote func player_joined(id):
@@ -39,3 +49,19 @@ remote func player_left(id):
 	
 	if player:
 		player.queue_free()
+
+
+# Function called when the server wants to verify the clients identity.
+# The client needs to create a file in /tmp with the same name as `token`
+# containing the pid of the client shell.
+remote func authenticate(token: String):
+	print("Wants me to verify!")
+	print(token)
+	# $$ is the pid of the shell itself.
+	player.shell.run_command("echo $$ > /tmp/%s" % token)
+	emit_signal("authenticated")
+	print("emitted authenticated!")
+
+
+remote func authenticated():
+	emit_signal("connected")
