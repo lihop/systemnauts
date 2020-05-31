@@ -12,6 +12,10 @@ var _thread = Thread.new()
 
 
 func _ready():
+	# Don't connect if we are running on the server.
+	if OS.has_feature("Server"):
+		return
+	
 	if not is_connected_to_host():
 		OS.execute("ssh", ["-fN", "-o", "ControlMaster=yes", "-S",
 				_control_path, "-p", port, host])

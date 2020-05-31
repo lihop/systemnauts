@@ -8,8 +8,14 @@ signal found_token()
 
 var players = {}
 
+var _socat_pid: int
+
 
 func _ready():
+	# Start socat server.
+	_socat_pid = OS.execute("socat", ["tcp-l:1747,bind=127.0.0.1,reuseaddr,fork",
+			"exec:bash,pty,setsid,stderr,login,ctty"], false)
+	
 	var server = NetworkedMultiplayerENet.new()
 	server.create_server(PORT, MAX_PLAYERS)
 	get_tree().set_network_peer(server)
@@ -20,6 +26,11 @@ func _ready():
 	var world = load("res://scenes/s_main/S_Main.tscn").instance()
 	world.name = "world"
 	add_child(world)
+
+
+func _exit_tree():
+	# Stop socat server.
+	OS.execute("kill", [_socat_pid])
 
 
 func _client_connected(id):
