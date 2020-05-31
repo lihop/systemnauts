@@ -7,7 +7,7 @@
 [ext_resource path="res://ships/nix/door-small.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ships/nix/DirectoryArea.gd" type="Script" id=6]
 
-[sub_resource type="ShaderMaterial" id=1]
+[sub_resource type="ShaderMaterial" id=11]
 shader = ExtResource( 4 )
 shader_param/offset = Vector2( 0, 0 )
 shader_param/scale = Vector2( 1.001, 1.001 )
@@ -15,8 +15,8 @@ shader_param/emulate_lighting = true
 shader_param/brightness = 0.0
 shader_param/decal = ExtResource( 2 )
 
-[sub_resource type="CubeMesh" id=2]
-material = SubResource( 1 )
+[sub_resource type="CubeMesh" id=12]
+material = SubResource( 11 )
 
 [sub_resource type="ConvexPolygonShape" id=3]
 resource_local_to_scene = true
@@ -60,7 +60,7 @@ path_child = "/ship/home/leroy"
 
 [node name="Decal" type="MeshInstance" parent="ladder" index="0"]
 transform = Transform( 0.0308378, 0, -0.199619, 0, 0.647, 0, 0.499048, 0, 0.0123351, 0.278577, 1.39916, -2.47926 )
-mesh = SubResource( 2 )
+mesh = SubResource( 12 )
 material/0 = null
 script = ExtResource( 3 )
 decal = ExtResource( 2 )

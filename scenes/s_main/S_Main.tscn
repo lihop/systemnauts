@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://scenes/s_main/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_bold_italic.tres" type="DynamicFont" id=13]
 [ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_bold.tres" type="DynamicFont" id=14]
 [ext_resource path="res://scenes/s_main/level-1.gd" type="Script" id=15]
-[ext_resource path="res://scenes/s_main/level-1-area.gd" type="Script" id=16]
 [ext_resource path="res://scenes/s_main/PermissionsDisplay.gd" type="Script" id=17]
 [ext_resource path="res://fonts/vt323/VT323-Regular.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=19]
@@ -137,12 +136,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Vector3( -5.99694, 1.54155, 4.67813 ), Vector3( -8.89101, 1.54155, 4.67813 ) ]
 }
-
-[sub_resource type="BoxShape" id=15]
-extents = Vector3( 8.32893, 3.07079, 7.11149 )
-
-[sub_resource type="BoxShape" id=16]
-extents = Vector3( 1.98864, 3.25958, 3.74883 )
 
 [sub_resource type="CubeMesh" id=17]
 
@@ -457,28 +450,6 @@ shape = SubResource( 13 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="level-1"]
 anims/open = SubResource( 14 )
-
-[node name="level-1-area" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.796, 3.29999, 13.1055 )
-script = ExtResource( 16 )
-
-[node name="CollisionShape" type="CollisionShape" parent="level-1-area"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.279293, -1.31067 )
-shape = SubResource( 15 )
-
-[node name="Commander" type="Node" parent="level-1-area"]
-script = ExtResource( 8 )
-
-[node name="ResponseArea" type="Area" parent="."]
-transform = Transform( -0.587023, 0, -0.80957, 0, 1, 0, 0.80957, 0, -0.587023, -21.264, 2.65978, -2.69007 )
-script = ExtResource( 16 )
-
-[node name="CollisionShape" type="CollisionShape" parent="ResponseArea"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.72369, 0.279293, -1.31067 )
-shape = SubResource( 16 )
-
-[node name="Commander" type="Node" parent="ResponseArea"]
-script = ExtResource( 8 )
 
 [node name="SendButton" type="StaticBody" parent="."]
 transform = Transform( -0.0264372, -0.0792557, -0.606909, -0.0270026, 0.22518, 0, 0.0364598, 0.109303, -0.440072, -23.2667, 2.11644, 1.4407 )
