@@ -377,38 +377,12 @@ script = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-cols = 80
-rows = 24
-auto_resize = false
-cursor_blink = false
-cursor_style = "block"
-cursor_width = 1
-bell_sound = null
-bell_style = 0
-draw_bold_text_in_bright_colors = true
-fast_scroll_modifier = "alt"
-fast_scroll_sensitivity = 5
 font_family = {
 "bold": ExtResource( 14 ),
 "bold_italic": ExtResource( 13 ),
 "italic": ExtResource( 12 ),
 "regular": ExtResource( 11 )
 }
-font_size = 15
-line_height = 1.0
-link_tooltip_hover_duration = 500
-letter_spacing = 0
-log_level = "info"
-scrollback = 1000
-scroll_sensitivity = 1
-screen_reader_mode = false
-mac_option_is_meta = false
-mac_option_click_forces_selection = false
-minimum_contrast_ratio = 1
-disable_stdin = false
-allow_proposed_api = true
-allow_transparency = false
-tab_stop_width = 8
 colors = {
 "background": Color( 0.0705882, 0.266667, 0.027451, 0.533333 ),
 "black": Color( 0.180392, 0.203922, 0.211765, 1 ),
@@ -429,22 +403,15 @@ colors = {
 "white": Color( 0.827451, 0.843137, 0.811765, 1 ),
 "yellow": Color( 0.768627, 0.627451, 0, 1 )
 }
-right_click_selects_word = "isMac"
-renderer_type = "canvas"
 window_options = {
 "set_win_lines": false
 }
-windows_mode = false
-word_separator = " ()[]{}',\"`"
-convert_eol = true
-term_name = "xterm"
-cancel_events = false
 
 [node name="Commander" type="Node" parent="."]
 script = ExtResource( 8 )
 
 [node name="level-1" type="StaticBody" parent="."]
-transform = Transform( 1.5, 0, 0, 0, 3, 0, 0, 0, 0.1, -8.89101, 1.54155, 4.67813 )
+transform = Transform( 1.5, 0, 0, 0, 3, 0, 0, 0, 0.1, -5.99694, 1.54155, 4.67813 )
 script = ExtResource( 15 )
 
 [node name="PermissionsLabel" type="Spatial" parent="level-1"]

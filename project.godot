@@ -60,6 +60,7 @@ Inotifier="*res://Inotifier.gd"
 PlayerShell="res://PlayerShell.gd"
 GodotShell="res://GodotShell.gd"
 WebServer="*res://website/web_server.gd"
+RemoteOS="*res://RemoteOS.gd"
 
 [editor_plugins]
 

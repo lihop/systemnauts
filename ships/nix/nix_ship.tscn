@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://ships/nix/nix_ship.glb" type="PackedScene" id=1]
 [ext_resource path="res://images/danger_high_voltage-mapanganib_makukuryente.png" type="Texture" id=2]
@@ -7,36 +7,60 @@
 [ext_resource path="res://ships/nix/door-small.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ships/nix/DirectoryArea.gd" type="Script" id=6]
 
-[sub_resource type="BoxShape" id=1]
-extents = Vector3( 7.56748, 3.17913, 5.88099 )
-
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
-shader_param/offset = null
+shader_param/offset = Vector2( 0, 0 )
 shader_param/scale = Vector2( 1.001, 1.001 )
-shader_param/emulate_lighting = null
-shader_param/brightness = null
+shader_param/emulate_lighting = true
+shader_param/brightness = 0.0
 shader_param/decal = ExtResource( 2 )
 
-[sub_resource type="CubeMesh" id=3]
-material = SubResource( 2 )
+[sub_resource type="CubeMesh" id=2]
+material = SubResource( 1 )
+
+[sub_resource type="ConvexPolygonShape" id=3]
+resource_local_to_scene = true
+points = PoolVector3Array( -14.9566, -1.4656, -2.868, -14.9566, -1.4656, 17.7226, -14.8798, 9.4325, -2.78743, -14.8798, 9.4325, 17.6421, 4.59777, 9.4325, -2.78743, 4.59777, 9.4325, 17.6421, 4.67459, -1.4656, -2.868, 4.67459, -1.4656, 17.7226 )
+
+[sub_resource type="ConvexPolygonShape" id=4]
+resource_local_to_scene = true
+points = PoolVector3Array( -1, 0.975893, 6.39098, -0.988419, 0.967389, -1, -0.975731, -5.3301, -0.989096, -0.975731, -5.3301, 6.37012, 7.58733, -5.3301, -0.989096, 7.58733, -5.3301, 6.37012, 7.60002, 0.967389, -1, 7.6112, 0.975599, 6.39064 )
+
+[sub_resource type="ConvexPolygonShape" id=5]
+resource_local_to_scene = true
+points = PoolVector3Array( -6.4591, 5.2888, -8.36408, -6.4591, 5.2888, 5.62598, -6.36691, -1, -8.25275, -6.36691, -1, 5.51465, 5.03422, -1, -8.25275, 5.03422, -1, 5.51465, 5.0389, 5.24091, -8.2584, 5.0389, 5.24091, 5.5203 )
+
+[sub_resource type="ConvexPolygonShape" id=6]
+resource_local_to_scene = true
+points = PoolVector3Array( -4.294, 4.87324, -4.10538, -4.294, 4.87324, 12.0228, -4.28808, -1.3827, -4.09101, -4.28808, -1.3827, 12.0084, 2.34109, -1.3827, -4.09101, 2.34109, -1.3827, 12.0084, 2.3455, 4.87182, -4.10172, 2.3455, 4.87182, 12.0191 )
+
+[sub_resource type="ConvexPolygonShape" id=7]
+resource_local_to_scene = true
+points = PoolVector3Array( -14.1117, -1, -11.1641, -14.1117, -1, 20.6433, -13.8169, 5.3828, -10.8656, -13.8169, 5.3828, 20.3448, 17.006, 5.3828, -10.8656, 17.006, 5.3828, 20.3448, 17.3038, -1, -11.1641, 17.3038, -1, 20.6433, 18.0795, 3.91167, 21.4287, 18.0795, 4.33467, -11.9495, 18.0795, 4.33467, 3.26252 )
+
+[sub_resource type="ConvexPolygonShape" id=8]
+resource_local_to_scene = true
+points = PoolVector3Array( -5.4895, -3.71278, -9.43951, -5.4895, -3.71278, 21.4088, -5.34583, -10.4235, -9.09743, -5.34583, -10.4235, 21.0667, 7.32312, -10.4235, -9.09743, 7.32312, -10.4235, 21.0667, 7.4638, -3.71435, -9.43239, 7.4638, -3.71435, 21.4017 )
+
+[sub_resource type="ConvexPolygonShape" id=9]
+resource_local_to_scene = true
+points = PoolVector3Array( -14.1241, 3.165, -0.999891, -14.1241, 3.165, 6.25086, -14.0678, -3.165, -1.00213, -14.0678, -3.165, 6.22159, -9.89415, 3.165, -5.22399, -9.85364, -3.165, -5.21048, -5.36566, 3.165, -9.45269, -5.34203, -3.165, -9.42343, 7.59205, -3.165, -9.42343, 7.61681, 3.165, -9.45269, 10.6018, -3.165, -6.41418, 10.6378, 3.165, -6.43219, 16.0175, -3.165, -0.700441, 16.0175, -3.165, 6.22159, 16.0737, 3.165, -0.697072, 16.0737, 3.165, 6.25086 )
+
+[sub_resource type="ConvexPolygonShape" id=10]
+resource_local_to_scene = true
+points = PoolVector3Array( -1.44074, 0.970142, -2.4362, -1.32298, 0.947054, -3.06812, -1.31256, -5.55818, -2.44876, -0.960484, 1, 3.88385, -0.908715, -5.47108, -3.09245, -0.847919, -5.83157, -2.15781, -0.561076, -5.8363, 3.68003, 7.11262, 1.5344, 3.68278, 7.36138, 0.944767, -11.7386, 7.54604, -5.46958, -11.5378, 8.16833, -5.76007, -11.2123, 8.33931, 1.5344, -11.0607, 14.784, 1.47887, 3.56708, 20.8603, -5.49143, -11.5874, 20.9344, 1.5344, -11.0607, 21.0357, 0.967837, -11.7962, 21.2294, -5.83127, -11.0485, 21.4843, -5.49989, -11.3012, 21.6116, 0.947351, -11.434, 29.794, -5.82655, -2.46608, 29.8346, -5.8363, 3.68003, 29.9864, -5.49562, -2.78073, 30.2423, 1, 3.88385, 30.2611, 0.941991, -2.7592, 30.4284, -5.59096, -2.12167, 30.4284, 0.974804, -2.12167 )
 
 [node name="nix_ship" instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.95118, 0 )
 
-[node name="Area" type="Area" parent="home" index="0"]
-collision_layer = 4
-collision_mask = 3
-script = ExtResource( 6 )
-path = "/home"
-
-[node name="CollisionShape" type="CollisionShape" parent="home/Area" index="0"]
-transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 26.4975, 2.24379, -10.328 )
-shape = SubResource( 1 )
+[node name="UserHomeDoor" parent="ship_home_user" index="0" instance=ExtResource( 5 )]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 21.241, 1.22436, -15.7092 )
+path_parent = "/ship/home"
+path_child = "/ship/home/leroy"
 
 [node name="Decal" type="MeshInstance" parent="ladder" index="0"]
 transform = Transform( 0.0308378, 0, -0.199619, 0, 0.647, 0, 0.499048, 0, 0.0123351, 0.278577, 1.39916, -2.47926 )
-mesh = SubResource( 3 )
+mesh = SubResource( 2 )
 material/0 = null
 script = ExtResource( 3 )
 decal = ExtResource( 2 )
@@ -45,17 +69,86 @@ uv_scale = Vector2( 1.001, 1.001 )
 emulate_lighting = true
 brightness = 0.0
 
-[node name="door-small" parent="." index="11" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9302, 1.22436, -0.270265 )
-
-[node name="door-small2" parent="." index="12" instance=ExtResource( 5 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 21.241, 1.22436, -15.7092 )
-
-[node name="door-small3" parent="." index="13" instance=ExtResource( 5 )]
-transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -9.20343, 1.22436, -14.0063 )
-
-[node name="door-small4" parent="." index="14" instance=ExtResource( 5 )]
+[node name="HomeDoor" parent="ship_home" index="0" instance=ExtResource( 5 )]
 transform = Transform( -0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, 11.4048, 1.22436, -11.2899 )
+path_parent = "/ship"
+path_child = "/ship/home"
 
-[node name="door-small5" parent="." index="15" instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 3.55698, 1.22436, -16.6987 )
+[node name="MntDoor" parent="ship_mnt" index="0" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, 3.55698, 1.22436, -16.6987 )
+path_parent = "/ship"
+path_child = "/ship/mnt"
+
+[node name="CargoBayDoor" parent="ship_cargo" index="0" instance=ExtResource( 5 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -9.20343, 1.22436, -14.0063 )
+path_parent = "/ship"
+path_child = "/ship/cargo"
+
+[node name="BridgeDoor" parent="ship_bridge" index="0" instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9302, 1.22436, -0.270265 )
+path_parent = "/ship"
+path_child = "/ship/bridge"
+
+[node name="ObservationDirectory" type="Area" parent="." index="9"]
+script = ExtResource( 6 )
+path = "/ship/observation"
+
+[node name="shape0" type="CollisionShape" parent="ObservationDirectory" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15484, 7.38282, -7.90976 )
+shape = SubResource( 3 )
+
+[node name="MntDirectory" type="Area" parent="." index="10"]
+script = ExtResource( 6 )
+path = "/ship/mnt"
+
+[node name="shape0" type="CollisionShape" parent="MntDirectory" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.24837, 4.38282, -22.5487 )
+shape = SubResource( 4 )
+
+[node name="HomeUserDirectory" type="Area" parent="." index="11"]
+script = ExtResource( 6 )
+path = "/ship/home/leroy"
+
+[node name="shape0" type="CollisionShape" parent="HomeUserDirectory" index="0"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 27.6705, 0.052765, -10.2815 )
+shape = SubResource( 5 )
+
+[node name="HomeDirectory" type="Area" parent="." index="12"]
+script = ExtResource( 6 )
+path = "/ship/home"
+
+[node name="shape0" type="CollisionShape" parent="HomeDirectory" index="0"]
+transform = Transform( 0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 21.0865, 0.43547, -18.876 )
+shape = SubResource( 6 )
+
+[node name="CargoDirectory" type="Area" parent="." index="13"]
+script = ExtResource( 6 )
+path = "/ship/cargo"
+
+[node name="shape0" type="CollisionShape" parent="CargoDirectory" index="0"]
+transform = Transform( 0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, -31.2505, 0, -22.5118 )
+shape = SubResource( 7 )
+
+[node name="EngineDirectory" type="Area" parent="." index="14"]
+script = ExtResource( 6 )
+path = "/ship/engine"
+
+[node name="shape0" type="CollisionShape" parent="EngineDirectory" index="0"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.975022, 2.21779, 6.12599 )
+shape = SubResource( 8 )
+
+[node name="BridgeDirectory" type="Area" parent="." index="15"]
+script = ExtResource( 6 )
+path = "/ship/bridge"
+
+[node name="shape0" type="CollisionShape" parent="BridgeDirectory" index="0"]
+transform = Transform( -1, 0, 1.50996e-07, 0, 1, 0, -1.50996e-07, 0, -1, 0.975022, 2.21779, 6.12599 )
+shape = SubResource( 9 )
+
+[node name="ShipDirectory" type="Area" parent="." index="16"]
+script = ExtResource( 6 )
+path = "/ship"
+
+[node name="shape0" type="CollisionShape" parent="ShipDirectory" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.6328, 4.38282, -4.35443 )
+shape = SubResource( 10 )
