@@ -1,6 +1,8 @@
 extends Node
 
 
+const PlayerShell = preload("res://addons/RadMatt.3DFPP/PlayerShell.gd")
+
 signal connected()
 signal authenticated()
 
@@ -9,6 +11,9 @@ var player
 
 func _ready():
 	player = preload("res://addons/RadMatt.3DFPP/Player.tscn").instance()
+	var Shell = PlayerShell.new()
+	Shell.set_name("Shell")
+	player.add_child(Shell)
 	
 	var peer = NetworkedMultiplayerENet.new()
 	var err = peer.create_client("nix", 45122)

@@ -15,7 +15,9 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		body.shell.run_command("cd %s" % path)
+		for child in body.get_children():
+			print("child: ", child.name)
+		body.get_node("Shell").run_command("cd %s" % path)
 
 
 func _on_body_exited(body):
@@ -28,6 +30,6 @@ func _on_body_exited(body):
 	# Therefore we can check if a body is still in this directory when they
 	# exit and, if so, simply cd to the previous directory.
 	if body.is_in_group("player"):
-		var cwd = yield(body.cwd(), "completed")
+		var cwd = yield(body.get_node("Shell").cwd(), "completed")
 		if cwd == path:
-			body.shell.run_command("cd -")
+			body.get_node("Shell").run_command("cd -")

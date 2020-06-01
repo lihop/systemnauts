@@ -2,10 +2,6 @@
 extends KinematicBody
 
 
-const PlayerShell = preload("res://addons/RadMatt.3DFPP/PlayerShell.gd")
-
-var shell = PlayerShell.new()
-
 var carried_object = null
 var throw_power = 0
 
@@ -73,7 +69,7 @@ func _ready():
 	if is_network_master():
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		add_child(shell)
+
 
 func _process(d):
 
@@ -381,16 +377,3 @@ func show_message(text, time):
 	$message/Timer.start()
 	yield($message/Timer, "timeout")
 	$message.set_text("")
-
-
-############ START OS RELATED FUNCTIONS ###############
-# These will probably be moved/rewritten in the not so
-# distant future.
-func cwd():
-	shell.run_command("pwd")
-	var data = yield(shell, "data_received")
-	var lines = data.get_string_from_ascii().split("\n")
-	if lines.size() > 1:
-		return lines[1].strip_edges()
-	else:
-		return ""
