@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/Sky/sky_render.shader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/stars_num = 200.0
+shader_param/stars_size = 0.001
+shader_param/stars_bright = 1.0
+shader_param/stars_color = Vector3( 0, 1, 1 )
+
+[node name="Sky" type="ColorRect"]
+material = SubResource( 1 )
+margin_right = 2048.0
+margin_bottom = 1024.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
