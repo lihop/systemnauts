@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Systemnauts"
-run/main_scene="res://client.tscn"
+run/main_scene="res://scenes/mission_control.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -59,6 +59,7 @@ config/icon="res://icon.png"
 Inotifier="*res://Inotifier.gd"
 WebServer="*res://website/web_server.gd"
 RemoteOS="*res://RemoteOS.gd"
+NixOps="*res://nixops/NixOps.gd"
 
 [editor_plugins]
 
@@ -1206,5 +1207,5 @@ mouse_input={
 
 [rendering]
 
-quality/filters/msaa=1
+quality/filters/msaa=4
 environment/default_environment="res://scenes/s_main/default_env.tres"

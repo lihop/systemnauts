@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_bold_italic.tres" type="DynamicFont" id=1]
+[ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_italic.tres" type="DynamicFont" id=2]
+[ext_resource path="res://addons/godot_xterm/terminal.gd" type="Script" id=3]
+[ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_regular.tres" type="DynamicFont" id=4]
+[ext_resource path="res://addons/godot_xterm/fonts/source_code_pro/source_code_pro_bold.tres" type="DynamicFont" id=5]
+[ext_resource path="res://scenes/mission_control/Projector.gd" type="Script" id=6]
+[ext_resource path="res://scenes/mission_control/StreamPeerUnix.gd" type="Script" id=7]
+
+[node name="Projector" type="Sprite3D"]
+region_enabled = true
+region_rect = Rect2( 0, 0, 4096, 2048 )
+script = ExtResource( 6 )
+
+[node name="StreamPeerUnix" type="Node" parent="."]
+script = ExtResource( 7 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 4096, 2048 )
+msaa = 2
+disable_3d = true
+usage = 0
+render_target_v_flip = true
+
+[node name="Terminal" type="Control" parent="Viewport"]
+margin_right = 4096.0
+margin_bottom = 2048.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+cols = 113.0
+rows = 26.0
+auto_resize = true
+font_family = {
+"bold": ExtResource( 5 ),
+"bold_italic": ExtResource( 1 ),
+"italic": ExtResource( 2 ),
+"regular": ExtResource( 4 )
+}
+font_size = 60
+colors = {
+"background": Color( 0.180392, 0.203922, 0.211765, 1 ),
+"black": Color( 0.180392, 0.203922, 0.211765, 1 ),
+"blue": Color( 0.203922, 0.396078, 0.643137, 1 ),
+"bright_black": Color( 0.333333, 0.341176, 0.32549, 1 ),
+"bright_blue": Color( 0.447059, 0.623529, 0.811765, 1 ),
+"bright_cyan": Color( 0.203922, 0.886275, 0.886275, 1 ),
+"bright_green": Color( 0.541176, 0.886275, 0.203922, 1 ),
+"bright_magenta": Color( 0.678431, 0.498039, 0.658824, 1 ),
+"bright_red": Color( 0.937255, 0.160784, 0.160784, 1 ),
+"bright_white": Color( 0.933333, 0.933333, 0.92549, 1 ),
+"bright_yellow": Color( 0.988235, 0.913725, 0.309804, 1 ),
+"cyan": Color( 0.0235294, 0.596078, 0.603922, 1 ),
+"foreground": Color( 0.827451, 0.843137, 0.811765, 1 ),
+"green": Color( 0.305882, 0.603922, 0.0235294, 1 ),
+"magenta": Color( 0.458824, 0.313726, 0.482353, 1 ),
+"red": Color( 0.8, 0, 0, 1 ),
+"white": Color( 0.827451, 0.843137, 0.811765, 1 ),
+"yellow": Color( 0.768627, 0.627451, 0, 1 )
+}
+window_options = {
+"set_win_lines": false
+}
