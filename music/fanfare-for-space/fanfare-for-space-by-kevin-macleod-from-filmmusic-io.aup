@@ -1,0 +1,147 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="fanfare-for-space-by-kevin-macleod-from-filmmusic-io_data" version="1.3.0" audacityversion="2.4.0" sel0="0.0000000000" sel1="71.6864852608" vpos="96" h="0.0000000000" zoom="33.1756530008" rate="44100.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags>
+		<tag name="GENRE" value="Classical"/>
+		<tag name="iTunSMPB" value=" 00000000 00000210 00000922 0000000000294CCE 00000000 00255F59 00000000 00000000 00000000 00000000 00000000 00000000"/>
+		<tag name="artist" value="Kevin MacLeod"/>
+		<tag name="YEAR" value="2013"/>
+		<tag name="encoder" value="Lavc57.107.100 libvorbis"/>
+		<tag name="iTunNORM" value=" 00000720 000006DB 00004371 00002F71 0000B6DB 0000A9B1 00007E86 00007E86 0000AF9C 0000AA4E"/>
+		<tag name="title" value="Fanfare for Space"/>
+		<tag name="album" value="Royalty Free"/>
+		<tag name="encoded_by" value="iTunes 11.0.2"/>
+		<tag name="iTunPGAP" value="0"/>
+		<tag name="TCM" value="Kevin MacLeod"/>
+	</tags>
+	<wavetrack name="fanfare-for-space-by-kevin-macleod-from-filmmusic-io-head2" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="340824">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f10d.au" len="262144" min="-0.524445" max="0.49295" rms="0.159276"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="eff1f191.au" len="78680" min="-0.447632" max="0.465912" rms="0.1402"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="fanfare-for-space-by-kevin-macleod-from-filmmusic-io-head2" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="340824">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f9eb.au" len="262144" min="-0.431641" max="0.34024" rms="0.104952"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="eff1f59b.au" len="78680" min="-0.262543" max="0.2742" rms="0.083056"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="fanfare-for-space-by-kevin-macleod-from-filmmusic-io-loop2" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="7.72843537" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="245154">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f196.au" len="245154" min="-0.445343" max="0.462036" rms="0.128076"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="13.28748299" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="245154">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f196.au" len="245154" min="-0.445343" max="0.462036" rms="0.128076"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="fanfare-for-space-by-kevin-macleod-from-filmmusic-io-loop2" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="7.72843537" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="245154">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fe3a.au" len="245154" min="-0.316498" max="0.269989" rms="0.080353"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+		<waveclip offset="13.28748299" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="245154">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fe3a.au" len="245154" min="-0.316498" max="0.269989" rms="0.080353"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="fanfare-for-space-by-kevin-macleod-from-filmmusic-io-tail" isSelected="0" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="18.84653061" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2330242">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1fad2.au" len="262144" min="-0.447479" max="0.442902" rms="0.127795"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="eff1facf.au" len="262144" min="-0.744141" max="0.690186" rms="0.151772"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="eff1f932.au" len="262144" min="-0.760803" max="0.729126" rms="0.19093"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="eff1ff30.au" len="262144" min="-0.660004" max="0.511078" rms="0.136022"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="eff1f911.au" len="262144" min="-0.442261" max="0.499634" rms="0.13087"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="eff1f96c.au" len="262144" min="-0.952362" max="0.949066" rms="0.222852"/>
+				</waveblock>
+				<waveblock start="1572864">
+					<simpleblockfile filename="eff1f3bf.au" len="262144" min="-1.0" max="0.999969" rms="0.310764"/>
+				</waveblock>
+				<waveblock start="1835008">
+					<simpleblockfile filename="eff1ffb5.au" len="262144" min="-1.0" max="0.999969" rms="0.269616"/>
+				</waveblock>
+				<waveblock start="2097152">
+					<simpleblockfile filename="eff1f2a0.au" len="233090" min="-0.02533" max="0.022308" rms="0.002511"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="fanfare-for-space-by-kevin-macleod-from-filmmusic-io-tail" isSelected="0" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="44100" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="18.84653061" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="2330242">
+				<waveblock start="0">
+					<simpleblockfile filename="eff1f672.au" len="262144" min="-0.355774" max="0.299347" rms="0.087413"/>
+				</waveblock>
+				<waveblock start="262144">
+					<simpleblockfile filename="eff1f24d.au" len="262144" min="-0.85199" max="0.828888" rms="0.146247"/>
+				</waveblock>
+				<waveblock start="524288">
+					<simpleblockfile filename="eff1f716.au" len="262144" min="-0.705475" max="0.748779" rms="0.188553"/>
+				</waveblock>
+				<waveblock start="786432">
+					<simpleblockfile filename="eff1f75c.au" len="262144" min="-0.575073" max="0.541565" rms="0.107795"/>
+				</waveblock>
+				<waveblock start="1048576">
+					<simpleblockfile filename="eff1fc1a.au" len="262144" min="-0.444214" max="0.372253" rms="0.093303"/>
+				</waveblock>
+				<waveblock start="1310720">
+					<simpleblockfile filename="eff1f1c1.au" len="262144" min="-0.98761" max="0.990021" rms="0.245974"/>
+				</waveblock>
+				<waveblock start="1572864">
+					<simpleblockfile filename="eff1f0dc.au" len="262144" min="-1.0" max="0.999969" rms="0.284722"/>
+				</waveblock>
+				<waveblock start="1835008">
+					<simpleblockfile filename="eff1fe97.au" len="262144" min="-1.0" max="0.999969" rms="0.253013"/>
+				</waveblock>
+				<waveblock start="2097152">
+					<simpleblockfile filename="eff1ff7e.au" len="233090" min="-0.02005" max="0.02066" rms="0.002248"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

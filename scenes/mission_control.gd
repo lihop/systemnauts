@@ -10,6 +10,10 @@ func _ready() -> void:
 	if fast_close:
 		print("** Fast Close enabled in the 's_main.gd' script **")
 		print("** 'Esc' to close 'Shift + F1' to release mouse **")
+	
+	# Progress the music when the button is pressed.
+	$SendButton.connect("pressed", $Fanfare, "set", ["looping", false])
+	$Fanfare.play()
 
 
 func _input(event: InputEvent) -> void:

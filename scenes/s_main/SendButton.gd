@@ -1,11 +1,16 @@
 extends StaticBody
 
 
+signal pressed()
+
+
 func ready():
 	pass
 
 
 func interact(relate):
+	emit_signal("pressed")
+	
 	var paper = relate.find_node("Paper")
 	paper.drop()
 	$AudioStreamPlayer3D.play(0.5)

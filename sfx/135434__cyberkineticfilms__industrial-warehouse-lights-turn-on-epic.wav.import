@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/135434__cyberkineticfilms__industrial-warehouse-lights-turn-on-epic.wav-922dfce0a1f90d4843e0cba69f8f725b.sample"
+
+[deps]
+
+source_file="res://sfx/135434__cyberkineticfilms__industrial-warehouse-lights-turn-on-epic.wav"
+dest_files=[ "res://.import/135434__cyberkineticfilms__industrial-warehouse-lights-turn-on-epic.wav-922dfce0a1f90d4843e0cba69f8f725b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

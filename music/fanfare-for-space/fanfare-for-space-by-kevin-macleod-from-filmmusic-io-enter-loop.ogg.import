@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fanfare-for-space-by-kevin-macleod-from-filmmusic-io-enter-loop.ogg-0a2337e63c5e56d69356065c81cdf729.oggstr"
+
+[deps]
+
+source_file="res://music/fanfare-for-space/fanfare-for-space-by-kevin-macleod-from-filmmusic-io-enter-loop.ogg"
+dest_files=[ "res://.import/fanfare-for-space-by-kevin-macleod-from-filmmusic-io-enter-loop.ogg-0a2337e63c5e56d69356065c81cdf729.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

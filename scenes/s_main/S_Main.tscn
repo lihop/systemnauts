@@ -1,10 +1,11 @@
-[gd_scene load_steps=61 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://scenes/s_main/default_env.tres" type="Environment" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
 [ext_resource path="res://ships/nix/nix_ship.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/RadMatt.3DFPP/Test_Objects/ladder/Ladder.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/assets/fps_counter/FPS_Counter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://entities/gizmos/Button.tscn" type="PackedScene" id=6]
 [ext_resource path="res://commander.gd" type="Script" id=8]
 [ext_resource path="res://scenes/s_main/file.gd" type="Script" id=9]
 [ext_resource path="res://addons/godot_xterm/terminal.gd" type="Script" id=10]
@@ -16,13 +17,11 @@
 [ext_resource path="res://scenes/s_main/PermissionsDisplay.gd" type="Script" id=17]
 [ext_resource path="res://fonts/vt323/VT323-Regular.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=19]
-[ext_resource path="res://scenes/s_main/SendButton.gd" type="Script" id=20]
 [ext_resource path="res://sfx/496133__aiwha__tearing-paper.wav" type="AudioStream" id=21]
 [ext_resource path="res://scenes/s_main/Paper.gd" type="Script" id=22]
 [ext_resource path="res://sfx/484344__inspectorj__bike-bell-ding-single-01-01.wav" type="AudioStream" id=23]
 [ext_resource path="res://scenes/s_main/Printer.gd" type="Script" id=24]
 [ext_resource path="res://sfx/181420__viertelnachvier__old-dot-matrix-printer.wav" type="AudioStream" id=25]
-[ext_resource path="res://sfx/277662__coral-island-studios__button-6.wav" type="AudioStream" id=26]
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -137,110 +136,20 @@ tracks/0/keys = {
 "values": [ Vector3( -5.99694, 1.54155, 4.67813 ), Vector3( -8.89101, 1.54155, 4.67813 ) ]
 }
 
-[sub_resource type="CubeMesh" id=15]
+[sub_resource type="PlaneMesh" id=15]
 
-[sub_resource type="VisualShaderNodeColorConstant" id=16]
-constant = Color( 0.546875, 0, 0, 1 )
-
-[sub_resource type="VisualShader" id=17]
-code = "shader_type spatial;
-
-
-
-void vertex() {
-// Output:0
-
-}
-
-void fragment() {
-// Color:2
-	vec3 n_out2p0 = vec3(0.546875, 0.000000, 0.000000);
-	float n_out2p1 = 1.000000;
-
-// Output:0
-	ALBEDO = n_out2p0;
-
-}
-
-void light() {
-// Output:0
-
-}
-"
-nodes/fragment/2/node = SubResource( 16 )
-nodes/fragment/2/position = Vector2( 160, 80 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
-
-[sub_resource type="ShaderMaterial" id=18]
-shader = SubResource( 17 )
-
-[sub_resource type="ConcavePolygonShape" id=19]
-data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
-
-[sub_resource type="Animation" id=20]
-length = 0.3
-tracks/0/type = "value"
-tracks/0/path = NodePath("MeshInstance:translation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.3 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Vector3( 0, 0, 0 ), Vector3( 0.976074, 0, 0 ), Vector3( 0, 0, 0 ) ]
-}
-
-[sub_resource type="VisualShaderNodeColorConstant" id=21]
-constant = Color( 0.324743, 0.402344, 0.154022, 1 )
-
-[sub_resource type="VisualShader" id=22]
-code = "shader_type spatial;
-
-
-
-void vertex() {
-// Output:0
-
-}
-
-void fragment() {
-// Color:2
-	vec3 n_out2p0 = vec3(0.324743, 0.402344, 0.154022);
-	float n_out2p1 = 1.000000;
-
-// Output:0
-	ALBEDO = n_out2p0;
-
-}
-
-void light() {
-// Output:0
-
-}
-"
-nodes/fragment/2/node = SubResource( 21 )
-nodes/fragment/2/position = Vector2( 140, 120 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
-
-[sub_resource type="ShaderMaterial" id=23]
-shader = SubResource( 22 )
-
-[sub_resource type="PlaneMesh" id=24]
-
-[sub_resource type="SpatialMaterial" id=25]
+[sub_resource type="SpatialMaterial" id=16]
 params_cull_mode = 2
 
-[sub_resource type="ConcavePolygonShape" id=26]
+[sub_resource type="ConcavePolygonShape" id=17]
 data = PoolVector3Array( 1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1 )
 
-[sub_resource type="CubeMesh" id=27]
+[sub_resource type="CubeMesh" id=18]
 
-[sub_resource type="VisualShaderNodeColorConstant" id=28]
+[sub_resource type="VisualShaderNodeColorConstant" id=19]
 constant = Color( 0.183594, 0.183594, 0.183594, 1 )
 
-[sub_resource type="VisualShader" id=29]
+[sub_resource type="VisualShader" id=20]
 code = "shader_type spatial;
 
 
@@ -265,17 +174,17 @@ void light() {
 
 }
 "
-nodes/fragment/2/node = SubResource( 28 )
+nodes/fragment/2/node = SubResource( 19 )
 nodes/fragment/2/position = Vector2( 160, 100 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
 
-[sub_resource type="ShaderMaterial" id=30]
-shader = SubResource( 29 )
+[sub_resource type="ShaderMaterial" id=21]
+shader = SubResource( 20 )
 
-[sub_resource type="ConcavePolygonShape" id=31]
+[sub_resource type="ConcavePolygonShape" id=22]
 data = PoolVector3Array( -1, 1, 1, 1, 1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, 1, 1, -1, -1, 1, -1, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 1, 1, 1, -1, 1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1 )
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=23]
 length = 9.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Paper:translation")
@@ -290,13 +199,13 @@ tracks/0/keys = {
 "values": [ Vector3( 0.171087, -1.27544, 0.0272298 ), Vector3( 0.621885, 3.92103, 0.0272298 ) ]
 }
 
-[sub_resource type="CubeMesh" id=33]
+[sub_resource type="CubeMesh" id=24]
 size = Vector3( 1, 1.75, 0.25 )
 
-[sub_resource type="VisualShaderNodeColorConstant" id=34]
+[sub_resource type="VisualShaderNodeColorConstant" id=25]
 constant = Color( 0.617188, 0.611349, 0.2435, 1 )
 
-[sub_resource type="VisualShader" id=35]
+[sub_resource type="VisualShader" id=26]
 code = "shader_type spatial;
 
 
@@ -321,14 +230,14 @@ void light() {
 
 }
 "
-nodes/fragment/2/node = SubResource( 34 )
+nodes/fragment/2/node = SubResource( 25 )
 nodes/fragment/2/position = Vector2( 60, 80 )
 nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0 )
 
-[sub_resource type="ShaderMaterial" id=36]
-shader = SubResource( 35 )
+[sub_resource type="ShaderMaterial" id=27]
+shader = SubResource( 26 )
 
-[sub_resource type="CubeMesh" id=37]
+[sub_resource type="CubeMesh" id=28]
 
 [node name="S_Main" type="Spatial"]
 script = ExtResource( 2 )
@@ -411,15 +320,6 @@ script = ExtResource( 15 )
 transform = Transform( -0.666667, 0, -5.82818e-08, 0, 0.333333, 0, 8.74228e-07, 0, -10, 2.70219, 1.77879, 5.40571 )
 script = ExtResource( 19 )
 text = ""
-text_scale = 0.01
-extrude = 0.0
-font = null
-align = 0
-color = Color( 0.6, 0.6, 0.6, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="PermissionsDisplay" type="MeshInstance" parent="level-1"]
 transform = Transform( -0.75, 0, 0, 0, -4.37114e-07, 0.1, 0, -10, -4.37114e-09, 2.07001, 1.47515, -1.8313 )
@@ -451,46 +351,7 @@ shape = SubResource( 13 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="level-1"]
 anims/open = SubResource( 14 )
 
-[node name="SendButton" type="StaticBody" parent="."]
-transform = Transform( -0.0264372, -0.0792557, -0.606909, -0.0270026, 0.22518, 0, 0.0364598, 0.109303, -0.440072, -23.2667, 2.11644, 1.4407 )
-script = ExtResource( 20 )
-
-[node name="MeshInstance" type="MeshInstance" parent="SendButton"]
-mesh = SubResource( 15 )
-material/0 = SubResource( 18 )
-
-[node name="Label3D" type="Spatial" parent="SendButton/MeshInstance"]
-transform = Transform( -2.03673e-08, 3.33786e-06, -1, 0, 0.893564, 1.17719e-06, 0.465949, 4.67749e-14, -4.37114e-08, -0.99205, 0.0398598, 0 )
-script = ExtResource( 19 )
-text = "send"
-text_scale = 0.01
-extrude = 0.1
-font = null
-align = 0
-color = Color( 0.6, 0.6, 0.6, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
-
-[node name="CollisionShape" type="CollisionShape" parent="SendButton"]
-shape = SubResource( 19 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SendButton"]
-anims/press = SubResource( 20 )
-
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SendButton"]
-stream = ExtResource( 26 )
-
-[node name="MeshInstance2" type="MeshInstance" parent="SendButton"]
-transform = Transform( 1.90437, 9.53674e-07, 0, 1.49012e-08, 1.90437, 0, 0, 0, 1.33392, 2.57083, 0.0235405, 0 )
-mesh = SubResource( 15 )
-material/0 = SubResource( 23 )
-
-[node name="StaticBody" type="StaticBody" parent="SendButton/MeshInstance2"]
-
-[node name="CollisionShape" type="CollisionShape" parent="SendButton/MeshInstance2/StaticBody"]
-shape = SubResource( 19 )
+[node name="SendButton" parent="." instance=ExtResource( 6 )]
 
 [node name="Printer" type="StaticBody" parent="."]
 transform = Transform( 0.640899, 0, 0, 0, 0.182996, 0, 0, 0, 0.906682, -6.12059, 0.249522, -10.661 )
@@ -502,11 +363,11 @@ script = ExtResource( 22 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Printer/Paper"]
 transform = Transform( 1, 0, 0, 2.98023e-08, 1, 0, 0, 0, 1, 0, 0, 0 )
-mesh = SubResource( 24 )
-material/0 = SubResource( 25 )
+mesh = SubResource( 15 )
+material/0 = SubResource( 16 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Printer/Paper"]
-shape = SubResource( 26 )
+shape = SubResource( 17 )
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="Printer/Paper"]
 stream = ExtResource( 21 )
@@ -515,14 +376,14 @@ bus = "SFX"
 
 [node name="MeshInstance" type="MeshInstance" parent="Printer"]
 transform = Transform( 0.998385, 0, 0, 0, 0.998385, 0, 0, 0, 0.998385, 0, 0, 0 )
-mesh = SubResource( 27 )
-material/0 = SubResource( 30 )
+mesh = SubResource( 18 )
+material/0 = SubResource( 21 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Printer"]
-shape = SubResource( 31 )
+shape = SubResource( 22 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Printer"]
-anims/print = SubResource( 32 )
+anims/print = SubResource( 23 )
 
 [node name="Bell" type="AudioStreamPlayer3D" parent="Printer"]
 transform = Transform( 1.56031, 0, 0, 0, 5.46461, 0, 0, 0, 1.10292, -24.5737, -11.8231, -1.5933 )
@@ -533,72 +394,64 @@ stream = ExtResource( 25 )
 
 [node name="PinPad" type="MeshInstance" parent="."]
 transform = Transform( 0.677531, 0.233315, 0.697507, 0, 0.948351, -0.317222, -0.735494, 0.214928, 0.642537, 13.8862, 2.55808, 14.6464 )
-mesh = SubResource( 33 )
-material/0 = SubResource( 36 )
+mesh = SubResource( 24 )
+material/0 = SubResource( 27 )
 
 [node name="key1" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 1.67638e-08, 0, -1.30385e-08, 0.116792, -1.81608e-08, 3.72529e-08, -6.14673e-08, -0.0370597, 0.245643, 0.274385, -0.131454 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="key2" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 1.86265e-08, 0, -9.31323e-09, 0.116792, -1.76951e-08, 5.21541e-08, -7.07805e-08, -0.0370597, -0.0243835, 0.274385, -0.131454 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="key3" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 2.42144e-08, 0, -1.86265e-09, 0.116792, -1.76951e-08, 9.31323e-08, -7.82311e-08, -0.0370597, -0.296854, 0.274385, -0.131454 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="key4" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 2.04891e-08, 0, -3.72529e-09, 0.116792, -1.76951e-08, 6.70552e-08, -7.45058e-08, -0.0370597, 0.245642, -0.0491018, -0.131454 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="key5" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 2.23517e-08, 0, -3.72529e-09, 0.116792, -1.76951e-08, 8.19564e-08, -7.82311e-08, -0.0370597, -0.0243845, -0.0480108, -0.131458 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="key6" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 3.35276e-08, 0, 3.72529e-09, 0.116792, -1.76951e-08, 1.19209e-07, -9.31323e-08, -0.0370597, -0.296856, -0.0451078, -0.131454 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="key7" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 2.23517e-08, 0, -3.72529e-09, 0.116792, -1.76951e-08, 8.19564e-08, -7.82311e-08, -0.0370597, 0.245642, -0.38718, -0.131454 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="key8" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 2.79397e-08, 0, 0, 0.116792, -1.76951e-08, 1.00583e-07, -8.00937e-08, -0.0370597, -0.0243855, -0.383659, -0.131458 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="key9" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 3.1665e-08, 0, 3.72529e-09, 0.116792, -1.76951e-08, 1.19209e-07, -1.00583e-07, -0.0370597, -0.296855, -0.37634, -0.131454 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="key0" type="MeshInstance" parent="PinPad"]
 transform = Transform( 0.105686, 3.1665e-08, 0, 3.72529e-09, 0.116792, -1.76951e-08, 1.19209e-07, -1.21072e-07, -0.0370597, -0.00457859, -0.701698, -0.131454 )
-mesh = SubResource( 37 )
+mesh = SubResource( 28 )
 material/0 = null
 
 [node name="Label3D" type="Spatial" parent="PinPad"]
 transform = Transform( -0.156245, 0, -2.68221e-07, -5.58794e-09, 0.136834, -2.38419e-07, 2.23517e-08, -1.00583e-07, -1, -9.53674e-07, 0.634401, -0.133785 )
 script = ExtResource( 19 )
 text = "000"
-text_scale = 0.01
-extrude = 0.0
-font = null
-align = 0
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="nix_ship" parent="." instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.8535 )
