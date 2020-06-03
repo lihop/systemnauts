@@ -60,13 +60,14 @@ const MAX_SLOPE_ANGLE = 60
 const MAX_STAIR_SLOPE = 20
 const STAIR_JUMP_HEIGHT = 6
 
+export var single_player := false
 
 puppet var puppet_transform: Transform
 puppet var puppet_velocity: Vector3
 
 
 func _ready():
-	if is_network_master():
+	if single_player or is_network_master():
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -107,7 +108,7 @@ func _physics_process(delta): #IS PLAYER MOVING NORMALLY OR ON LADDER?
 
 var direction = Vector3()
 func _process_movements(delta):
-	if is_network_master():
+	if single_player or is_network_master():
 		var up = Input.is_action_pressed("ui_up")
 		var down = Input.is_action_pressed("ui_down")
 		var left = Input.is_action_pressed("ui_left")
@@ -214,8 +215,9 @@ func _process_movements(delta):
 	
 		throwing(delta)
 		
-		rset("puppet_transform", global_transform)
-		rset("puppet_velocity", velocity)
+		if not single_player:
+			rset("puppet_transform", global_transform)
+			rset("puppet_velocity", velocity)
 	else:
 		global_transform = puppet_transform
 		velocity = puppet_velocity
@@ -225,7 +227,7 @@ func _process_movements(delta):
 #######################################################################################################
 
 func _process_on_ladder(delta):
-	if is_network_master():
+	if single_player or is_network_master():
 		var up = Input.is_action_pressed("ui_up")
 		var down = Input.is_action_pressed("ui_down")
 		var left = Input.is_action_pressed("ui_left")
@@ -364,7 +366,7 @@ func impulse(vector_towards, power, time):
 
 # THROW STUFF
 func throwing(delta):
-	if is_network_master():
+	if single_player or is_network_master():
 		if carried_object != null:
 			if Input.is_action_pressed("throw"):
 				if throw_power <= 250:
