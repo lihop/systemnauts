@@ -1,19 +1,24 @@
 {
-  resources.sshKeyPairs.ssh-key = {};
-
-  machine = { config, pkgs, ... }:
+  server = { config, pkgs, ... }:
   let
-    godot = pkgs.godot.override { server = true; };
+    godot = pkgs.godot.overrideAttrs (oldAttrs: {
+      server = true;
+      src = pkgs.fetchFromGitHub {
+        owner = "lihop";
+        repo = "godot";
+        rev = "734694e2be490161296ca93e02b3dd25eb0f996f";
+        sha256 = "1w2shqwhz27n02d95djcr3w1kchbaihshbw185c2nxgcxx2h1l57";
+        fetchSubmodules = true;
+      };
+    });
   in
   {
     imports = [
       ./users.nix
     ];
 
-    networking.hostName = "nix";
-
     networking.firewall.allowedTCPPorts = [ 80 ];
-    networking.firewall.allowedUDPPorts = [ 45122 ];
+    networking.firewall.allowedUDPPorts = [ 7154 ];
 
     services.openssh.enable = true;
 
@@ -24,15 +29,6 @@
       socat
       sshfs
     ];
-
-    deployment = {
-      targetEnv = "digitalOcean";
-      digitalOcean = {
-        enableIpv6 = false;
-        region = "sgp1";
-        size = "1gb";
-      };
-    };
 
     # Allow Godot to bind to port 80.
     security.wrappers.godot = {

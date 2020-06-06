@@ -1,3 +1,7 @@
+ErbosDraco1StOpenNbpRegular-l5wX.ttf, from https://www.fontspace.com/erbos-draco-monospaced-nbp-font-f14579 by Nate Halley, released under CC-BY-SA 3.0
+
+-------------------------------------------------------------------------------
+
 VT323-Regular.ttf, copyright 2011, The VT323 Project Authors (peter.hull@oikoi.com)
 
 SairaStencilOne-Regular.ttf, copyright 2019 The Saira Stencil Project Authors (https://github.com/Omnibus-Type/Saira/SairaStencil)

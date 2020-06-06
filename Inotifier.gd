@@ -200,7 +200,7 @@ func add_event_handler(directory: String, target: Object, method: String,
 
 
 func add_file_event_handler(directory: String, file: String, target: Object,
-		method: String, event = null):
+		method: String, event = null) -> void:
 	var watcher = _get_directory_watcher(directory)
 	watcher.connect_file_event(file, event, target, method)
 

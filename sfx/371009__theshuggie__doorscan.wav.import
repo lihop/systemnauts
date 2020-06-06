@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/371009__theshuggie__doorscan.wav-239b369124f8d5301fbbfec592ec185d.sample"
+
+[deps]
+
+source_file="res://sfx/371009__theshuggie__doorscan.wav"
+dest_files=[ "res://.import/371009__theshuggie__doorscan.wav-239b369124f8d5301fbbfec592ec185d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

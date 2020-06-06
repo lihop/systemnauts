@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=1]
+[ext_resource path="res://fonts/ErbosDraco1StOpenNbpRegular-l5wX.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://models/objects/keypad/keypad.glb" type="PackedScene" id=3]
+[ext_resource path="res://objects/keypad/Keypad.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_mipmaps = true
+font_data = ExtResource( 2 )
+
+[node name="Keypad" instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+
+[node name="Label3D" type="Spatial" parent="." index="0"]
+transform = Transform( 0.7, 0, 0, 0, 0.483335, 0.506347, 0, -0.506347, 0.483335, 0, 0.224287, -0.0346106 )
+script = ExtResource( 1 )
+text = "drwx-rwx"
+text_scale = 0.001
+font = SubResource( 1 )
+color = Color( 0, 0, 0, 1 )

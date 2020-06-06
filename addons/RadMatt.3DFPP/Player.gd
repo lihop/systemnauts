@@ -1,7 +1,6 @@
 
 extends KinematicBody
 
-
 var carried_object = null
 var throw_power = 0
 
@@ -319,6 +318,7 @@ func _input(event):
 			print(x.get_name())
 			if x.has_method("interact"):
 				x.interact(self)
+
 
 
 	# Crouching

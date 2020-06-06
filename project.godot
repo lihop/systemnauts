@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://commander.gd"
 }, {
+"base": "MeshInstance",
+"class": "Decal",
+"language": "GDScript",
+"path": "res://decalco/decalco/src/Decal.gd"
+}, {
 "base": "Area",
 "class": "DirectoryArea",
 "language": "GDScript",
@@ -38,20 +43,39 @@ _global_script_classes=[ {
 "class": "Inotifiera",
 "language": "GDScript",
 "path": "res://inotify_parser.gd"
+}, {
+"base": "Node",
+"class": "Level",
+"language": "GDScript",
+"path": "res://levels/Level.gd"
+}, {
+"base": "Sprite3D",
+"class": "Projector",
+"language": "GDScript",
+"path": "res://scenes/mission_control/Projector.gd"
+}, {
+"base": "Node",
+"class": "SinglePlayerServer",
+"language": "GDScript",
+"path": "res://server/Training.gd"
 } ]
 _global_script_class_icons={
 "ArrayUtils": "",
 "CanvasRenderingContext2D": "",
 "Commander": "",
+"Decal": "",
 "DirectoryArea": "",
 "HTTPResponse": "",
-"Inotifiera": ""
+"Inotifiera": "",
+"Level": "",
+"Projector": "",
+"SinglePlayerServer": ""
 }
 
 [application]
 
 config/name="Systemnauts"
-run/main_scene="res://scenes/mission_control.tscn"
+run/main_scene="res://levels/Level0.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -59,7 +83,7 @@ config/icon="res://icon.png"
 Inotifier="*res://Inotifier.gd"
 WebServer="*res://website/web_server.gd"
 RemoteOS="*res://RemoteOS.gd"
-NixOps="*res://nixops/NixOps.gd"
+NixOps="res://nixops/NixOps.gd"
 
 [editor_plugins]
 

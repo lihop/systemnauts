@@ -1,0 +1,3 @@
+[submodule "decalco"]
+	path = decalco
+	url = https://github.com/Master-J/DecalCo

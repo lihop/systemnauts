@@ -1,33 +1,22 @@
 extends Spatial
 
 
-export var fast_close := true
-var mouse_mode: String = "CAPTURED"
-
-
 func _ready() -> void:
 	$Player/Yaw/Camera.current = true
-	if fast_close:
-		print("** Fast Close enabled in the 's_main.gd' script **")
-		print("** 'Esc' to close 'Shift + F1' to release mouse **")
-	
-	$Terminal.write("Linux is the best operating system in the world!")
-	
 	$Sky_texture.set_time_of_day(6, null)
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel") and fast_close:
-		get_tree().quit() # Quits the game
-	
-	if event.is_action_pressed("mouse_input") and fast_close:
-		match mouse_mode: # Switch statement in GDScript
-			"CAPTURED":
-				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-				mouse_mode = "VISIBLE"
-			"VISIBLE":
-				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-				mouse_mode = "CAPTURED"
+func _start_scene():
+	yield($DialogueTerminal.type("stty rows 12 cols 160\n"), "completed")
+	yield(get_tree().create_timer(0.5), "timeout")
+	yield($DialogueTerminal.type("# Hi cadet"), "completed")
+	yield(get_tree().create_timer(0.5), "timeout")
+	yield($DialogueTerminal.type(", welcome to Cyberspace!\n"), "completed")
+	yield(get_tree().create_timer(0.7), "timeout")
+	yield($DialogueTerminal.type("# I'm godette, I'll be your thread director for this training mission."), "completed")
+	yield($DialogueTerminal.type("\n\n"), "completed")
+	yield($DialogueTerminal.type("type\nsome\nmore\nstuff\nto\nsee\nscroll"), "completed")
+
 
 
 func _on_Sky_texture_sky_updated():

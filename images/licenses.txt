@@ -3,3 +3,5 @@ danger_high_voltage-mapanganib_makukuryente.png, from https://commons.wikimedia.
 trs-80_mode_4_as_serial_terminal_to_mac_pro.jpg, from https://www.flickr.com/photos/blakespot/2493247881 by Blake Patterson, realeased under CC-BY 2.0
 
 astronaut_helmet.svg, from https://freesvg.org/astronaut-helmet-vector-illustration published by OpenClipart, released under CC-0
+
+flag-of-the-free-software-movement.svg, from https://eirexe.modulous.net/post/125 by /u/JonathanCrumpet, released under CC-BY-SA 4.0

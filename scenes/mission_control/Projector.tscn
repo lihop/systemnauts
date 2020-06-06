@@ -10,7 +10,7 @@
 
 [node name="Projector" type="Sprite3D"]
 region_enabled = true
-region_rect = Rect2( 0, 0, 4096, 2048 )
+region_rect = Rect2( 0, 0, 3840, 2160 )
 script = ExtResource( 6 )
 
 [node name="StreamPeerUnix" type="Node" parent="."]
