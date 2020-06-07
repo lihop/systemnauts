@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+
+[node name="MainMenu" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = 100.0
+margin_right = -100.0
+margin_bottom = -100.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MenuItems" type="VBoxContainer" parent="."]
+margin_right = 824.0
+margin_bottom = 400.0
+
+[node name="Continue" type="Button" parent="MenuItems"]
+margin_right = 824.0
+margin_bottom = 20.0
+text = "Continue"
+
+[node name="NewGame" type="Button" parent="MenuItems"]
+margin_top = 24.0
+margin_right = 824.0
+margin_bottom = 44.0
+text = "New Game"
+
+[node name="Options" type="Button" parent="MenuItems"]
+margin_top = 48.0
+margin_right = 824.0
+margin_bottom = 68.0
+text = "Options"
+
+[node name="Exit" type="Button" parent="MenuItems"]
+margin_top = 72.0
+margin_right = 824.0
+margin_bottom = 92.0
+text = "Exit"
+[connection signal="pressed" from="MenuItems/NewGame" to="." method="_on_NewGame_pressed"]

@@ -7,8 +7,6 @@ signal clear_pressed()
 const DEFAULT_PERMISSIONS = "d?????????"
 const DEFAULT_CODE = "___"
 
-export(String) var directory
-
 var _permissions := DEFAULT_PERMISSIONS
 var _code := []
 

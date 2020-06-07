@@ -75,15 +75,17 @@ _global_script_class_icons={
 [application]
 
 config/name="Systemnauts"
-run/main_scene="res://levels/Level0.tscn"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-Inotifier="*res://Inotifier.gd"
-WebServer="*res://website/web_server.gd"
-RemoteOS="*res://RemoteOS.gd"
+LevelManager="*res://singletons/LevelManager.gd"
+Inotifier="res://Inotifier.gd"
+WebServer="res://website/web_server.gd"
+RemoteOS="res://RemoteOS.gd"
 NixOps="res://nixops/NixOps.gd"
+VM="*res://singletons/VM.gd"
 
 [editor_plugins]
 

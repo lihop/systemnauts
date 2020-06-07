@@ -13,8 +13,9 @@ export(int) var random_range = 20
 
 
 func _ready():
-	$Shell.connect("data_received", self, "_on_shell_data")
-	
+#	$Shell.connect("data_received", self, "_on_shell_data")
+	pass
+
 
 # Calls $Terminal.write but simulates the typing of `text`.
 func type(text: String) -> void:
@@ -35,7 +36,7 @@ func type(text: String) -> void:
 			yield(get_tree().create_timer(rand_range(delay_lower, delay_upper)), "timeout")
 		else:
 			yield(get_tree().create_timer(delay), "timeout")
-		$Shell.send_data(PoolByteArray([c]))
+#		$Shell.send_data(PoolByteArray([c]))
 
 
 func _on_shell_data(data):
@@ -43,5 +44,4 @@ func _on_shell_data(data):
 
 
 remotesync func _write_to_terminal(data):
-	print("doing the thing")
 	$Terminal.write(data)
