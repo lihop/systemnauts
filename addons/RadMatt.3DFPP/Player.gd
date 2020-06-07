@@ -1,6 +1,8 @@
 
 extends KinematicBody
 
+export(String) var username
+
 var carried_object = null
 var throw_power = 0
 

@@ -30,5 +30,6 @@ func _chmod(who, code):
 		access_granted()
 	else:
 		access_denied()
+		who.get_node("HUD").notify(output[0])
 	print(output)
 	
