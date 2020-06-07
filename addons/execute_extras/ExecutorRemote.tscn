@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/execute_extras/ExecutorRemote.gd" type="Script" id=1]
+
+[node name="ExecutorRemote" type="Node"]
+script = ExtResource( 1 )

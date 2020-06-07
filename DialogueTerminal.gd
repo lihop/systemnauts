@@ -10,11 +10,15 @@ export(bool) var random_delay = true
 # The range above and below `typing_speed` in which to get a random delay
 export(int) var random_range = 20
 # If specified, terminal will be connected to the given shell.
+export(String) onready var shell
+
+
+var _shell: Shell
 
 
 func _ready():
-#	$Shell.connect("data_received", self, "_on_shell_data")
-	pass
+	_shell = get_node(shell)
+	_shell.connect("data_received", self, "_on_shell_data")
 
 
 # Calls $Terminal.write but simulates the typing of `text`.
@@ -36,12 +40,8 @@ func type(text: String) -> void:
 			yield(get_tree().create_timer(rand_range(delay_lower, delay_upper)), "timeout")
 		else:
 			yield(get_tree().create_timer(delay), "timeout")
-#		$Shell.send_data(PoolByteArray([c]))
+		_shell.send_data(PoolByteArray([c]))
 
 
 func _on_shell_data(data):
-	rpc("_write_to_terminal", data)
-
-
-remotesync func _write_to_terminal(data):
 	$Terminal.write(data)

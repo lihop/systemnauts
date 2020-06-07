@@ -9,22 +9,17 @@ func _ready():
 
 
 func _check_permissions():
-	# TODO: OS execution code.
 	var output = []
-#	"ls", [
-#			"\"-ld /home/leroy/tmp/test/level-1 | awk '{print $1}'\""],
-	print("starting slow request")
-	_long_running_request()
 	print("starting fast request!")
-	var exit_code = yield(VM.execute("echo", ["fast"], output), "completed")
+	var exit_code = yield(VM.execute("echo", ["\"first && echo second\""], output), "completed")
 	
-	print("fastt: ", output)
+	for line in output:
+		print("line: ", line, " length: ", line.length())
+	
+	var co = VM.execute_co("while", ["\"true; do date; sleep 1; done\""])
+	while co is GDScriptFunctionState and co.is_valid():
+		var line = co.resume()
+		print("co: ", line)
 	
 	var permissions = "d---------"
 	$LabelPermissions.text = permissions
-
-
-func _long_running_request():
-	var output = []
-	yield(VM.execute("sleep", ["\"10 && echo fast\""]), "completed")
-	print("slow: ", output)

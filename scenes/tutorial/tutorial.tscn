@@ -60,6 +60,7 @@ bus = "Music"
 
 [node name="DialogueTerminal" parent="." instance=ExtResource( 12 )]
 typing_speed = 200
+shell = "/root/VM/PlayerShell"
 
 [node name="SpotLight" type="SpotLight" parent="."]
 transform = Transform( 1, -4.37114e-08, 4.37114e-08, -5.97109e-08, -0.5, 0.866025, -1.59995e-08, -0.866025, -0.5, 0, 4, 13 )

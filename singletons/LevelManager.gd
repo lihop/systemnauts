@@ -2,7 +2,9 @@ extends Node
 
 
 const SERVER_PORT := 7154
-const MAX_PLAYERS := 1
+const MAX_PLAYERS := 1 # Although this is a single player server, if we set
+# MAX_PLAYERS to 1 it takes a while for the server to register that we disconnected
+# and so we can't join the server again for a while.
 
 var _network_peer: NetworkedMultiplayerENet
 var _level: PackedScene
@@ -13,6 +15,7 @@ func _ready():
 		_network_peer = NetworkedMultiplayerENet.new()
 		_network_peer.create_server(SERVER_PORT, MAX_PLAYERS)
 		get_tree().network_peer = _network_peer
+		_network_peer.connect("peer_disconnected", self, "_peer_disconnected")
 
 
 func start_level(level: String) -> void:
@@ -35,6 +38,10 @@ func start_level(level: String) -> void:
 
 
 func _peer_connected(id):
+	# Temporary workaround. Kill socat servers. The sockets aren't being cleaned
+	# up nicely and it is causing lots of problems.
+	OS.execute("pkill", ["socat"])
+	
 	var self_peer_id = get_tree().get_network_unique_id()
 	
 	var err = get_tree().change_scene_to(_level)
@@ -42,3 +49,7 @@ func _peer_connected(id):
 		print("Error changing scene: ", err)
 	
 	get_tree().current_scene.set_network_master(self_peer_id)
+
+
+func _peer_disconnected(id):
+	pass
