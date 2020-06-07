@@ -1,7 +1,7 @@
 extends Spatial
 
 
-signal enter_pressed(code)
+signal enter_pressed(who, code)
 signal clear_pressed()
 
 const DEFAULT_PERMISSIONS = "d?????????"
@@ -24,7 +24,7 @@ func _ready():
 		get_node("key-%s/static_collision" % key).connect("key_pressed", self, "_numeric_key_pressed")
 	
 	get_node("key-fn1/static_collision").connect("key_pressed", self, "_cancel_pressed")
-	get_node("key-fn2/static_collision").connect("key_pressed", self, "_enter_pressed")
+	get_node("key-fn2/static_collision").connect("key_pressed_by", self, "_enter_pressed")
 
 
 func _setup_animations():
@@ -66,9 +66,10 @@ func _cancel_pressed(_key):
 	$LabelCode.text = DEFAULT_CODE
 
 
-func _enter_pressed(_key):
+func _enter_pressed(who):
+	emit_signal("enter_pressed", who, _code)
 	_cancel_pressed(null)
-	access_granted()
+
 
 
 func access_denied():

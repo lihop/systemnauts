@@ -5,21 +5,30 @@ export(String) var directory
 
 
 func _ready():
+	connect("enter_pressed", self, "_chmod")
 	_check_permissions()
 
 
 func _check_permissions():
 	var output = []
-	print("starting fast request!")
-	var exit_code = yield(VM.execute("echo", ["\"first && echo second\""], output), "completed")
+	var exit_code = yield(VM.execute("ls",
+			["\"-ld %s | awk '{print $1}'\"" % directory], output), "completed")
 	
-	for line in output:
-		print("line: ", line, " length: ", line.length())
+	if exit_code == 0 and output.size() > 0:
+		$LabelPermissions.text = output[0]
+
+
+func _chmod(who, code):
+	var user = who.username
+	var octal_mode = PoolStringArray(code).join("")
 	
-	var co = VM.execute_co("while", ["\"true; do date; sleep 1; done\""])
-	while co is GDScriptFunctionState and co.is_valid():
-		var line = co.resume()
-		print("co: ", line)
+	var output = []
+	var exit_code = yield(VM.execute("chmod", [octal_mode, directory], output,
+			user), "completed")
 	
-	var permissions = "d---------"
-	$LabelPermissions.text = permissions
+	if exit_code == 0:
+		access_granted()
+	else:
+		access_denied()
+	print(output)
+	

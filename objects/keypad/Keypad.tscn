@@ -14,7 +14,7 @@ size = 32
 use_mipmaps = true
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=2]
 resource_name = "blink_green"
 length = 0.31
 tracks/0/type = "value"
@@ -70,7 +70,7 @@ tracks/1/keys = {
 "values": [ 1.0, 0.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 75
 font_data = ExtResource( 6 )
 
@@ -82,31 +82,19 @@ transform = Transform( 0.7, 0, 0, 0, 0.483335, 0.506347, 0, -0.506347, 0.483335,
 script = ExtResource( 1 )
 text = "drwx-rwx"
 text_scale = 0.001
-extrude = 0.0
 font = SubResource( 1 )
-align = 0
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="LabelCode" type="Spatial" parent="." index="1"]
 transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.149364, 0.00850502 )
 script = ExtResource( 1 )
 text = "___"
 text_scale = 0.001
-extrude = 0.0
 font = SubResource( 1 )
-align = 0
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-anims/blink_green = SubResource( 4 )
+anims/blink_green = SubResource( 2 )
 anims/blink_red = SubResource( 3 )
 
 [node name="AccessDeniedAudio" type="AudioStreamPlayer3D" parent="." index="3"]
@@ -121,14 +109,8 @@ script = ExtResource( 1 )
 text = "1
 "
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-1" index="1"]
 script = ExtResource( 5 )
@@ -140,14 +122,8 @@ script = ExtResource( 1 )
 text = "2
 "
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-2" index="1"]
 script = ExtResource( 5 )
@@ -159,14 +135,8 @@ script = ExtResource( 1 )
 text = "3
 "
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-3" index="1"]
 script = ExtResource( 5 )
@@ -178,14 +148,8 @@ script = ExtResource( 1 )
 text = "4
 "
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-4" index="1"]
 script = ExtResource( 5 )
@@ -197,14 +161,8 @@ script = ExtResource( 1 )
 text = "5
 "
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-5" index="1"]
 script = ExtResource( 5 )
@@ -216,14 +174,8 @@ script = ExtResource( 1 )
 text = "6
 "
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-6" index="1"]
 script = ExtResource( 5 )
@@ -235,14 +187,8 @@ script = ExtResource( 1 )
 text = "7
 "
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-7" index="1"]
 script = ExtResource( 5 )
@@ -254,14 +200,8 @@ script = ExtResource( 1 )
 text = "8
 "
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-8" index="1"]
 script = ExtResource( 5 )
@@ -273,14 +213,8 @@ script = ExtResource( 1 )
 text = "9
 "
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-9" index="1"]
 script = ExtResource( 5 )
@@ -291,14 +225,8 @@ transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.4, -0.100199, -0.137444, 0.
 script = ExtResource( 1 )
 text = "CANCEL"
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-fn1" index="1"]
 script = ExtResource( 5 )
@@ -309,14 +237,8 @@ transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00270846, -0.136998, 0
 script = ExtResource( 1 )
 text = "0"
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-0" index="1"]
 script = ExtResource( 5 )
@@ -327,14 +249,8 @@ transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0.10038, -0.137444, 0.01
 script = ExtResource( 1 )
 text = "ENTER"
 text_scale = 0.001
-extrude = 0.0
-font = SubResource( 2 )
-align = 0
+font = SubResource( 4 )
 color = Color( 0, 0, 0, 1 )
-metallic = 0.0
-roughness = 0.5
-max_steps = 256
-step_size = 1.0
 
 [node name="static_collision" parent="key-fn2" index="1"]
 script = ExtResource( 5 )
