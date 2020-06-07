@@ -15,8 +15,8 @@ func _exit_tree():
 # This is the function that should be called on the client
 # and will be executed on the server.
 func execute(path: String, arguments: PoolStringArray = PoolStringArray([]),
-		output: Array = []) -> int:
-	var req = ExecRequest.new(path, arguments)
+		output: Array = [], user: String = "") -> int:
+	var req = ExecRequest.new(path, arguments, user)
 	
 	rpc_id(1, "_execute_local", req.as_json())
 	
@@ -59,8 +59,13 @@ func _execute_async(userdata: Array) -> ExecResponse:
 	var req = userdata[0]
 	var res = userdata[1]
 	
-	# TODO: Execute as another user if req.user is specified.
-	res.exit_code = OS.execute(req.path, req.arguments, true, res.output, true)
+	if req.user.empty():
+		res.exit_code = OS.execute(req.path, req.arguments, true, res.output, true)
+	else:
+		var args = PoolStringArray(["-u", req.user, req.path])
+		args.append_array(req.arguments)
+		
+		res.exit_code = OS.execute("runuser", args, true, res.output, true)
 	
 	call_deferred("_send_execute_response", res.id)
 	
@@ -116,6 +121,7 @@ class ExecRequest:
 			user: String = ""):
 		self.path = path
 		self.arguments = arguments
+		self.user = user
 	
 	
 	func as_json() -> String:
