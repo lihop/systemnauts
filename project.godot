@@ -40,6 +40,11 @@ _global_script_classes=[ {
 "path": "res://addons/execute_extras/ExecutorRemote.gd"
 }, {
 "base": "Node",
+"class": "File",
+"language": "GDScript",
+"path": "res://os/File.gd"
+}, {
+"base": "Node",
 "class": "HTTPResponse",
 "language": "GDScript",
 "path": "res://website/h_t_t_p_response.gd"
@@ -60,14 +65,9 @@ _global_script_classes=[ {
 "path": "res://scenes/mission_control/Projector.gd"
 }, {
 "base": "Node",
-"class": "Shell",
+"class": "SSHConnection",
 "language": "GDScript",
-"path": "res://addons/shells/Shell.gd"
-}, {
-"base": "Shell",
-"class": "ShellSocatUnix",
-"language": "GDScript",
-"path": "res://addons/shells/ShellSocatUnix.gd"
+"path": "res://addons/os_utils/SSHConnection.gd"
 }, {
 "base": "Node",
 "class": "SinglePlayerServer",
@@ -81,12 +81,12 @@ _global_script_class_icons={
 "Decal": "",
 "DirectoryArea": "",
 "ExecutorRemote": "",
+"File": "",
 "HTTPResponse": "",
 "Inotifiera": "",
 "Level": "",
 "Projector": "",
-"Shell": "",
-"ShellSocatUnix": "",
+"SSHConnection": "",
 "SinglePlayerServer": ""
 }
 

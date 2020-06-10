@@ -2,7 +2,7 @@ extends Node
 
 
 const SERVER_PORT := 7154
-const MAX_PLAYERS := 1 # Although this is a single player server, if we set
+const MAX_PLAYERS := 10 # Although this is a single player server, if we set
 # MAX_PLAYERS to 1 it takes a while for the server to register that we disconnected
 # and so we can't join the server again for a while.
 

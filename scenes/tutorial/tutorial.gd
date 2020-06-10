@@ -9,9 +9,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Player/Yaw/Camera.current = true
 	$Sky_texture.set_time_of_day(6, null)
-#
-#
-#func _start_scene():
+	
 	yield(get_tree().create_timer(1), "timeout")
 	yield($DialogueTerminal.type("stty rows 12 cols 160\n"), "completed")
 	yield(get_tree().create_timer(0.5), "timeout")

@@ -1,7 +1,9 @@
 
 extends KinematicBody
 
-export(String) var username
+export(String) var username setget ,_get_username
+
+var has_sudo := false
 
 var carried_object = null
 var throw_power = 0
@@ -65,6 +67,13 @@ export var single_player := false
 
 puppet var puppet_transform: Transform
 puppet var puppet_velocity: Vector3
+
+
+func _get_username():
+	if has_sudo:
+		return "root"
+	else:
+		return username
 
 
 func _ready():
@@ -381,3 +390,14 @@ func show_message(text, time):
 	$message/Timer.start()
 	yield($message/Timer, "timeout")
 	$message.set_text("")
+
+
+func consume(consumable):
+	# TODO: Different consumables can have different effects.
+	# Maybe make a new Effect class, and consumables can have an effect array.
+	# In the case of SudoCan if gives the su root effect for 8 seconds.
+	has_sudo = true
+	yield(get_tree().create_timer(8), "timeout")
+	has_sudo = false
+	
+	
