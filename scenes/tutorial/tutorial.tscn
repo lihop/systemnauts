@@ -18,11 +18,19 @@
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="TestDirectory" type="Node" parent="."]
+[node name="DirectoryA" type="Node" parent="."]
 script = ExtResource( 14 )
-absolute_path = "/training/second/test"
-file_owner = "leroy"
-file_group = "users"
+type = 1
+absolute_path = "/training/a"
+file_owner = "root"
+file_group = "root"
+
+[node name="DirectoryB" type="Node" parent="."]
+script = ExtResource( 14 )
+type = 1
+absolute_path = "/training/b"
+file_owner = "root"
+file_group = "root"
 
 [node name="Walls" type="Spatial" parent="."]
 
@@ -115,6 +123,8 @@ directory = "/training/second/first"
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 3, 13 )
+directory_a = NodePath("../DirectoryA")
+directory_b = NodePath("../DirectoryA")
 
 [node name="SudoCan" parent="." instance=ExtResource( 7 )]
 transform = Transform( 0.98613, -0.165977, 0, -7.25509e-09, -4.31051e-08, -1, 0.165977, 0.98613, -4.37114e-08, 2, 0.170073, 11 )

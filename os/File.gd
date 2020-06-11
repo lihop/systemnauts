@@ -1,6 +1,7 @@
 extends Node
-class_name File
+class_name UnixFile
 
+signal attributes_changed()
 
 enum FileTypes {
 	REGULAR
@@ -20,11 +21,31 @@ const FILE_SOCKET = FileTypes.SOCKET
 const FILE_BLOCK_DEVICE = FileTypes.BLOCK_DEVICE
 const FILE_CHARACTER_DEVICE = FileTypes.CHARACTER_DEVICE
 
+enum Permissions {
+	READ = 0b100
+	WRITE = 0b010
+	EXECUTE = 0b001
+}
+
+const PERM_READ = Permissions.READ
+const PERM_WRITE = Permissions.WRITE
+const PERM_EXECUTE = Permissions.EXECUTE
+
+enum Classes {
+	OWNER = 6
+	GROUP = 3
+	WORLD = 0
+}
+
+const CLASS_OWNER = Classes.OWNER
+const CLASS_GROUP = Classes.GROUP
+const CLASS_WORLD = Classes.WORLD
+
 export(FileTypes) var type := FILE_REGULAR
 export(String) var absolute_path
 export(String) var file_owner
 export(String) var file_group
-export(int) var file_mode
+export(String) var file_mode
 
 
 func _ready():
@@ -32,6 +53,13 @@ func _ready():
 	_update_file_owner()
 	_update_file_group()
 	_update_file_mode()
+
+
+# Returns whether `class` has `permission`.
+func check_permission(class_: int, permission: int) -> bool:
+	# We use some "clever" bitwise operations here.
+	# Reference: https://icarus.cs.weber.edu/~dab/cs1410/textbook/2.Core/bitop_eg.html
+	return (("0x" + file_mode).hex_to_int() & permission << class_) > 0
 
 
 func _ensure_file_exists():
@@ -83,6 +111,8 @@ func _update_file_owner():
 		if exit_code != 0:
 			var message = absolute_path if output.empty() else output[0]
 			push_error("Error updating file owner: %s" % message)
+		
+		emit_signal("attributes_changed")
 
 
 # If `file_group` is not specified, updates it to match the file. Otherwise,
@@ -98,11 +128,18 @@ func _update_file_group():
 		if exit_code != 0:
 			var message = absolute_path if output.empty() else output[0]
 			push_error("Error updating file group: %s" % message)
+		
+		emit_signal("attributes_changed")
 
 
 # If `file_mode` is not specified, updates it to match the file. Otherwise,
 # updates the file to match it.
 func _update_file_mode():
 	if not file_mode:
-		# TODO: Read file mode
-		pass
+		var output = []
+		yield(VM.execute("stat", ["-c", "%f", absolute_path], output), "completed")
+		file_mode = output[0]
+		emit_signal("attributes_changed")
+	else:
+		yield(VM.execute("chmod", [file_mode, absolute_path]), "completed")
+		emit_signal("attributes_changed")

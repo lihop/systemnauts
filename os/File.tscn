@@ -7,4 +7,4 @@ script = ExtResource( 1 )
 absolute_path = "/home/leroy"
 file_owner = "root"
 file_group = "root"
-file_mode = 777
+file_mode = "4001"
