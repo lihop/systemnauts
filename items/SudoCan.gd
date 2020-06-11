@@ -11,9 +11,12 @@ signal drunk()
 export(bool) var empty := false setget _set_empty
 
 
+func _ready():
+	var material = $"sudo-can".mesh.surface_get_material(0)
+	$"sudo-can".set_surface_material(0, material.duplicate())
+
 func _set_empty(empty):
-	var material = $"sudo-can".mesh.surface_get_material(0).duplicate()
-	$"sudo-can".mesh.surface_set_material(0, material)
+	var material = $"sudo-can".get_surface_material(0)
 	
 	if empty:
 		material.emission = EMPTY_EMISSION
