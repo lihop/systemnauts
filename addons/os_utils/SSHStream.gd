@@ -1,4 +1,5 @@
 extends Node
+class_name SSHStream
 
 
 signal data_received(data)

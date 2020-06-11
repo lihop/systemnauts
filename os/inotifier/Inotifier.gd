@@ -1,4 +1,5 @@
 extends Node
+class_name Inotifier
 # Interface to the inotifywait program. Waits for changes to files using inotify
 # and calls the registered handlers.
 # Reference: http://man7.org/linux/man-pages/man1/inotifywait.1.html
@@ -81,6 +82,12 @@ const EVENT_DELETE = Events.DELETE
 const EVENT_DELETE_SELF = Events.DELETE_SELF
 const EVENT_UNMOUNT = Events.UNMOUNT
 
+const COMMAND_FORMAT = "inotifywait -q -m %s --format='%%w\ue000%%e\ue000%%f\ue000'"
+
+export(NodePath) var directory_watcher_factory
+
+onready var _directory_watcher_factory: DirectoryWatcherFactory = get_node(directory_watcher_factory)
+
 var _event_regex: RegEx = RegEx.new()
 var _watchers: Dictionary = {}
 
@@ -120,13 +127,16 @@ class Watcher:
 
 class DirectoryWatcher:
 	extends Watcher
-	# Emits signals for events which occur on a directory and files within
-	# that directory.
+	# Base class for DirectoryWatcher nodes. Emits signals for events which
+	# occur on a directory and files within that directory.
+	
+	var directory: String
 	
 	var _regex: RegEx = RegEx.new()
 	var _file_watchers = {}
 	
-	func _init(directory: String):
+	
+	func _ready():
 		_regex.compile("(^%s/{0,1})\ue000(?<event_names>.*)\ue000(?<event_filename>.*)\ue000.*" % directory)
 	
 	
@@ -165,32 +175,13 @@ class DirectoryWatcher:
 					file_watcher.emit_signal(Events[event])
 
 
-class DirectoryWatcherTCP:
-	extends DirectoryWatcher
-	
-	var _stream_peer: StreamPeerTCP = StreamPeerTCP.new()
-	
-	
-	func _init(host: String, port: int, directory: String).(directory):
-		# Connect the StreamPeerTCP to the given host and port.
-		var err = _stream_peer.connect_to_host(host, port)
-		if err != OK:
-			push_error("Couldn't connect watcher to host: %s, port: %d" % [host, port])
-		
-		# Start inotifywatch on the file.
-		var command = "inotifywait -q -m %s --format=$'%%w\ue000%%e\ue000%%f\ue000'\n" % directory
-		_stream_peer.put_data(command.to_utf8())
+class DirectoryWatcherFactory:
+	extends Node
+	# Factory class for creating instances of DirectoryWatcher.
 	
 	
-	func _process(delta):
-		if _stream_peer.is_connected_to_host():
-			var res = _stream_peer.get_data(_stream_peer.get_available_bytes())
-			var error = res[0]
-			var data = res[1]
-			if error != OK:
-				push_error("Error getting data")
-			elif not data.empty():
-				_parse(data)
+	func create_new(directory) -> DirectoryWatcher:
+		return DirectoryWatcher.instance()
 
 
 func add_event_handler(directory: String, target: Object, method: String,
@@ -209,12 +200,10 @@ func _get_directory_watcher(directory: String):
 	var watcher = _watchers.get(directory)
 	
 	if not watcher:
-		watcher = _create_directory_watcher(directory)
+		watcher = _directory_watcher_factory.create_new(directory)
+		print("got new directory watcher!")
 		_watchers[directory] = watcher
 		add_child(watcher)
+		print("watcher child added!")
 	
 	return watcher
-
-
-func _create_directory_watcher(directory):
-	return DirectoryWatcherTCP.new("127.0.0.1", 1747, directory)

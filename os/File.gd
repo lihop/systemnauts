@@ -55,6 +55,10 @@ func _ready():
 	_update_file_mode()
 
 
+func _update_file_attributes(new_attributes = null):
+	emit_signal("attributes_changed")
+
+
 # Returns whether `class` has `permission`.
 func check_permission(class_: int, permission: int) -> bool:
 	# We use some "clever" bitwise operations here.
