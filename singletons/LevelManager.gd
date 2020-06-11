@@ -30,7 +30,7 @@ func start_level(level: String) -> void:
 	
 	_network_peer.connect("peer_connected", self, "_peer_connected")
 	
-	_network_peer.create_client("192.168.56.109", SERVER_PORT)
+	_network_peer.create_client("192.168.56.110", SERVER_PORT)
 	get_tree().network_peer = _network_peer
 	
 	# Make a VM node puppet of the level server.

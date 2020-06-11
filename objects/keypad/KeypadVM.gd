@@ -1,10 +1,13 @@
 extends "res://objects/keypad/Keypad.gd"
 
 
-export(String) var directory
+export(NodePath) var directory
+
+onready var _directory: UnixFile = get_node(directory)
 
 
 func _ready():
+	_directory.connect("attributes_changed", self, "_check_permissions")
 	connect("enter_pressed", self, "_chmod")
 	_check_permissions()
 
@@ -12,7 +15,8 @@ func _ready():
 func _check_permissions():
 	var output = []
 	var exit_code = yield(VM.execute("ls",
-			["\"-ld %s | awk '{print $1}'\"" % directory], output), "completed")
+			["\"-ld %s | awk '{print $1}'\"" % _directory.absolute_path],
+			output), "completed")
 	
 	if exit_code == 0 and output.size() > 0:
 		$LabelPermissions.text = output[0]
@@ -23,8 +27,8 @@ func _chmod(who, code):
 	var octal_mode = PoolStringArray(code).join("")
 	
 	var output = []
-	var exit_code = yield(VM.execute("chmod", [octal_mode, directory], output,
-			user), "completed")
+	var exit_code = yield(VM.execute("chmod", [octal_mode, _directory.absolute_path],
+			output, user), "completed")
 	
 	if exit_code == 0:
 		access_granted()

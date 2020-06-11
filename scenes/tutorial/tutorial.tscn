@@ -13,20 +13,18 @@
 [ext_resource path="res://music/the-reaper-cometh-master.ogg" type="AudioStream" id=11]
 [ext_resource path="res://DialogueTerminal.tscn" type="PackedScene" id=12]
 [ext_resource path="res://addons/os_utils/SSHConnection.tscn" type="PackedScene" id=13]
-[ext_resource path="res://os/File.gd" type="Script" id=14]
+[ext_resource path="res://os/FileVM.tscn" type="PackedScene" id=14]
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 1 )
 
-[node name="DirectoryA" type="Node" parent="."]
-script = ExtResource( 14 )
+[node name="DirectoryA" parent="." instance=ExtResource( 14 )]
 type = 1
 absolute_path = "/training/a"
 file_owner = "root"
 file_group = "root"
 
-[node name="DirectoryB" type="Node" parent="."]
-script = ExtResource( 14 )
+[node name="DirectoryB" parent="." instance=ExtResource( 14 )]
 type = 1
 absolute_path = "/training/b"
 file_owner = "root"
@@ -110,7 +108,7 @@ shell = NodePath("SSHStream")
 ssh_connection = NodePath("SSHConnection")
 
 [node name="SSHConnection" parent="DialogueTerminal/SSHStream" instance=ExtResource( 13 )]
-host = "192.168.56.109"
+host = "192.168.56.110"
 auto_connect = true
 
 [node name="SpotLight" type="SpotLight" parent="."]
@@ -119,19 +117,22 @@ transform = Transform( 1, -4.37114e-08, 4.37114e-08, -5.97109e-08, -0.5, 0.86602
 [node name="Keypad" parent="." instance=ExtResource( 5 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.84326, 2.36792, 12.8793 )
 script = ExtResource( 6 )
-directory = "/training/second/first"
+directory = NodePath("DirectoryA")
+
+[node name="DirectoryA" parent="Keypad" instance=ExtResource( 14 )]
+type = 1
+absolute_path = "/training/a"
+file_owner = "root"
+file_group = "root"
 
 [node name="Door" parent="." instance=ExtResource( 2 )]
 transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 3, 13 )
 directory_a = NodePath("../DirectoryA")
-directory_b = NodePath("../DirectoryA")
+directory_b = NodePath("../DirectoryB")
 
 [node name="SudoCan" parent="." instance=ExtResource( 7 )]
 transform = Transform( 0.98613, -0.165977, 0, -7.25509e-09, -4.31051e-08, -1, 0.165977, 0.98613, -4.37114e-08, 2, 0.170073, 11 )
 
-[node name="SudoCan3" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.98613, -0.165977, 0, 0.165512, 0.983365, -0.0748394, 0.0124216, 0.0738014, 0.997196, 2, 0.200071, 9.95792 )
-
 [node name="SudoCan2" parent="." instance=ExtResource( 7 )]
-transform = Transform( 0.98613, -0.165977, 0, -7.25509e-09, -4.31051e-08, -1, 0.165977, 0.98613, -4.37114e-08, -0.923417, 0.170073, 8.88522 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 10 )
 [connection signal="sky_updated" from="Sky_texture" to="." method="_on_Sky_texture_sky_updated"]

@@ -35,7 +35,7 @@ func _setup_network():
 	if _is_server:
 		peer.create_server(SERVER_PORT, MAX_PLAYERS)
 	else:
-		peer.create_client("192.168.56.109", SERVER_PORT)
+		peer.create_client("192.168.56.110", SERVER_PORT)
 	
 	get_tree().network_peer = peer
 
