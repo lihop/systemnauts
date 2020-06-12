@@ -96,21 +96,37 @@ class Watcher:
 	extends Node
 	
 	
+# warning-ignore:unused_signal
 	signal accessed(file)
+# warning-ignore:unused_signal
 	signal modified(file)
+# warning-ignore:unused_signal
 	signal attributes_modified(file)
+# warning-ignore:unused_signal
 	signal write_closed(file)
+# warning-ignore:unused_signal
 	signal nowrite_closed(file)
+# warning-ignore:unused_signal
 	signal closed(file)
+# warning-ignore:unused_signal
 	signal opened(file)
+# warning-ignore:unused_signal
 	signal moved_to(file)
+# warning-ignore:unused_signal
 	signal moved_from(file)
+# warning-ignore:unused_signal
 	signal moved(file)
+# warning-ignore:unused_signal
 	signal moved_self(file)
+# warning-ignore:unused_signal
 	signal created(file)
+# warning-ignore:unused_signal
 	signal deleted(file)
+# warning-ignore:unused_signal
 	signal deleted_self(file)
+# warning-ignore:unused_signal
 	signal unmounted(file)
+# warning-ignore:unused_signal
 	signal event_occured(event, file)
 	
 	
