@@ -62,7 +62,7 @@ func _execute_async(userdata: Array) -> ExecResponse:
 	if req.user.empty():
 		res.exit_code = OS.execute(req.path, req.arguments, true, res.output, true)
 	else:
-		var args = PoolStringArray(["-u", req.user, req.path])
+		var args = PoolStringArray(["-u", req.user, "--", req.path])
 		args.append_array(req.arguments)
 		
 		res.exit_code = OS.execute("runuser", args, true, res.output, true)
