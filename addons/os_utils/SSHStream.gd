@@ -20,7 +20,7 @@ func _ready():
 	
 	var socket_path = "%s-%s" % [control_path, get_instance_id()]
 	var address_1 = "unix-l:\"%s\",keepalive,reuseaddr,fork,unlink-early" % socket_path
-	var address_2 = "exec:\"%s -S %s - %s\",pty,setsid,stderr,login,ctty" % [ssh_path, control_path, command]
+	var address_2 = "exec:\"%s -S %s - '%s'\",pty,setsid,stderr,login,ctty" % [ssh_path, control_path, command]
 	
 	# TODO: Use socat_path variable
 	_socat_pid = OS.execute("socat", [address_1, address_2], false)
