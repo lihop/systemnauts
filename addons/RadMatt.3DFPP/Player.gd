@@ -1,6 +1,10 @@
 
 extends KinematicBody
 
+
+signal username_changed()
+signal groups_changed()
+
 export(String) var username setget ,_get_username
 
 var has_sudo := false
@@ -70,6 +74,7 @@ puppet var puppet_velocity: Vector3
 
 
 func _get_username():
+	print("has sudo: ", has_sudo)
 	if has_sudo:
 		return "root"
 	else:
@@ -397,7 +402,9 @@ func consume(consumable):
 	# Maybe make a new Effect class, and consumables can have an effect array.
 	# In the case of SudoCan if gives the su root effect for 8 seconds.
 	has_sudo = true
+	emit_signal("username_changed")
 	yield(get_tree().create_timer(8), "timeout")
 	has_sudo = false
+	emit_signal("username_changed")
 	
 	
