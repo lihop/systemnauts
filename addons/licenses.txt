@@ -1,5 +1,13 @@
 SIsilicon.3d.text:
     Copyright (c) 2019 Roujel Williams published under the MIT License.
-    https://github.com/SIsilicon/Godot-3D-text-plugin/tree/master/addons/SIsilicon.3d.text
+    Source: https://github.com/SIsilicon/Godot-3D-text-plugin/tree/master/addons/SIsilicon.3d.text
+
+fsm: Godot FSM (Finite State Machine):
+    Copyright (c) 2016 Brandon Lamb published under the MIT License.
+    Source: https://github.com/godot-addons/godot-finite-state-machine
+
+shaderV:
+    Copyright (c) 2019 arkology published under the MIT License.
+    Source: https://github.com/arkology/ShaderV
 
 For other addons, please refer to the license files in their directory.
