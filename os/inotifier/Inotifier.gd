@@ -217,9 +217,7 @@ func _get_directory_watcher(directory: String):
 	
 	if not watcher:
 		watcher = _directory_watcher_factory.create_new(directory)
-		print("got new directory watcher!")
 		_watchers[directory] = watcher
 		add_child(watcher)
-		print("watcher child added!")
 	
 	return watcher
