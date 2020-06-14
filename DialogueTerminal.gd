@@ -3,44 +3,90 @@ extends Control
 # and can execute shell commands.
 
 
-# Typing speed in words per minute.
-export(int) var typing_speed = 100
-# If true, will make the delay between key preses random.
-export(bool) var random_delay = true
-# The range above and below `typing_speed` in which to get a random delay
-export(int) var random_range = 20
-# If specified, terminal will be connected to the given shell.
-export(NodePath) onready var shell
+signal answered()
+signal opened()
+signal closed()
+signal skip_requested()
+
+export(NodePath) var terminal setget _set_terminal
+
+enum States {
+	CLOSED
+	OPEN
+}
+
+var _state = States.CLOSED
 
 
-var _shell
+func _set_terminal(path: NodePath):
+	print("setting terminal!")
+	print(path)
+	var terminal = get_node_or_null(path)
+	
+	if not terminal:
+		print("terminal is null baby!")
+	
+	if terminal and terminal.has_user_signal("data_receieved"):
+		print("connecting terminal: ", path)
+		terminal.connect("data_received", $Terminal, "write")
 
 
 func _ready():
-	_shell = get_node(shell)
-	_shell.connect("data_received", self, "_on_shell_data")
-
-# Calls $Terminal.write but simulates the typing of `text`.
-func type(text: String) -> void:
-	# Get characters per minute (cpm) from typing speed, and calculate the
-	# time to delay between each character based on this.
-	var cpm = typing_speed * 5
-	var delay = 60.0 / cpm
-	var delay_lower = 60.0 / ((typing_speed - random_range) * 5)
-	var delay_upper = 60.0 / ((typing_speed + random_range) * 5)
+	_close()
 	
-	
-	print(delay, delay_lower, delay_upper)
-	
-	for i in range(text.length()):
-		var c = text.ord_at(i)
-		
-		if random_delay:
-			yield(get_tree().create_timer(rand_range(delay_lower, delay_upper)), "timeout")
-		else:
-			yield(get_tree().create_timer(delay), "timeout")
-		_shell.send_data(PoolByteArray([c]))
+	# Stop ringing when opened
+	connect("opened", $Ringtone, "stop")
 
 
-func _on_shell_data(data):
+# Deprecated. Use incoming_transmission.
+func incoming_call() -> void:
+	if _state == States.OPEN:
+		# TODO: Play alert notification.
+		pass
+	else:
+		while _state == States.CLOSED:
+			$Ringtone.play()
+			yield(get_tree().create_timer(2.5), "timeout")
+
+
+func write(data) -> void:
 	$Terminal.write(data)
+
+
+func is_open() -> bool:
+	return _state == States.OPEN
+
+
+func _input(event):
+	# Short press opens the terminal or skips dialogue if it is already open.
+	if Input.is_action_just_pressed("ui_toggle_dialogue_terminal"):
+		if _state == States.CLOSED:
+			_open()
+		else:
+			emit_signal("skip_requested")
+	
+	# Long press closes the terminal.
+	if InputUtils.is_action_just_long_pressed("ui_toggle_dialogue_terminal"):
+		if _state == States.OPEN:
+			_close()
+
+
+func _process(delta):
+	pass
+	# TODO: Detect long button press in here
+
+
+func _open() -> void:
+	$Terminal.visible = true
+	_state = States.OPEN
+	emit_signal("opened")
+
+
+func _close() -> void:
+	$Terminal.visible = false
+	_state = States.CLOSED
+	emit_signal("closed")
+
+
+func _on_DialogueTerminal_opened():
+	pass # Replace with function body.

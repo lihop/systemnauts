@@ -19,3 +19,5 @@
 386887__michorvath__opening-a-can-of-soda.wav, from https://freesound.org/people/michorvath/sounds/386887/ by michorvath, released under CC-0
 
 104167__spaztastic__glug.wav, from https://freesound.org/people/SpazTastic/sounds/104167/ by SpazTastic, released under Sampling Plus 1.0
+
+342166__djfroyd__telephone-ring-wet.wav, from https://freesound.org/people/djfroyd/sounds/342166/ by djfroyd, released under CC-BY 3.0

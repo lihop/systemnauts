@@ -1,10 +1,7 @@
-extends Node
+extends ShellStream
 class_name SSHStream
 
 
-signal data_received(data)
-
-export(String) var command
 export(NodePath) var ssh_connection
 
 var _ssh_connection: SSHConnection
@@ -49,7 +46,7 @@ func _process(delta):
 				emit_signal("data_received", result[1])
 
 
-func send_data(data: PoolByteArray):
+func put_data(data: PoolByteArray):
 	_stream_peer.put_data(data)
 
 

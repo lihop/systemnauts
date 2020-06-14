@@ -7,6 +7,8 @@ signal groups_changed()
 
 export(String) var username setget ,_get_username
 
+export(NodePath) var dialogue_terminal
+
 var has_sudo := false
 
 var carried_object = null
@@ -74,7 +76,6 @@ puppet var puppet_velocity: Vector3
 
 
 func _get_username():
-	print("has sudo: ", has_sudo)
 	if has_sudo:
 		return "root"
 	else:
@@ -85,6 +86,10 @@ func _ready():
 	if single_player or is_network_master():
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+	$HUD/DialogueTerminal.terminal = dialogue_terminal
+	
+	# Initialize the players shell
 
 
 func _process(d):
@@ -406,5 +411,8 @@ func consume(consumable):
 	yield(get_tree().create_timer(8), "timeout")
 	has_sudo = false
 	emit_signal("username_changed")
-	
-	
+
+
+# Call the player using the DialogueTerminal
+func start_incoming_call():
+	$HUD.DialogueTerminal.call()
