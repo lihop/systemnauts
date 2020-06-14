@@ -4,6 +4,9 @@ extends Spatial
 export(NodePath) var directory_a
 export(NodePath) var directory_b
 
+const LOCKED_COLOR = Color(1, 0, 0)
+const UNLOCKED_COLOR = Color(0, 1, 0)
+
 onready var _directory_a := get_node(directory_a)
 onready var _directory_b := get_node(directory_b)
 onready var _doorway_side_a: StaticBody = $"door-frame/door-way-side-a/static_collision"
@@ -53,12 +56,15 @@ func _set_collision_for_user(doorway_side: StaticBody, directory: UnixFile,
 	# which runs an executable (as a specified user) and then exits.
 	var exit_code = yield(VM.execute("test", ["-x", directory.absolute_path],
 			[], user.username), "completed")
-	print("checked perms with user: ", user.username, " node: ", user)
+	
+	var material: ShaderMaterial = doorway_side.get_parent().get_surface_material(0)
 	
 	if exit_code == 0:
 		# Make sure we only add the exception once. Otherwise we would need to
 		# remove it as many times as we added it.
 		if not doorway_side.get_collision_exceptions().has(user):
 			doorway_side.add_collision_exception_with(user)
+			material.set_shader_param("Color", UNLOCKED_COLOR)
 	else:
 		doorway_side.remove_collision_exception_with(user)
+		material.set_shader_param("Color", LOCKED_COLOR)
