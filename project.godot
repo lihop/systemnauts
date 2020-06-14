@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot_xterm/renderer/canvas_rendering_context_2d.gd"
 }, {
-"base": "Node",
-"class": "Commander",
-"language": "GDScript",
-"path": "res://commander.gd"
-}, {
 "base": "MeshInstance",
 "class": "Decal",
 "language": "GDScript",
@@ -612,7 +607,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "ArrayUtils": "",
 "CanvasRenderingContext2D": "",
-"Commander": "",
 "Decal": "",
 "DirectoryArea": "",
 "DirectoryWatcherSSH": "",
