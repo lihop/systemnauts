@@ -8,7 +8,6 @@ signal opened()
 signal closed()
 signal skip_requested()
 
-export(NodePath) var terminal setget _set_terminal
 
 enum States {
 	CLOSED
@@ -16,19 +15,6 @@ enum States {
 }
 
 var _state = States.CLOSED
-
-
-func _set_terminal(path: NodePath):
-	print("setting terminal!")
-	print(path)
-	var terminal = get_node_or_null(path)
-	
-	if not terminal:
-		print("terminal is null baby!")
-	
-	if terminal and terminal.has_user_signal("data_receieved"):
-		print("connecting terminal: ", path)
-		terminal.connect("data_received", $Terminal, "write")
 
 
 func _ready():

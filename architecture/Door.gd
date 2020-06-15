@@ -1,3 +1,4 @@
+tool
 extends Spatial
 
 
@@ -13,6 +14,7 @@ onready var _doorway_side_a: StaticBody = $"door-frame/door-way-side-a/static_co
 onready var _doorway_side_b: StaticBody = $"door-frame/door-way-side-b/static_collision"
 
 var _collision_exceptions = {}
+var _watched_bodies = {}
 
 func _ready():
 	# Remove labels which are only used for convience in the editor to easily
@@ -20,6 +22,11 @@ func _ready():
 	if not Engine.is_editor_hint():
 		$LabelSideA.queue_free()
 		$LabelSideB.queue_free()
+	
+	# Use StaticBody door-way collision shape for Area
+#	$Area/CollisionShape.shape = $"door-frame/door-way/shape0".shape
+#	$"door-frame".remove_child($"door-frame/door-way")
+#	$Area
 	
 	_directory_a.connect("attributes_changed", self, "_set_collisions",
 			[_doorway_side_a, _directory_a])
@@ -68,3 +75,37 @@ func _set_collision_for_user(doorway_side: StaticBody, directory: UnixFile,
 	else:
 		doorway_side.remove_collision_exception_with(user)
 		material.set_shader_param("Color", LOCKED_COLOR)
+
+
+func _on_doorway_body_entered(body):
+	_watched_bodies[body] = _get_directory(body)
+
+
+func _on_doorway_body_exited(body):
+	_get_directory(body)
+	_watched_bodies.erase(body)
+
+
+# Returns the absolute_path of the directory that `body` is currently in
+# based on its position with relation to the doorway.
+func _get_directory(body) -> String:
+	var doorway = $"door-frame/door-way-side-a/static_collision"
+	var A = doorway.global_transform
+	
+	var AB = A.origin.direction_to(body.global_transform.origin)
+	var fA = A.basis.y
+	
+	if AB.dot(fA) > 0:
+		return _directory_a.absolute_path
+	else:
+		return _directory_b.absolute_path
+
+
+func _physics_process(delta):
+	for body in _watched_bodies:
+		var directory = _get_directory(body)
+		
+		if _watched_bodies[body] != directory:
+			print("changing directory to: ", directory)
+			_watched_bodies[body] = directory
+			body.get_node("Shell").change_directory(directory)

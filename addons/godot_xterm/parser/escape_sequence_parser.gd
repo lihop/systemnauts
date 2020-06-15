@@ -230,7 +230,6 @@ func parse(data: Array, length: int):
 			ParserAction.EXECUTE:
 				var handler = _execute_handlers.get(code)
 				if handler:
-					print("EXEC: ", handler['method'])
 					handler['target'].call(handler['method'])
 				elif _execute_handler_fb:
 					_execute_handler_fb['target'].call(_execute_handler_fb['method'], code)
@@ -245,7 +244,6 @@ func parse(data: Array, length: int):
 				var handlers = _csi_handlers.get((collect << 8 | code), [])
 				handlers.invert()
 				for handler in handlers:
-					print("CSI: ", handler['method'])
 					# undefined or true means success and to stop bubbling
 					if handler['target'].call(handler['method'], params):
 						continue
@@ -280,7 +278,6 @@ func parse(data: Array, length: int):
 				handlers.invert()
 				for handler in handlers:
 					# undefined or true means success and to stop bubbling
-					print("ESC: ", handler['method'])
 					if handler['arg']:
 						if handler['target'].call(handler['method'], handler['arg']) != false:
 							continue

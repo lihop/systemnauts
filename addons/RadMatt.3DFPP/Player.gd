@@ -86,9 +86,6 @@ func _ready():
 	if single_player or is_network_master():
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
-	$HUD/DialogueTerminal.terminal = dialogue_terminal
-	
 	# Initialize the players shell
 
 

@@ -7,9 +7,10 @@ var mouse_mode: String = "CAPTURED"
 
 func _ready():
 	# Connect the player's dialogue terminal to the output of Godette's shell.
-	print("Connecting GodetteShell and DialogueTerminal")
-	$GodetteShell.connect("data_received", $Player/HUD/DialogueTerminal, "write")
-	$Player/HUD/DialogueTerminal.connect("skip_requested", $Godette, "skip_typing")
+	print("GodetteShell is: ", $Godette/Shell)
+	print("DialogueTerminal is: ", $Player/HUD/DialogueTerminal)
+	$Godette/Shell.connect("data_received", $Player/HUD/DialogueTerminal, "write")
+	$Player/HUD/DialogueTerminal.connect("skip_requested", $Godette/Shell, "skip_typing")
 	
 	yield(_event1(), "completed")
 	print("event1 done!")
@@ -31,7 +32,7 @@ func _run_script(script):
 	for action in script:
 		match typeof(action):
 			TYPE_STRING:
-				yield($Godette.type(action), "completed")
+				yield($Godette/Shell.type(action), "completed")
 			TYPE_INT:
 				yield(get_tree().create_timer(action), "timeout")
 
@@ -39,12 +40,19 @@ func _run_script(script):
 func _event1():
 	yield(get_tree().create_timer(3), "timeout")
 	
-	$Player/HUD/DialogueTerminal.incoming_call()
+	#$Player/HUD/DialogueTerminal.incoming_call()
 	
 	if not $Player/HUD/DialogueTerminal.is_open():
 		yield($Player/HUD/DialogueTerminal, "opened")
 	
 	yield(_run_script([
+		"top\n",
+		3,
+		"\u0003",
+		1,
+		"\u0003",
+		1,
+		"\u0003",
 		"# Hi cadet, welcome to cyberspace!\n",
 		0.3,
 		"# My name is Godette. I\\'ll be your thread director for this training mission\n.",

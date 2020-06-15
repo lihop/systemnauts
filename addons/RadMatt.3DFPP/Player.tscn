@@ -1,10 +1,14 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://addons/RadMatt.3DFPP/Player.gd" type="Script" id=1]
 [ext_resource path="res://addons/RadMatt.3DFPP/Test_Objects/pointer.png" type="Texture" id=2]
 [ext_resource path="res://addons/RadMatt.3DFPP/Paper.gd" type="Script" id=3]
 [ext_resource path="res://fonts/vt323/VT323-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://addons/RadMatt.3DFPP/HUD.tscn" type="PackedScene" id=5]
+[ext_resource path="res://os/ShellHuman.gd" type="Script" id=6]
+[ext_resource path="res://addons/os_utils/SSHStream.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/os_utils/SSHConnection.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/RadMatt.3DFPP/CurrentDirectoryLabel.gd" type="Script" id=9]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.6
@@ -125,20 +129,6 @@ tracks/5/keys = {
 "values": [ Vector3( 0, 3.5, 1.42109e-14 ), Vector3( 0, 1.5, 1.42109e-14 ) ]
 }
 
-[sub_resource type="GDScript" id=10]
-script/source = "extends ProgressBar
-
-# class member variables go here, for example:
-# var a = 2
-# var b = \"textvar\"
-
-func _ready():
-	set_max(250)
-
-func _process(delta):
-	set_value(get_parent().throw_power)
-"
-
 [node name="Player" type="KinematicBody" groups=[
 "player",
 ]]
@@ -251,21 +241,15 @@ script = SubResource( 8 )
 [node name="crouching" type="AnimationPlayer" parent="."]
 anims/crouch = SubResource( 9 )
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
-margin_left = 26.0
-margin_top = 22.0
-margin_right = 378.0
-margin_bottom = 51.0
-max_value = 250.0
-step = 2.0
-script = SubResource( 10 )
-
 [node name="message" type="Label" parent="."]
 margin_left = 716.0
 margin_top = 168.0
 margin_right = 807.0
 margin_bottom = 182.0
 rect_scale = Vector2( 2, 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Timer" type="Timer" parent="message"]
 
@@ -279,4 +263,28 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CurrentDirectoryLabel" type="Label" parent="."]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 40.0
+margin_bottom = 14.0
+text = "/home/leroy"
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+shell = NodePath("../Shell")
+
+[node name="Shell" type="Node" parent="."]
+script = ExtResource( 6 )
+shell_stream = NodePath("../Shell/ShellStream")
+
+[node name="ShellStream" parent="Shell" instance=ExtResource( 7 )]
+ssh_connection = NodePath("../../Shell/ShellStream/SSHConnection")
+
+[node name="SSHConnection" parent="Shell/ShellStream" instance=ExtResource( 8 )]
+user = "leroy"
+host = "192.168.56.110"
+auto_connect = true
 [connection signal="animation_finished" from="crouching" to="." method="_on_crouching_animation_finished"]
