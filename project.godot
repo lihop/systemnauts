@@ -612,7 +612,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "ArrayUtils": "",
 "CanvasRenderingContext2D": "",
-"Decal": "",
+"Decal": "res://addons/decalco/decalco/icons/icon_decal.svg",
 "DirectoryWatcherSSH": "",
 "DirectoryWatcherSSHFactory": "",
 "ExecutorRemote": "",
