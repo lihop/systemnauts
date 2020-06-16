@@ -1,13 +1,16 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=1]
-[ext_resource path="res://fonts/ErbosDraco1StOpenNbpRegular-l5wX.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://models/objects/keypad/keypad.glb" type="PackedScene" id=3]
+[ext_resource path="res://common/fonts/ErbosDraco1StOpenNbpRegular-l5wX.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://common/models/objects/keypad/keypad.glb" type="PackedScene" id=3]
 [ext_resource path="res://objects/keypad/Keypad.gd" type="Script" id=4]
 [ext_resource path="res://objects/keypad/key.gd" type="Script" id=5]
-[ext_resource path="res://fonts/VT323-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://sfx/419023__jacco18__acess-denied-buzz.wav" type="AudioStream" id=7]
-[ext_resource path="res://sfx/253887__themusicalnomad__positive-beeps.wav" type="AudioStream" id=8]
+[ext_resource path="res://common/fonts/VT323-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://common/sfx/419023__jacco18__acess-denied-buzz.wav" type="AudioStream" id=7]
+[ext_resource path="res://common/sfx/253887__themusicalnomad__positive-beeps.wav" type="AudioStream" id=8]
+
+
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 32

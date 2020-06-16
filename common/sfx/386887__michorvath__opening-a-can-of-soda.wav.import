@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/386887__michorvath__opening-a-can-of-soda.wav-aef1bab0920f6c8b98d969e5a479560e.sample"
+
+[deps]
+
+source_file="res://common/sfx/386887__michorvath__opening-a-can-of-soda.wav"
+dest_files=[ "res://.import/386887__michorvath__opening-a-can-of-soda.wav-aef1bab0920f6c8b98d969e5a479560e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

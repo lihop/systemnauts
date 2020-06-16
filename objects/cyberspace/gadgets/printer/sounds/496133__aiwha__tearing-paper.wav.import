@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/496133__aiwha__tearing-paper.wav-03c1467c3186c897af5bd87e0499f347.sample"
+
+[deps]
+
+source_file="res://objects/cyberspace/gadgets/printer/sounds/496133__aiwha__tearing-paper.wav"
+dest_files=[ "res://.import/496133__aiwha__tearing-paper.wav-03c1467c3186c897af5bd87e0499f347.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

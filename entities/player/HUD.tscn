@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/player/HUD.gd" type="Script" id=1]
+[ext_resource path="res://entities/player/hud/DialogueTerminal.tscn" type="PackedScene" id=2]
+
+
+
+
+
+
+[node name="HUD" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NotificationArea" type="VBoxContainer" parent="."]
+margin_left = 734.0
+margin_right = 984.0
+margin_bottom = 560.0
+rect_min_size = Vector2( 250, 0 )
+mouse_filter = 2
+size_flags_horizontal = 8
+
+[node name="DialogueTerminal" parent="." instance=ExtResource( 2 )]
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 984.0
+margin_bottom = 560.0

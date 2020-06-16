@@ -22,22 +22,17 @@ _global_script_classes=[ {
 "base": "MeshInstance",
 "class": "Decal",
 "language": "GDScript",
-"path": "res://decalco/decalco/src/Decal.gd"
-}, {
-"base": "Area",
-"class": "DirectoryArea",
-"language": "GDScript",
-"path": "res://ships/nix/DirectoryArea.gd"
+"path": "res://addons/decalco/decalco/src/Decal.gd"
 }, {
 "base": "",
 "class": "DirectoryWatcherSSH",
 "language": "GDScript",
-"path": "res://os/inotifier/DirectoryWatcherSSH.gd"
+"path": "res://systems/os/inotifier/DirectoryWatcherSSH.gd"
 }, {
 "base": "",
 "class": "DirectoryWatcherSSHFactory",
 "language": "GDScript",
-"path": "res://os/inotifier/DirectoryWatcherSSHFactory.gd"
+"path": "res://systems/os/inotifier/DirectoryWatcherSSHFactory.gd"
 }, {
 "base": "Node",
 "class": "ExecutorRemote",
@@ -47,47 +42,42 @@ _global_script_classes=[ {
 "base": "",
 "class": "FileVM",
 "language": "GDScript",
-"path": "res://os/FileVM.gd"
+"path": "res://systems/os/FileVM.gd"
 }, {
 "base": "Node",
 "class": "Group",
 "language": "GDScript",
-"path": "res://users/Group.gd"
+"path": "res://systems/users/Group.gd"
 }, {
 "base": "Node",
 "class": "HTTPResponse",
 "language": "GDScript",
-"path": "res://website/h_t_t_p_response.gd"
+"path": "res://systems/website/h_t_t_p_response.gd"
 }, {
 "base": "Node",
 "class": "Inotifier",
 "language": "GDScript",
-"path": "res://os/inotifier/Inotifier.gd"
-}, {
-"base": "Node",
-"class": "Level",
-"language": "GDScript",
-"path": "res://levels/Level.gd"
+"path": "res://systems/os/inotifier/Inotifier.gd"
 }, {
 "base": "NormalUser",
 "class": "NPCUser",
 "language": "GDScript",
-"path": "res://users/human_users/npcs/NPCUser.gd"
+"path": "res://systems/users/human_users/npcs/NPCUser.gd"
 }, {
 "base": "User",
 "class": "NormalUser",
 "language": "GDScript",
-"path": "res://users/human_users/NormalUser.gd"
+"path": "res://systems/users/human_users/NormalUser.gd"
 }, {
 "base": "NormalUser",
 "class": "PlayerUser",
 "language": "GDScript",
-"path": "res://users/human_users/player/PlayerUser.gd"
+"path": "res://systems/users/human_users/player/PlayerUser.gd"
 }, {
 "base": "Node",
 "class": "Process",
 "language": "GDScript",
-"path": "res://os/Process.gd"
+"path": "res://systems/os/Process.gd"
 }, {
 "base": "Sprite3D",
 "class": "Projector",
@@ -107,27 +97,22 @@ _global_script_classes=[ {
 "base": "Process",
 "class": "Shell",
 "language": "GDScript",
-"path": "res://os/Shell.gd"
+"path": "res://systems/os/Shell.gd"
 }, {
 "base": "Shell",
 "class": "ShellHuman",
 "language": "GDScript",
-"path": "res://os/ShellHuman.gd"
+"path": "res://systems/os/ShellHuman.gd"
 }, {
 "base": "Shell",
 "class": "ShellNPC",
 "language": "GDScript",
-"path": "res://os/ShellNPC.gd"
+"path": "res://systems/os/ShellNPC.gd"
 }, {
 "base": "Node",
 "class": "ShellStream",
 "language": "GDScript",
-"path": "res://os/ShellStream.gd"
-}, {
-"base": "Node",
-"class": "SinglePlayerServer",
-"language": "GDScript",
-"path": "res://server/Training.gd"
+"path": "res://systems/os/ShellStream.gd"
 }, {
 "base": "Resource",
 "class": "StateMachine",
@@ -142,17 +127,17 @@ _global_script_classes=[ {
 "base": "User",
 "class": "SystemUser",
 "language": "GDScript",
-"path": "res://users/system_users/SystemUser.gd"
+"path": "res://systems/users/system_users/SystemUser.gd"
 }, {
 "base": "Node",
 "class": "UnixFile",
 "language": "GDScript",
-"path": "res://os/File.gd"
+"path": "res://systems/os/File.gd"
 }, {
 "base": "Node",
 "class": "User",
 "language": "GDScript",
-"path": "res://users/User.gd"
+"path": "res://systems/users/User.gd"
 }, {
 "base": "VisualShaderNodeCustom",
 "class": "VisualShaderNodeNoiseGeneric2d",
@@ -628,7 +613,6 @@ _global_script_class_icons={
 "ArrayUtils": "",
 "CanvasRenderingContext2D": "",
 "Decal": "",
-"DirectoryArea": "",
 "DirectoryWatcherSSH": "",
 "DirectoryWatcherSSHFactory": "",
 "ExecutorRemote": "",
@@ -636,7 +620,6 @@ _global_script_class_icons={
 "Group": "",
 "HTTPResponse": "",
 "Inotifier": "",
-"Level": "",
 "NPCUser": "",
 "NormalUser": "",
 "PlayerUser": "",
@@ -648,7 +631,6 @@ _global_script_class_icons={
 "ShellHuman": "",
 "ShellNPC": "",
 "ShellStream": "",
-"SinglePlayerServer": "",
 "StateMachine": "",
 "StateMachineFactory": "",
 "SystemUser": "",
@@ -758,9 +740,9 @@ config/icon="res://icon.png"
 
 [autoload]
 
-LevelManager="*res://singletons/LevelManager.gd"
-VM="*res://singletons/VM.tscn"
-InputUtils="*res://singletons/InputUtils.gd"
+LevelManager="*res://globals/LevelManager.gd"
+VM="*res://globals/VM.tscn"
+InputUtils="*res://globals/InputUtils.gd"
 
 [editor_plugins]
 

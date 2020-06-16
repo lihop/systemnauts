@@ -1,15 +1,17 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/RadMatt.3DFPP/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://models/mission_control/floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://common/models/mission_control/floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/mission_control.gd" type="Script" id=3]
-[ext_resource path="res://models/mission_control/ceiling.tscn" type="PackedScene" id=4]
+[ext_resource path="res://common/models/mission_control/ceiling.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/mission_control/Projector.tscn" type="PackedScene" id=5]
-[ext_resource path="res://music/fanfare-for-space/Fanfare.tscn" type="PackedScene" id=6]
+[ext_resource path="res://common/music/fanfare-for-space/Fanfare.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/gizmos/Button.tscn" type="PackedScene" id=7]
-[ext_resource path="res://models/mission_control/wall.tscn" type="PackedScene" id=8]
-[ext_resource path="res://models/mission_control/flag.tscn" type="PackedScene" id=9]
-[ext_resource path="res://models/mission_control/console.tscn" type="PackedScene" id=10]
+[ext_resource path="res://common/models/mission_control/wall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://common/models/mission_control/flag.tscn" type="PackedScene" id=9]
+[ext_resource path="res://common/models/mission_control/console.tscn" type="PackedScene" id=10]
+
+
 
 [node name="Spatial" type="Spatial"]
 script = ExtResource( 3 )

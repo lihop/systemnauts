@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/the-reaper-cometh-master.ogg-8ddad220d62c218081c8fb1e5cbe7d94.oggstr"
+
+[deps]
+
+source_file="res://common/music/the-reaper-cometh-master.ogg"
+dest_files=[ "res://.import/the-reaper-cometh-master.ogg-8ddad220d62c218081c8fb1e5cbe7d94.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://globals/VM.gd" type="Script" id=1]
+[ext_resource path="res://addons/execute_extras/ExecutorRemote.tscn" type="PackedScene" id=2]
+[ext_resource path="res://systems/os/inotifier/DirectoryWatcherSSHFactory.tscn" type="PackedScene" id=3]
+[ext_resource path="res://systems/os/inotifier/Inotifier.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/os_utils/SSHConnection.tscn" type="PackedScene" id=5]
+
+[node name="VM" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Executor" parent="." instance=ExtResource( 2 )]
+
+[node name="Inotifier" parent="." instance=ExtResource( 4 )]
+directory_watcher_factory = NodePath("DirectoryWatcherSSHFactory")
+
+[node name="DirectoryWatcherSSHFactory" parent="Inotifier" instance=ExtResource( 3 )]
+ssh_connection = NodePath("SSHConnection")
+
+[node name="SSHConnection" parent="Inotifier/DirectoryWatcherSSHFactory" instance=ExtResource( 5 )]
+user = "root"
+host = "192.168.56.110"

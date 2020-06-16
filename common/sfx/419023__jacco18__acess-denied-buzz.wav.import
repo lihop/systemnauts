@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/419023__jacco18__acess-denied-buzz.wav-0be5f521954df8ed656264f4cc1d713b.sample"
+
+[deps]
+
+source_file="res://common/sfx/419023__jacco18__acess-denied-buzz.wav"
+dest_files=[ "res://.import/419023__jacco18__acess-denied-buzz.wav-0be5f521954df8ed656264f4cc1d713b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,17 +1,22 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scenes/tutorial/tutorial.gd" type="Script" id=1]
-[ext_resource path="res://architecture/Door.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/cyberspace/common/door/Door.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/RadMatt.3DFPP/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://architecture/Tile.tscn" type="PackedScene" id=4]
+[ext_resource path="res://rooms/cyberspace/common/tile/Tile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://objects/keypad/Keypad.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/keypad/KeypadVM.gd" type="Script" id=6]
-[ext_resource path="res://items/SudoCan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://objects/cyberspace/consumables/sudocan/SudoCan.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/CargoBay.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/tutorial/tutorial_environment.tres" type="Environment" id=9]
 [ext_resource path="res://addons/Sky/sky_texture.tscn" type="PackedScene" id=10]
-[ext_resource path="res://music/the-reaper-cometh-master.ogg" type="AudioStream" id=11]
-[ext_resource path="res://os/FileVM.tscn" type="PackedScene" id=14]
-[ext_resource path="res://users/human_users/npcs/godette/Godette.tscn" type="PackedScene" id=15]
+[ext_resource path="res://common/music/the-reaper-cometh-master.ogg" type="AudioStream" id=11]
+[ext_resource path="res://systems/os/FileVM.tscn" type="PackedScene" id=14]
+[ext_resource path="res://systems/users/human_users/npcs/godette/Godette.tscn" type="PackedScene" id=15]
+
+
+
+
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 3, 3, 3 )
@@ -26,6 +31,9 @@ script = ExtResource( 1 )
 [node name="Room1" type="Spatial" parent="Rooms"]
 
 [node name="Room2" type="Spatial" parent="Rooms"]
+
+[node name="CargoBay" parent="Rooms" instance=ExtResource( 8 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 1 )
 
 [node name="DirectoryA" parent="." instance=ExtResource( 14 )]
 type = 1
@@ -42,7 +50,7 @@ file_group = "root"
 [node name="Walls" type="Spatial" parent="."]
 
 [node name="Tile" parent="Walls" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -3, 3, -2 )
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -3, 9, -2 )
 
 [node name="Tile10" parent="Walls" instance=ExtResource( 4 )]
 transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -3, 3, 4 )

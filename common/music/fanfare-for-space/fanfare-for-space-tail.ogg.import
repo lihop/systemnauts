@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/fanfare-for-space-tail.ogg-7115c7092ad00c7893e246dba191fa66.oggstr"
+
+[deps]
+
+source_file="res://common/music/fanfare-for-space/fanfare-for-space-tail.ogg"
+dest_files=[ "res://.import/fanfare-for-space-tail.ogg-7115c7092ad00c7893e246dba191fa66.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

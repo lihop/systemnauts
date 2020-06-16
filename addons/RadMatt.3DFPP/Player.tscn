@@ -5,10 +5,11 @@
 [ext_resource path="res://addons/RadMatt.3DFPP/Paper.gd" type="Script" id=3]
 [ext_resource path="res://fonts/vt323/VT323-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://addons/RadMatt.3DFPP/HUD.tscn" type="PackedScene" id=5]
-[ext_resource path="res://os/ShellHuman.gd" type="Script" id=6]
+[ext_resource path="res://systems/os/ShellHuman.gd" type="Script" id=6]
 [ext_resource path="res://addons/os_utils/SSHStream.tscn" type="PackedScene" id=7]
 [ext_resource path="res://addons/os_utils/SSHConnection.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/RadMatt.3DFPP/CurrentDirectoryLabel.gd" type="Script" id=9]
+
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.6

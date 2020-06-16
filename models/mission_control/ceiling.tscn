@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://models/mission_control/ceiling.escn" type="PackedScene" id=1]
-
-[node name="ceiling" instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0 )
-
-[node name="shape0" parent="ceiling/static_collision" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )

@@ -1,0 +1,261 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=1]
+[ext_resource path="res://common/fonts/ErbosDraco1StOpenNbpRegular-l5wX.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://common/models/objects/keypad/keypad.glb" type="PackedScene" id=3]
+[ext_resource path="res://objects/cyberspace/keypad/Keypad.gd" type="Script" id=4]
+[ext_resource path="res://objects/cyberspace/keypad/key.gd" type="Script" id=5]
+[ext_resource path="res://common/fonts/VT323-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://common/sfx/419023__jacco18__acess-denied-buzz.wav" type="AudioStream" id=7]
+[ext_resource path="res://common/sfx/253887__themusicalnomad__positive-beeps.wav" type="AudioStream" id=8]
+
+
+
+
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+use_mipmaps = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "blink_green"
+length = 0.31
+tracks/0/type = "value"
+tracks/0/path = NodePath("keypad-indicator:mesh:surface_1/material:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 1, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 1, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("keypad-indicator:mesh:surface_1/material:emission_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "blink_red"
+length = 0.31
+tracks/0/type = "value"
+tracks/0/path = NodePath("keypad-indicator:mesh:surface_1/material:emission")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 0, 0, 1 ), Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("keypad-indicator:mesh:surface_1/material:emission_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="DynamicFont" id=4]
+size = 75
+font_data = ExtResource( 6 )
+
+[node name="Keypad" instance=ExtResource( 3 )]
+script = ExtResource( 4 )
+
+[node name="LabelPermissions" type="Spatial" parent="." index="0"]
+transform = Transform( 0.7, 0, 0, 0, 0.483335, 0.506347, 0, -0.506347, 0.483335, 0, 0.224287, -0.0346106 )
+script = ExtResource( 1 )
+text = "drwx-rwx"
+text_scale = 0.001
+font = SubResource( 1 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="LabelCode" type="Spatial" parent="." index="1"]
+transform = Transform( 0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0.149364, 0.00850502 )
+script = ExtResource( 1 )
+text = "___"
+text_scale = 0.001
+font = SubResource( 1 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+anims/blink_green = SubResource( 2 )
+anims/blink_red = SubResource( 3 )
+
+[node name="AccessDeniedAudio" type="AudioStreamPlayer3D" parent="." index="3"]
+stream = ExtResource( 7 )
+
+[node name="AccessGrantedAudio" type="AudioStreamPlayer3D" parent="." index="4"]
+stream = ExtResource( 8 )
+
+[node name="Label3D" type="Spatial" parent="key-1" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0992704, 0.04, 0.018 )
+script = ExtResource( 1 )
+text = "1
+"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-1" index="1"]
+script = ExtResource( 5 )
+key = "1"
+
+[node name="Label3D" type="Spatial" parent="key-2" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00230096, 0.04, 0.018 )
+script = ExtResource( 1 )
+text = "2
+"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-2" index="1"]
+script = ExtResource( 5 )
+key = "2"
+
+[node name="Label3D" type="Spatial" parent="key-3" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.101828, 0.04, 0.018 )
+script = ExtResource( 1 )
+text = "3
+"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-3" index="1"]
+script = ExtResource( 5 )
+key = "3"
+
+[node name="Label3D" type="Spatial" parent="key-4" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.101619, -0.0346464, 0.018 )
+script = ExtResource( 1 )
+text = "4
+"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-4" index="1"]
+script = ExtResource( 5 )
+key = "4"
+
+[node name="Label3D" type="Spatial" parent="key-5" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.000852145, -0.0346464, 0.018 )
+script = ExtResource( 1 )
+text = "5
+"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-5" index="1"]
+script = ExtResource( 5 )
+key = "5"
+
+[node name="Label3D" type="Spatial" parent="key-6" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.101465, -0.0346464, 0.018 )
+script = ExtResource( 1 )
+text = "6
+"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-6" index="1"]
+script = ExtResource( 5 )
+key = "6"
+
+[node name="Label3D" type="Spatial" parent="key-7" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.100592, -0.104572, 0.018 )
+script = ExtResource( 1 )
+text = "7
+"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-7" index="1"]
+script = ExtResource( 5 )
+key = "7"
+
+[node name="Label3D" type="Spatial" parent="key-8" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00270846, -0.104572, 0.018 )
+script = ExtResource( 1 )
+text = "8
+"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-8" index="1"]
+script = ExtResource( 5 )
+key = "8"
+
+[node name="Label3D" type="Spatial" parent="key-9" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.105436, -0.104572, 0.018 )
+script = ExtResource( 1 )
+text = "9
+"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-9" index="1"]
+script = ExtResource( 5 )
+key = "9"
+
+[node name="Label3D" type="Spatial" parent="key-fn1" index="0"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.4, -0.100199, -0.137444, 0.018 )
+script = ExtResource( 1 )
+text = "CANCEL"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-fn1" index="1"]
+script = ExtResource( 5 )
+key = "fn1"
+
+[node name="Label3D" type="Spatial" parent="key-0" index="0"]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.00270846, -0.136998, 0.018 )
+script = ExtResource( 1 )
+text = "0"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-0" index="1"]
+script = ExtResource( 5 )
+key = "0"
+
+[node name="Label3D" type="Spatial" parent="key-fn2" index="0"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.4, 0.10038, -0.137444, 0.018 )
+script = ExtResource( 1 )
+text = "ENTER"
+text_scale = 0.001
+font = SubResource( 4 )
+color = Color( 0, 0, 0, 1 )
+
+[node name="static_collision" parent="key-fn2" index="1"]
+script = ExtResource( 5 )
+key = "fn2"

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/181420__viertelnachvier__old-dot-matrix-printer.wav-a15d431582ec42f9e132f4dc42224db7.sample"
+
+[deps]
+
+source_file="res://objects/cyberspace/gadgets/printer/sounds/181420__viertelnachvier__old-dot-matrix-printer.wav"
+dest_files=[ "res://.import/181420__viertelnachvier__old-dot-matrix-printer.wav-a15d431582ec42f9e132f4dc42224db7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

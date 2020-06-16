@@ -17,11 +17,15 @@
 [ext_resource path="res://scenes/s_main/PermissionsDisplay.gd" type="Script" id=17]
 [ext_resource path="res://fonts/vt323/VT323-Regular.ttf" type="DynamicFontData" id=18]
 [ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=19]
-[ext_resource path="res://sfx/496133__aiwha__tearing-paper.wav" type="AudioStream" id=21]
+[ext_resource path="res://objects/cyberspace/gadgets/printer/sounds/496133__aiwha__tearing-paper.wav" type="AudioStream" id=21]
 [ext_resource path="res://scenes/s_main/Paper.gd" type="Script" id=22]
-[ext_resource path="res://sfx/484344__inspectorj__bike-bell-ding-single-01-01.wav" type="AudioStream" id=23]
+[ext_resource path="res://objects/cyberspace/gadgets/printer/sounds/484344__inspectorj__bike-bell-ding-single-01-01.wav" type="AudioStream" id=23]
 [ext_resource path="res://scenes/s_main/Printer.gd" type="Script" id=24]
-[ext_resource path="res://sfx/181420__viertelnachvier__old-dot-matrix-printer.wav" type="AudioStream" id=25]
+[ext_resource path="res://objects/cyberspace/gadgets/printer/sounds/181420__viertelnachvier__old-dot-matrix-printer.wav" type="AudioStream" id=25]
+
+
+
+
 
 [sub_resource type="CubeMesh" id=1]
 

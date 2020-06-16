@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/265210__xixishi__scfi-electric-hum-01.wav-f95f49b94622f03f16be4400cae23298.sample"
+
+[deps]
+
+source_file="res://common/sfx/265210__xixishi__scfi-electric-hum-01.wav"
+dest_files=[ "res://.import/265210__xixishi__scfi-electric-hum-01.wav-f95f49b94622f03f16be4400cae23298.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://systems/users/human_users/npcs/godette/Godette.gd" type="Script" id=1]
+[ext_resource path="res://systems/os/ShellNPC.gd" type="Script" id=2]
+[ext_resource path="res://addons/os_utils/SSHStream.tscn" type="PackedScene" id=3]
+[ext_resource path="res://addons/os_utils/SSHConnection.tscn" type="PackedScene" id=4]
+
+
+
+[node name="Godette" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Shell" type="Node" parent="."]
+script = ExtResource( 2 )
+shell_stream = NodePath("ShellStream")
+
+[node name="ShellStream" parent="Shell" instance=ExtResource( 3 )]
+ssh_connection = NodePath("SSHConnection")
+
+[node name="SSHConnection" parent="Shell/ShellStream" instance=ExtResource( 4 )]
+user = "godette"
+host = "192.168.56.110"
+auto_connect = true

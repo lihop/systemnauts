@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://common/models/cyberspace/exports/Tile.glb" type="PackedScene" id=1]
+[ext_resource path="res://rooms/cyberspace/common/tile/Tile.gd" type="Script" id=2]
+
+
+
+[node name="Tile" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
