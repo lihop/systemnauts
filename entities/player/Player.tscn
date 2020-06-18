@@ -10,9 +10,6 @@
 [ext_resource path="res://addons/os_utils/SSHConnection.tscn" type="PackedScene" id=8]
 [ext_resource path="res://entities/player/CurrentDirectoryLabel.gd" type="Script" id=9]
 
-
-
-
 [sub_resource type="CapsuleMesh" id=1]
 radius = 0.6
 mid_height = 2.0
@@ -134,6 +131,7 @@ tracks/5/keys = {
 
 [node name="Player" type="KinematicBody" groups=[
 "player",
+"users",
 ]]
 collision_layer = 2
 collision_mask = 7
