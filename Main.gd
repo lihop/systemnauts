@@ -1,11 +1,14 @@
 extends MarginContainer
 
+
+const TUTORIAL_SCENE = "res://scenes/tutorial/tutorial.tscn"
+const WEB_SERVER_SCENE = "res://scenes/web_server/WebServer.tscn"
+
 export var fast_close := true
 var mouse_mode: String = "CAPTURED"
 
-
 func _on_NewGame_pressed():
-	LevelManager.start_level("res://scenes/tutorial/tutorial.tscn")
+	LevelManager.start_level(TUTORIAL_SCENE)
 
 
 func _input(event):
