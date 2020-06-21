@@ -8,7 +8,7 @@ export var fast_close := true
 var mouse_mode: String = "CAPTURED"
 
 func _on_NewGame_pressed():
-	LevelManager.start_level(TUTORIAL_SCENE)
+	LevelManager.start_level(WEB_SERVER_SCENE)
 
 
 func _input(event):

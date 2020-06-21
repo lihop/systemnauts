@@ -9,6 +9,14 @@ export(String) var username setget ,_get_username
 
 export(NodePath) var dialogue_terminal
 
+export var fast_close := true
+var mouse_mode: String = "CAPTURED"
+
+var controller = true
+var joy_y := 0.0
+var joy_x := 0.0
+var controller_view_sensitivity := 100
+
 var has_sudo := false
 
 var carried_object = null
@@ -111,6 +119,14 @@ func _process(d):
 
 	var dir = (get_node("Yaw/Camera/look_at").get_global_transform().origin - get_node("Yaw/Camera").get_global_transform().origin).normalized()
 	look_vector = dir
+	
+# Controller stuff
+	if controller:
+		yaw = fmod(yaw - joy_x * controller_view_sensitivity * d, 360)
+		pitch = max(min(pitch - joy_y * controller_view_sensitivity * d, 89), -89)
+		$Yaw.rotation = Vector3(0, deg2rad(yaw), 0)
+		$Yaw/Camera.rotation = Vector3(deg2rad(pitch), 0, 0)
+
 
 
 func _physics_process(delta): #IS PLAYER MOVING NORMALLY OR ON LADDER?
@@ -302,12 +318,31 @@ func _unhandled_input(event):
 		pitch = max(min(pitch - event.relative.y * view_sensitivity, 89), -89)
 		$Yaw.rotation = Vector3(0, deg2rad(yaw), 0)
 		$Yaw/Camera.rotation = Vector3(deg2rad(pitch), 0, 0)
+	
+	if controller:
+		if event is InputEventJoypadMotion:
+			match event.axis:
+				3: # right stick y
+					joy_y = event.axis_value
+				2: # right stick x
+					joy_x = event.axis_value
 
 
 #######################################################################################################
 # BUTTON PRESSING
 #######################################################################################################
-func _input(event):
+func _input(event):	
+	if event.is_action_pressed("ui_cancel") and fast_close:
+		get_tree().quit() # Quits the game
+	
+	if event.is_action_pressed("mouse_input") and fast_close:
+		match mouse_mode: # Switch statement in GDScript
+			"CAPTURED":
+				Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+				mouse_mode = "VISIBLE"
+			"VISIBLE":
+				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+				mouse_mode = "CAPTURED"
 
 	if event.is_action_pressed("reset"):
 		get_tree().reload_current_scene()

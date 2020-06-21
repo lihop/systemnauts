@@ -7,16 +7,12 @@
 [ext_resource path="res://objects/keypad/Keypad.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/keypad/KeypadVM.gd" type="Script" id=6]
 [ext_resource path="res://objects/cyberspace/consumables/sudocan/SudoCan.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/CargoBay.tscn" type="PackedScene" id=8]
+[ext_resource path="res://rooms/cyberspace/cargo_bay/CargoBay.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/tutorial/tutorial_environment.tres" type="Environment" id=9]
 [ext_resource path="res://addons/Sky/sky_texture.tscn" type="PackedScene" id=10]
 [ext_resource path="res://common/music/the-reaper-cometh-master.ogg" type="AudioStream" id=11]
 [ext_resource path="res://systems/os/FileVM.tscn" type="PackedScene" id=14]
 [ext_resource path="res://systems/users/human_users/npcs/godette/Godette.tscn" type="PackedScene" id=15]
-
-
-
-
 
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 3, 3, 3 )
@@ -39,7 +35,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 1 )
 type = 1
 absolute_path = "/training/a"
 file_owner = "godette"
-file_group = "godette"
+file_group = "users"
 
 [node name="DirectoryB" parent="." instance=ExtResource( 14 )]
 type = 1

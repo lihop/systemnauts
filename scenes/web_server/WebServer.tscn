@@ -1,0 +1,232 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://rooms/cyberspace/cargo_bay/CargoBay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/cyberspace/common/tile/Tile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://systems/os/file/UnixDirectory.gd" type="Script" id=4]
+[ext_resource path="res://rooms/cyberspace/common/door/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://common/images/neon_sky.hdr" type="Texture" id=6]
+
+[sub_resource type="PanoramaSky" id=1]
+radiance_size = 4
+panorama = ExtResource( 6 )
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_energy = 8.0
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_sky_contribution = 0.75
+fog_enabled = true
+glow_enabled = true
+glow_strength = 1.24
+glow_bloom = 1.0
+glow_hdr_threshold = 1.97
+glow_hdr_luminance_cap = 12.7
+
+[node name="WebServer" type="Spatial"]
+
+[node name="Door" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 1.74846e-07, -7.64274e-15, 0, -4.37114e-08, -1, -1.74846e-07, 1, -4.37114e-08, 3, 3, 2 )
+directory_a = NodePath("../Rooms/CargoBay/Directory")
+directory_b = NodePath("../Rooms/Html/Directory")
+
+[node name="Rooms" type="Spatial" parent="."]
+
+[node name="CargoBay" parent="Rooms" instance=ExtResource( 2 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -7 )
+
+[node name="Directory" type="Node" parent="Rooms/CargoBay"]
+script = ExtResource( 4 )
+absolute_path = "/training/a"
+file_owner = "leroy"
+file_group = "users"
+
+[node name="Html" type="Spatial" parent="Rooms"]
+
+[node name="Directory" type="Node" parent="Rooms/Html"]
+script = ExtResource( 4 )
+absolute_path = "/var/www/html"
+file_owner = "leroy"
+file_group = "users"
+
+[node name="Floor" type="Spatial" parent="Rooms/Html"]
+
+[node name="Tile" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 5 )
+
+[node name="Tile21" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 5 )
+
+[node name="Tile2" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 5 )
+
+[node name="Tile3" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 5 )
+
+[node name="Tile4" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 5 )
+
+[node name="Tile5" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 5 )
+
+[node name="Tile6" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 5 )
+
+[node name="Tile12" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 11 )
+
+[node name="Tile20" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 11 )
+
+[node name="Tile11" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 11 )
+
+[node name="Tile10" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 11 )
+
+[node name="Tile9" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 11 )
+
+[node name="Tile8" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 11 )
+
+[node name="Tile7" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 11 )
+
+[node name="Tile18" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 17 )
+
+[node name="Tile19" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 17 )
+
+[node name="Tile17" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, 17 )
+
+[node name="Tile16" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 17 )
+
+[node name="Tile15" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 17 )
+
+[node name="Tile14" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 17 )
+
+[node name="Tile13" parent="Rooms/Html/Floor" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 17 )
+
+[node name="Walls" type="Spatial" parent="Rooms/Html"]
+
+[node name="Tile" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 3, 20 )
+
+[node name="Tile2" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 9, 20 )
+
+[node name="Tile3" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 9, 20 )
+
+[node name="Tile4" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 3, 20 )
+
+[node name="Tile5" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 9, 20 )
+
+[node name="Tile6" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 9, 20 )
+
+[node name="Tile7" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 9, 20 )
+
+[node name="Tile9" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 15, 9, 20 )
+
+[node name="Tile10" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 9, 20 )
+
+[node name="Tile11" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 3, 20 )
+
+[node name="Tile13" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 24, 9, 17 )
+
+[node name="Tile12" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 24, 3, 17 )
+
+[node name="Tile15" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 24, 9, 11 )
+
+[node name="Tile14" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 24, 3, 11 )
+
+[node name="Tile17" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 24, 9, 5 )
+
+[node name="Tile16" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, 24, 3, 5 )
+
+[node name="Tile23" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -18, 9, 17 )
+
+[node name="Tile22" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -18, 3, 17 )
+
+[node name="Tile21" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -18, 9, 11 )
+
+[node name="Tile20" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -18, 3, 11 )
+
+[node name="Tile19" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -18, 9, 5 )
+
+[node name="Tile18" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( -4.37114e-08, -1, -4.37114e-08, 0, -4.37114e-08, 1, -1, 4.37114e-08, 1.91069e-15, -18, 3, 5 )
+
+[node name="Tile29" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 9, 2 )
+
+[node name="Tile28" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -15, 3, 2 )
+
+[node name="Tile27" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 9, 2 )
+
+[node name="Tile26" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -9, 3, 2 )
+
+[node name="Tile25" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 9, 2 )
+
+[node name="Tile24" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3, 3, 2 )
+
+[node name="Tile35" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 9, 2 )
+
+[node name="Tile36" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3, 9, 2 )
+
+[node name="Tile34" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 3, 2 )
+
+[node name="Tile33" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 15, 9, 2 )
+
+[node name="Tile32" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 15, 3, 2 )
+
+[node name="Tile31" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 9, 2 )
+
+[node name="Tile30" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 21, 3, 2 )
+
+[node name="Tile8" parent="Rooms/Html/Walls" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 9, 3, 20 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+single_player = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )

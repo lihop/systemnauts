@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://systems/os/File.gd" type="Script" id=1]
-
+[ext_resource path="res://systems/os/file/UnixFile.gd" type="Script" id=1]
 
 [node name="File" type="Node"]
 script = ExtResource( 1 )
