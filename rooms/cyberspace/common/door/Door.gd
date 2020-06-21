@@ -96,9 +96,9 @@ func _get_directory(body) -> String:
 	var fA = A.basis.y
 	
 	if AB.dot(fA) > 0:
-		return _directory_a.absolute_path
-	else:
 		return _directory_b.absolute_path
+	else:
+		return _directory_a.absolute_path
 
 
 func _physics_process(delta):
