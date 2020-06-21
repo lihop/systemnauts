@@ -62,13 +62,16 @@ var type
 onready var _OS = get_node(machine)
 
 func _ready():
+	add_to_group("files", true)
+	
 	if create:
 		_create()
 	#_ensure_file_exists()
 	#_update_file_owner()
 	#_update_file_group()
 	#_update_file_mode()
-	pass
+	create = false
+	overwrite = false
 
 
 func _update_file_attributes(new_attributes = null):
