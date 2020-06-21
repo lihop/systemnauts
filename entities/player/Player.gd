@@ -15,7 +15,7 @@ var mouse_mode: String = "CAPTURED"
 var controller = true
 var joy_y := 0.0
 var joy_x := 0.0
-var controller_view_sensitivity := 100
+var controller_view_sensitivity := 150
 
 var has_sudo := false
 
