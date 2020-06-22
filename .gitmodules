@@ -1,3 +1,6 @@
 [submodule "decalco"]
 	path = decalco
 	url = https://github.com/Master-J/DecalCo
+[submodule "addons/raygui-godot-theme"]
+	path = addons/raygui-godot-theme
+	url = https://github.com/lihop/raygui-godot-theme.git
