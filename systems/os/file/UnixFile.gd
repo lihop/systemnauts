@@ -48,6 +48,7 @@ const CLASS_WORLD = Classes.WORLD
 
 export(NodePath) var machine = "/root/WorldMachine/machine"
 export(String) var absolute_path
+export(String) var file_name
 export(String) var file_owner
 export(String) var file_group
 export(String) var file_mode
@@ -64,6 +65,9 @@ onready var _OS = get_node(machine)
 func _ready():
 	add_to_group("files", true)
 	
+	if file_name:
+		absolute_path = "%s/%s" % [absolute_path, file_name]
+	
 	if create:
 		_create()
 	#_ensure_file_exists()
@@ -72,6 +76,12 @@ func _ready():
 	#_update_file_mode()
 	create = false
 	overwrite = false
+
+
+func _update_file_name(path: String):
+	var result = yield(_OS.execute("basename", [path]), "completed")
+	file_name = result.output[0]
+	
 
 
 func _update_file_attributes(new_attributes = null):

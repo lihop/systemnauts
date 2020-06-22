@@ -14,7 +14,7 @@
         };
       };
 
-      fileSystems."/game" = {
+      fileSystems."/home/leroy/projects/systemnauts" = {
         device = "game";
         fsType = "vboxsf";
       };
