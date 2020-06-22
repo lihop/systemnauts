@@ -4,3 +4,6 @@
 [submodule "addons/raygui-godot-theme"]
 	path = addons/raygui-godot-theme
 	url = https://github.com/lihop/raygui-godot-theme.git
+[submodule "addons/godot-skybox-shader"]
+	path = addons/godot-skybox-shader
+	url = https://github.com/JohanAR/godot-skybox-shader.git
