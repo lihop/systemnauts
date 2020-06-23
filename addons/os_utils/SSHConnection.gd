@@ -10,12 +10,16 @@ export(int) var port := 22
 # Where to create the socket for this connection.
 export(String) var control_path_prefix := "user://"
 export(bool) var auto_connect = false
+export(bool) var disabled = OS.has_feature("Server")
 
 var control_path
 var _streams := []
 
 
 func _ready():
+	if disabled:
+		return
+	print("starting ssh connection")
 	control_path = ProjectSettings.globalize_path("%s/%s-%s-%d" % \
 			[control_path_prefix, user, host, port])
 	
@@ -29,6 +33,9 @@ func _enter_tree():
 
 
 func connect_to_host() -> int:
+	if disabled:
+		return 0
+	
 	if is_connected_to_host():
 		return OK
 	

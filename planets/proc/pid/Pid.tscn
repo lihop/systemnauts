@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://planets/proc/pid/models/pid.glb" type="PackedScene" id=1]
+[ext_resource path="res://planets/proc/pid/Pid.gd" type="Script" id=2]
+
+[node name="Pid" instance=ExtResource( 1 )]
+script = ExtResource( 2 )

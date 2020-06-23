@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://bin/posix_file_directory.gdns" type="Script" id=1]
+[ext_resource path="res://planets/home/home.tscn" type="PackedScene" id=2]
+
+[sub_resource type="ProceduralSky" id=1]
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+
+[node name="OperatingSystem" type="WorldEnvironment"]
+environment = SubResource( 2 )
+
+[node name="root" type="Node" parent="."]
+script = ExtResource( 1 )
+
+[node name="bin" type="Spatial" parent="root"]
+
+[node name="bin" type="Node" parent="root/bin"]
+
+[node name="boot" type="Spatial" parent="root"]
+
+[node name="boot" type="Node" parent="root/boot"]
+
+[node name="dev" type="Spatial" parent="root"]
+
+[node name="dev" type="Node" parent="root/dev"]
+
+[node name="etc" type="Spatial" parent="root"]
+
+[node name="etc" type="Node" parent="root/etc"]
+
+[node name="home" parent="root" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20.4, 0 )
+
+[node name="nix" type="Spatial" parent="root"]
+
+[node name="nix" type="Node" parent="root/nix"]
+
+[node name="proc" type="Spatial" parent="root"]
+
+[node name="proc" type="Node" parent="root/proc"]
+
+[node name="root" type="Spatial" parent="root"]
+
+[node name="root" type="Node" parent="root/root"]
+
+[node name="run" type="Spatial" parent="root"]
+
+[node name="run" type="Node" parent="root/run"]
+
+[node name="srv" type="Spatial" parent="root"]
+
+[node name="srv" type="Node" parent="root/srv"]
+
+[node name="sys" type="Spatial" parent="root"]
+
+[node name="sys" type="Node" parent="root/sys"]
+
+[node name="tmp" type="Spatial" parent="root"]
+
+[node name="tmp" type="Node" parent="root/tmp"]
+
+[node name="usr" type="Spatial" parent="root"]
+
+[node name="usr" type="Node" parent="root/usr"]
+
+[node name="var" type="Spatial" parent="root"]
+
+[node name="var" type="Node" parent="root/var"]

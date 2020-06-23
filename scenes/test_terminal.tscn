@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://addons/godot_xterm_native/terminal.gdns" type="Script" id=1]
+[ext_resource path="res://scenes/test_terminal.gd" type="Script" id=2]
+[ext_resource path="res://scenes/SSHShell.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/terminal_theme.theme" type="Theme" id=6]
+[ext_resource path="res://addons/CRTShader.shader" type="Shader" id=7]
+[ext_resource path="res://addons/white.png" type="Texture" id=8]
+
+[sub_resource type="ShaderMaterial" id=1]
+render_priority = 1
+shader = ExtResource( 7 )
+shader_param/screen_width = 1024.0
+shader_param/screen_height = 600.0
+shader_param/BarrelPower = 1.1
+shader_param/color_bleeding = 1.2
+shader_param/bleeding_range_x = 3.0
+shader_param/bleeding_range_y = 3.0
+shader_param/lines_distance = 4.0
+shader_param/scan_size = 2.0
+shader_param/scanline_alpha = 0.9
+shader_param/lines_velocity = 30.0
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 7 )
+shader_param/screen_width = 1024.0
+shader_param/screen_height = 768.0
+shader_param/BarrelPower = 1.1
+shader_param/color_bleeding = 1.2
+shader_param/bleeding_range_x = 0.5
+shader_param/bleeding_range_y = 0.5
+shader_param/lines_distance = 4.0
+shader_param/scan_size = 2.0
+shader_param/scanline_alpha = 0.9
+shader_param/lines_velocity = 30.0
+
+[node name="TestTerminal" type="Control"]
+material = SubResource( 1 )
+margin_right = 800.0
+margin_bottom = 600.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Terminal" type="Control" parent="."]
+margin_right = 800.0
+margin_bottom = 600.0
+theme = ExtResource( 6 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Shader" type="TextureRect" parent="."]
+material = SubResource( 2 )
+margin_right = 800.0
+margin_bottom = 600.0
+texture = ExtResource( 8 )
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShellHuman" parent="." instance=ExtResource( 3 )]

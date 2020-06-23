@@ -10,3 +10,9 @@ mono_crash.*.json
 
 # Blender-specific ignores
 *.blend?
+
+# Scons-specific ignores
+*.sconsign.dblite
+
+# Other igonres
+.vscode/include/*

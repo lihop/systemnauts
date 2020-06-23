@@ -8,8 +8,13 @@ var _ssh_connection: SSHConnection
 var _socat_pid: int
 var _stream_peer: StreamPeerUnix
 
+export(bool) var disabled = OS.has_feature("Server")
+
 
 func _ready():
+	if disabled:
+		return
+	
 	_ssh_connection = get_node(ssh_connection)
 	
 	var ssh_path = _ssh_connection.ssh_path
@@ -35,6 +40,9 @@ func _ready():
 
 
 func _process(delta):
+	if disabled:
+		return
+	
 	# Poll _stream_peer for data.
 	if _stream_peer.get_status() == StreamPeerUnix.STATUS_CONNECTED:
 		var available_bytes = _stream_peer.get_available_bytes()

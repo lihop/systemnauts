@@ -7,3 +7,7 @@
 [submodule "addons/godot-skybox-shader"]
 	path = addons/godot-skybox-shader
 	url = https://github.com/JohanAR/godot-skybox-shader.git
+[submodule "native/godot-cpp"]
+	path = native/godot-cpp
+	url = https://github.com/GodotNativeTools/godot-cpp
+	branch = 3.2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://rooms/cyberspace/common/tile/Tile.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/SIsilicon.3d.text/label_3d.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://scenes/tutorial/tutorial_environment.tres" type="Environment" id=4]
 [ext_resource path="res://rooms/cyberspace/common/trap_door/TrapDoor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://objects/cyberspace/furniture/cube/Cube.tscn" type="PackedScene" id=6]
+[ext_resource path="res://objects/gadgets/terminal/terminal.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 75
@@ -53,5 +54,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3 )
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = ExtResource( 4 )
 
+[node name="terminal" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7, 2.375, 1 )
+
 [node name="cube" parent="." instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -5 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 1, 1 )

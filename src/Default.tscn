@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Theme/RayTheme/Default/RayGui.tres" type="Theme" id=1]
+[ext_resource path="res://src/Default.gd" type="Script" id=8]
+
+[node name="Control" type="Control"]
+theme = ExtResource( 1 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ -162.851 ]
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 358.32
+margin_top = 169.84
+margin_right = 538.32
+margin_bottom = 236.84
+rect_scale = Vector2( 0.744883, 0.751655 )
+text = "Click me"
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 229.627
+margin_top = 274.937
+margin_right = 473.627
+margin_bottom = 397.937
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

@@ -4,6 +4,7 @@ extends KinematicBody
 
 signal username_changed()
 signal groups_changed()
+signal world_change_requested(world_name, scene_path)
 
 export(String) var username setget ,_get_username
 
@@ -142,15 +143,15 @@ func _physics_process(delta): #IS PLAYER MOVING NORMALLY OR ON LADDER?
 var direction = Vector3()
 func _process_movements(delta):
 	if single_player or is_network_master():
-		var up = Input.is_action_pressed("ui_up")
-		var down = Input.is_action_pressed("ui_down")
-		var left = Input.is_action_pressed("ui_left")
-		var right = Input.is_action_pressed("ui_right")
+		var up = Input.is_action_pressed("move_forward")
+		var down = Input.is_action_pressed("move_backward")
+		var left = false #Input.is_action_pressed("ui_left")
+		var right = false #Input.is_action_pressed("ui_right")
 	
-		var jump = Input.is_action_pressed("jump")
+		var jump = false #Input.is_action_pressed("jump")
 	
-		var sprint = Input.is_action_pressed("sprint")
-		var walk = Input.is_action_pressed("walk")
+		var sprint = false #Input.is_action_pressed("sprint")
+		var walk = false #Input.is_action_pressed("walk")
 	
 		var aim = $Yaw/Camera.get_camera_transform().basis
 	
@@ -263,13 +264,13 @@ func _process_on_ladder(delta):
 	if single_player or is_network_master():
 		var up = Input.is_action_pressed("ui_up")
 		var down = Input.is_action_pressed("ui_down")
-		var left = Input.is_action_pressed("ui_left")
-		var right = Input.is_action_pressed("ui_right")
+		var left = false #Input.is_action_pressed("ui_left")
+		var right = false #Input.is_action_pressed("ui_right")
 	
-		var jump = Input.is_action_pressed("jump")
-	
-		var sprint = Input.is_action_pressed("sprint")
-		var walk = Input.is_action_pressed("walk")
+		var jump = false #Input.is_action_pressed("jump")
+
+		var sprint = false #Input.is_action_pressed("sprint")
+		var walk = false #Input.is_action_pressed("walk")
 	
 		#read camera basis (rotation)
 		var aim = $Yaw/Camera.get_camera_transform().basis
@@ -331,7 +332,8 @@ func _unhandled_input(event):
 #######################################################################################################
 # BUTTON PRESSING
 #######################################################################################################
-func _input(event):	
+func _input(event):
+	print("player _input")
 	if event.is_action_pressed("ui_cancel") and fast_close:
 		get_tree().quit() # Quits the game
 	
@@ -371,6 +373,21 @@ func _input(event):
 			print(x.get_name())
 			if x.has_method("interact"):
 				x.interact(self)
+	
+#	# Look
+#	if event is InputEventMouseMotion:
+#		yaw = fmod(yaw - event.relative.x * view_sensitivity, 360)
+#		pitch = max(min(pitch - event.relative.y * view_sensitivity, 89), -89)
+#		$Yaw.rotation = Vector3(0, deg2rad(yaw), 0)
+#		$Yaw/Camera.rotation = Vector3(deg2rad(pitch), 0, 0)
+#
+#	if controller:
+#		if event is InputEventJoypadMotion:
+#			match event.axis:
+#				3: # right stick y
+#					joy_y = event.axis_value
+#				2: # right stick x
+#					joy_x = event.axis_value
 
 
 
@@ -448,3 +465,7 @@ func consume(consumable):
 # Call the player using the DialogueTerminal
 func start_incoming_call():
 	$HUD.DialogueTerminal.call()
+
+
+remotesync func request_world_change(world_name, scene_name):
+	emit_signal("world_change_requested", world_name, scene_name)

@@ -7,6 +7,11 @@ const WEB_SERVER_SCENE = "res://scenes/web_server/WebServer.tscn"
 export var fast_close := true
 var mouse_mode: String = "CAPTURED"
 
+
+func _ready():
+	pass
+
+
 func _on_NewGame_pressed():
 	LevelManager.start_level(WEB_SERVER_SCENE)
 

@@ -2,7 +2,7 @@ extends Node
 
 
 const SERVER_PORT := 7154
-const MAX_PLAYERS := 10 # Although this is a single player server, if we set
+const MAX_PLAYERS := 4095 # Although this is a single player server, if we set
 # MAX_PLAYERS to 1 it takes a while for the server to register that we disconnected
 # and so we can't join the server again for a while.
 
@@ -11,6 +11,7 @@ var _level: PackedScene
 
 
 func _ready():
+	print("level manager begin ready")
 	if OS.has_feature("Server"):
 		_network_peer = NetworkedMultiplayerENet.new()
 		_network_peer.create_server(SERVER_PORT, MAX_PLAYERS)
@@ -34,7 +35,7 @@ func start_level(level: String) -> void:
 	get_tree().network_peer = _network_peer
 	
 	# Make a VM node puppet of the level server.
-	VM.set_network_master(1)
+	#VM.set_network_master(1)
 
 
 func _peer_connected(id):

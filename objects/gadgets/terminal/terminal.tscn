@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/gadgets/terminal/models/terminal.glb" type="PackedScene" id=1]
+[ext_resource path="res://scenes/test_terminal.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/gadgets/terminal/terminal.gd" type="Script" id=3]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+albedo_texture = SubResource( 1 )
+
+[node name="terminal" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Viewport" type="Viewport" parent="." index="0"]
+size = Vector2( 1950, 1600 )
+handle_input_locally = false
+msaa = 4
+
+[node name="TestTerminal" parent="Viewport" index="0" instance=ExtResource( 2 )]
+margin_left = 950.0
+margin_top = 650.0
+margin_right = 1650.0
+margin_bottom = 950.0
+
+[node name="terminal" parent="." index="1"]
+material/1 = null
+
+[node name="terminal-screen" parent="terminal" index="0"]
+material/0 = SubResource( 2 )

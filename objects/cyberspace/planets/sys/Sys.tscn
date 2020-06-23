@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://objects/cyberspace/planets/sys/models/sys.glb" type="PackedScene" id=1]
+[ext_resource path="res://objects/cyberspace/planets/common/Planet.gd" type="Script" id=2]
+
+[sub_resource type="ConvexPolygonShape" id=1]
+
+[node name="Sys" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+orbital_speed = 0.0
+
+[node name="SysDirectory" type="Area" parent="." index="0"]
+
+[node name="CollisionShape" type="CollisionShape" parent="SysDirectory" index="0"]
+shape = SubResource( 1 )
