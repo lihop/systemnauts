@@ -1,11 +1,24 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Theme/RayTheme/Default/RayGui.tres" type="Theme" id=1]
-[ext_resource path="res://src/Default.gd" type="Script" id=8]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+var i:int = 1
+
+func _on_Button_pressed() -> void:
+	_button_Pressed_funcs()
+	i = i + 1
+	
+func _button_Pressed_funcs() -> void:
+	print(\"Button Clicked \" , i , \" time/s.\")
+
+"
 
 [node name="Control" type="Control"]
 theme = ExtResource( 1 )
-script = ExtResource( 8 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false,
 "_edit_vertical_guides_": [ -162.851 ]

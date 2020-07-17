@@ -333,7 +333,6 @@ func _unhandled_input(event):
 # BUTTON PRESSING
 #######################################################################################################
 func _input(event):
-	print("player _input")
 	if event.is_action_pressed("ui_cancel") and fast_close:
 		get_tree().quit() # Quits the game
 	

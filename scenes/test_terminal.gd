@@ -29,7 +29,9 @@ func _input(event):
 		
 		# TODO: Handle more of these.
 		if (event.control and event.scancode == KEY_C):
-			data.append(3)
+			data.append(3) # ETX (end of text)
+		elif (event.control and event.scancode == KEY_B):
+			data.append(2) # STX (start of text)
 		elif event.unicode:
 			data.append(event.unicode)
 		elif event.scancode == KEY_ENTER:
@@ -40,6 +42,22 @@ func _input(event):
 			data.append(27)
 		elif event.scancode == KEY_TAB:
 			data.append(9)
+		elif event.scancode == KEY_LEFT:
+			data.append(27) # ESC
+			data.append(91) # [
+			data.append(68) # D
+		elif event.scancode == KEY_UP:
+			data.append(27) # ESC
+			data.append(91) # [
+			data.append(65) # A
+		elif event.scancode == KEY_RIGHT:
+			data.append(27) # ESC
+			data.append(91) # [
+			data.append(67) # C
+		elif event.scancode == KEY_DOWN:
+			data.append(27) # ESC
+			data.append(91) # [
+			data.append(66) # B
 		elif OS.get_scancode_string(event.scancode) == "Shift":
 			pass
 		elif OS.get_scancode_string(event.scancode) == "Control":

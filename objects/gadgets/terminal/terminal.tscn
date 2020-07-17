@@ -16,17 +16,17 @@ script = ExtResource( 3 )
 
 [node name="Viewport" type="Viewport" parent="." index="0"]
 size = Vector2( 1950, 1600 )
+transparent_bg = true
 handle_input_locally = false
 msaa = 4
+hdr = false
+usage = 0
 
 [node name="TestTerminal" parent="Viewport" index="0" instance=ExtResource( 2 )]
 margin_left = 950.0
 margin_top = 650.0
 margin_right = 1650.0
 margin_bottom = 950.0
-
-[node name="terminal" parent="." index="1"]
-material/1 = null
 
 [node name="terminal-screen" parent="terminal" index="0"]
 material/0 = SubResource( 2 )

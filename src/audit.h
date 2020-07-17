@@ -35,6 +35,8 @@ private:
 
 	static std::map<String, PosixFileDirectory *> directories;
 
+	static std::map<String, std::vector<Ref<FuncRef> > > watches;
+
 	bool auditing;
 	std::mutex auditing_mutex;
 
@@ -54,6 +56,9 @@ public:
 
 	void register_directory(PosixFileDirectory *directory);
 	void unregister_directory(PosixFileDirectory *directory);
+
+	void register_watch(String path, Variant callback);
+	void unregister_watch(String path, Variant callback);
 
 	enum AuditEventType {
 		AUDIT_EVENT_OTHER,

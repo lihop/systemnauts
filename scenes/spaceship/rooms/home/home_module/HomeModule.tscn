@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/spaceship/architecture/meshlib/spaceship.meshlib" type="MeshLibrary" id=1]
+[ext_resource path="res://scenes/spaceship/rooms/home/home_module/HomeModule.gd" type="Script" id=2]
+
+
+
+[node name="HomeModule" type="Spatial"]
+script = ExtResource( 2 )
+slots = 4
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource( 1 )
+cell_size = Vector3( 3, 6, 3 )
+cell_center_y = false
+data = {
+"cells": PoolIntArray( 0, 0, 655362, 1, 0, 1441792, 65534, 0, 655360, 65535, 0, 655362, 0, 65526, 536870915, 1, 65526, 536870912, 65534, 65526, 1048576, 65535, 65526, 536870915, 0, 65527, 1048578, 1, 65527, 1441795, 65534, 65527, 1048579, 65535, 65527, 1048578, 0, 65528, 1048578, 1, 65528, 1441795, 65534, 65528, 1048579, 65535, 65528, 1048578, 0, 65529, 1048578, 1, 65529, 1048578, 65534, 65529, 1048578, 65535, 65529, 1048578, 0, 65530, 1048578, 1, 65530, 1441795, 65534, 65530, 1048579, 65535, 65530, 1048578, 0, 65531, 1048578, 1, 65531, 1441795, 65534, 65531, 1048579, 65535, 65531, 1048578, 0, 65532, 1048578, 1, 65532, 1441795, 65534, 65532, 1048579, 65535, 65532, -535822334, 0, 65533, 1048578, 1, 65533, -535822334, 65534, 65533, 2, 65535, 65533, 1048578, 0, 65534, 1048578, 1, 65534, 1441795, 65534, 65534, -535822333, 65535, 65534, 1048578, 0, 65535, 655362, 1, 65535, -535429117, 65534, 65535, 1048579, 65535, 65535, 655362 )
+}
+__meta__ = {
+"_editor_clip_": 0
+}
+
+[node name="Dock0" type="Spatial" parent="GridMap"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6, 0, -7.5 )
+
+[node name="Dock1" type="Spatial" parent="GridMap"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6, 0, -7.5 )
+
+[node name="Dock2" type="Spatial" parent="GridMap"]
+transform = Transform( 3.69552e-07, 0, -1, 0, 1, 0, 1, 0, 3.69552e-07, 6, 0, -20 )
+
+[node name="Dock3" type="Spatial" parent="GridMap"]
+transform = Transform( -2.8213e-07, 0, 1, 0, 1, 0, -1, 0, -2.8213e-07, -6, 0, -20 )

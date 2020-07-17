@@ -17,10 +17,15 @@ using namespace godot;
 
 std::map<String, PosixFileDirectory *> Audit::directories = {};
 
+std::map<String, std::vector<Ref<FuncRef> > > Audit::watches = {};
+
 void Audit::_register_methods() {
 	register_method("_init", &Audit::_init);
 	register_method("_ready", &Audit::_ready);
 	register_method("_process", &Audit::_process);
+
+	register_method("register_watch", &Audit::register_watch);
+	register_method("unregister_watch", &Audit::unregister_watch);
 }
 
 Audit::Audit() {
@@ -73,12 +78,12 @@ void Audit::_init() {
 }
 
 void Audit::_ready() {
-	if (OS::get_singleton()->has_feature("Server")) {
-		auditing = true;
-		audit_thread = std::thread(&Audit::process_audit_log, this);
-	} else {
-		auditing = false;
-	}
+	//if (OS::get_singleton()->has_feature("Server")) {
+	auditing = true;
+	audit_thread = std::thread(&Audit::process_audit_log, this);
+	//} else {
+	//	auditing = false;
+	//}
 }
 
 void Audit::process_audit_log() {
@@ -90,7 +95,7 @@ void Audit::process_audit_log() {
 	auparse_add_callback(au, handle_event, this, NULL);
 
 	/* Add one rule to rule them all */
-	std::system("auditctl -a always,exit -F dir=/ -p rwxa -F success=1");
+	std::system("auditctl -a always,exit -F dir=/ -p wa -F success=1");
 
 	while (auditing) {
 		int ready = -1;
@@ -174,6 +179,32 @@ void Audit::handle_event(auparse_state_t *au, auparse_cb_event_t cb_event_type, 
 		if (directory) {
 			directory->handle_audit_event(event_type, basename(filename));
 		}
+
+		/* Call registered watches */
+
+		char path[strlen(dirname) + 1 + strlen(filename)];
+		sprintf(path, "%s/%s", dirname, filename);
+
+		Godot::print(path);
+
+		if (Audit::watches.count(path)) {
+			Godot::print("Got a watch!");
+			std::vector<Ref<FuncRef> > callbacks = Audit::watches[path];
+
+			Godot::print(String("callbacks size: {0}").format(Array::make(callbacks.size())));
+
+			for (int i = 0; i < callbacks.size(); i++) {
+				Ref<FuncRef> callback = callbacks[i];
+				callback->call_func();
+
+				if (callback != nullptr) {
+					Godot::print("Calling callback");
+					callback->call_func();
+				} else {
+					Godot::print("null pointer!");
+				}
+			}
+		}
 	}
 }
 
@@ -216,6 +247,21 @@ void Audit::unregister_directory(PosixFileDirectory *directory) {
 	audit_close(fd);
 
 	directories.erase(directory->get_instance_id());
+}
+
+void Audit::register_watch(String path, Variant callback) {
+	Ref<FuncRef> cb = callback;
+
+	if (watches.count(path)) {
+		watches[path].push_back(cb);
+	} else {
+		watches[path] = { cb };
+	}
+	Godot::print("Added watcher for path");
+	Godot::print(path);
+}
+
+void Audit::unregister_watch(String path, Variant callback) {
 }
 
 struct audit_rule_data *Audit::create_rule_data(PosixFileDirectory *directory) {

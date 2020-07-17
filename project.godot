@@ -19,6 +19,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot_xterm/renderer/canvas_rendering_context_2d.gd"
 }, {
+"base": "RigidBody",
+"class": "ConfFile",
+"language": "GDScript",
+"path": "res://scenes/spaceship/objects/gizmos/config_file/scripts/config_file.gd"
+}, {
 "base": "MeshInstance",
 "class": "Decal",
 "language": "GDScript",
@@ -95,14 +100,14 @@ _global_script_classes=[ {
 "path": "res://systems/users/human_users/player/PlayerUser.gd"
 }, {
 "base": "Node",
-"class": "ProcNotifier",
-"language": "GDScript",
-"path": "res://planets/proc/ProcNotifier.gd"
-}, {
-"base": "Node",
 "class": "Process",
 "language": "GDScript",
 "path": "res://systems/os/Process.gd"
+}, {
+"base": "Node2D",
+"class": "ProcessMonitors",
+"language": "GDScript",
+"path": "res://scenes/spaceship/rooms/proc/screen/scripts/screen_contents.gd"
 }, {
 "base": "Sprite3D",
 "class": "Projector",
@@ -148,16 +153,6 @@ _global_script_classes=[ {
 "class": "ShellStream",
 "language": "GDScript",
 "path": "res://systems/os/ShellStream.gd"
-}, {
-"base": "Resource",
-"class": "StateMachine",
-"language": "GDScript",
-"path": "res://addons/fsm/StateMachine.gd"
-}, {
-"base": "Resource",
-"class": "StateMachineFactory",
-"language": "GDScript",
-"path": "res://addons/fsm/StateMachineFactory.gd"
 }, {
 "base": "User",
 "class": "SystemUser",
@@ -652,6 +647,7 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "ArrayUtils": "",
 "CanvasRenderingContext2D": "",
+"ConfFile": "",
 "Decal": "res://addons/decalco/decalco/icons/icon_decal.svg",
 "DirectoryWatcherSSH": "",
 "DirectoryWatcherSSHFactory": "",
@@ -667,8 +663,8 @@ _global_script_class_icons={
 "NormalUser": "",
 "Planet": "",
 "PlayerUser": "",
-"ProcNotifier": "",
 "Process": "",
+"ProcessMonitors": "",
 "Projector": "",
 "RegularFile": "",
 "RemoteMachine": "",
@@ -678,8 +674,6 @@ _global_script_class_icons={
 "ShellHuman": "",
 "ShellNPC": "",
 "ShellStream": "",
-"StateMachine": "",
-"StateMachineFactory": "",
 "SystemUser": "",
 "UnixDirectory": "",
 "UnixFile": "",
@@ -783,7 +777,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Systemnauts"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://scenes/spaceship/Spaceship.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -795,7 +789,7 @@ Audit="*res://bin/audit.gdns"
 
 [editor_plugins]
 
-enabled=PoolStringArray( "SIsilicon.3d.text", "decals", "godot_xterm_native", "gut" )
+enabled=PoolStringArray( "SIsilicon.3d.text", "decals", "godot_xterm_native" )
 
 [importer_defaults]
 
