@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://systems/utility_ai/stats/stat.gd" type="Script" id=1]
+[ext_resource path="res://systems/utility_ai/curves/poly_lower_left.tres" type="Curve" id=2]
+
+[resource]
+script = ExtResource( 1 )
+name = "Bladder"
+value = 0.1
+setpoint = 1.0
+response_curve = ExtResource( 2 )

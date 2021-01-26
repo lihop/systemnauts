@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://maps/test/DistanceToTarget.gd" type="Script" id=1]
+[ext_resource path="res://objects/phone/phone.gd" type="Script" id=3]
+[ext_resource path="res://systems/sound/sound/smart_sound.tscn" type="PackedScene" id=4]
+[ext_resource path="res://objects/phone/assets/final/ringing.wav" type="AudioStream" id=5]
+[ext_resource path="res://objects/phone/SIPClient.cs" type="Script" id=8]
+[ext_resource path="res://objects/phone/smart_object_behaviors.gd" type="Script" id=9]
+[ext_resource path="res://systems/utility_ai/smart_objects/smart_object_action.gd" type="Script" id=10]
+[ext_resource path="res://systems/utility_ai/considerations/object_state_consideration.gd" type="Script" id=13]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 1, 2, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_color = Color( 0.658824, 0, 0, 1 )
+
+[node name="Phone" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="Ring" parent="." instance=ExtResource( 4 )]
+stream = ExtResource( 5 )
+propagated_properties = [ "alerting" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="SIPClient" type="Node" parent="."]
+script = ExtResource( 8 )
+
+[node name="SmartObjectBehaviors" type="Spatial" parent="."]
+script = ExtResource( 9 )
+
+[node name="AnswerPhone" type="Node" parent="SmartObjectBehaviors"]
+script = ExtResource( 10 )
+weight = 4.0
+required_state = {
+"alerting": true
+}
+stat_effects = {
+}
+
+[node name="ObjectHasRequiredState" type="Node" parent="SmartObjectBehaviors/AnswerPhone"]
+script = ExtResource( 13 )
+
+[node name="DistanceToObject" type="Node" parent="SmartObjectBehaviors/AnswerPhone"]
+script = ExtResource( 1 )
+to_param = "object"
+
+[connection signal="CallCancelled" from="SIPClient" to="." method="_on_SIPClient_CallCancelled"]
+[connection signal="CallIncoming" from="SIPClient" to="." method="_on_SIPClient_CallIncoming"]

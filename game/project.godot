@@ -1,0 +1,667 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node",
+"class": "AIAbility",
+"language": "GDScript",
+"path": "res://characters/prefabs/ai_ability.gd"
+}, {
+"base": "Node",
+"class": "AIAction",
+"language": "GDScript",
+"path": "res://systems/utility_ai/ai_action.gd"
+}, {
+"base": "KinematicBody",
+"class": "AIAgent",
+"language": "GDScript",
+"path": "res://characters/prefabs/mobile_agent.gd"
+}, {
+"base": "AIBehavior",
+"class": "AIAgentBehavior",
+"language": "GDScript",
+"path": "res://systems/utility_ai/behaviors/actor_behavior.gd"
+}, {
+"base": "Node",
+"class": "AIBehavior",
+"language": "GDScript",
+"path": "res://systems/utility_ai/ai_behavior.gd"
+}, {
+"base": "Node",
+"class": "AIBrain",
+"language": "GDScript",
+"path": "res://systems/utility_ai/ai_brain.gd"
+}, {
+"base": "Reference",
+"class": "AIContext",
+"language": "GDScript",
+"path": "res://systems/utility_ai/ai_context.gd"
+}, {
+"base": "Reference",
+"class": "AIDecisionContext",
+"language": "GDScript",
+"path": "res://systems/utility_ai/ai_decision_context.gd"
+}, {
+"base": "Ears",
+"class": "AIEars",
+"language": "GDScript",
+"path": "res://characters/sensors/ai_ears.gd"
+}, {
+"base": "Reference",
+"class": "AIEventQueue",
+"language": "GDScript",
+"path": "res://systems/utility_ai/events/ai_event.gd"
+}, {
+"base": "Reference",
+"class": "AIOption",
+"language": "GDScript",
+"path": "res://systems/utility_ai/ai_option.gd"
+}, {
+"base": "Reference",
+"class": "AIParams",
+"language": "GDScript",
+"path": "res://systems/utility_ai/ai_params.gd"
+}, {
+"base": "Reference",
+"class": "ActionCooldown",
+"language": "GDScript",
+"path": "res://craft/test/Consideration.gd"
+}, {
+"base": "Spatial",
+"class": "ActionUsage",
+"language": "GDScript",
+"path": "res://objects/phone/usage_ranges.gd"
+}, {
+"base": "Consideration",
+"class": "ActorWithinRange",
+"language": "GDScript",
+"path": "res://systems/utility_ai/considerations/actor_within_range.gd"
+}, {
+"base": "Reference",
+"class": "Appender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appender.gd"
+}, {
+"base": "Resource",
+"class": "AudioMaterial",
+"language": "GDScript",
+"path": "res://systems/sound/audio_material.gd"
+}, {
+"base": "Spatial",
+"class": "BaseMap",
+"language": "GDScript",
+"path": "res://maps/base_map.gd"
+}, {
+"base": "Reference",
+"class": "Character",
+"language": "GDScript",
+"path": "res://craft/character.gd"
+}, {
+"base": "Node",
+"class": "Consideration",
+"language": "GDScript",
+"path": "res://systems/utility_ai/considerations/consideration.gd"
+}, {
+"base": "Appender",
+"class": "ConsoleAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/console_appender.gd"
+}, {
+"base": "Reference",
+"class": "ConstantConsideration",
+"language": "GDScript",
+"path": "res://craft/test/constant_consideration.gd"
+}, {
+"base": "Reference",
+"class": "DetourNavigation",
+"language": "GDScript",
+"path": "res://systems/navigation/detour_navigation.gd"
+}, {
+"base": "Reference",
+"class": "DetourNavigationMesh",
+"language": "GDScript",
+"path": "res://systems/navigation/detour_navigation_mesh.gd"
+}, {
+"base": "Reference",
+"class": "DetourNavigationMeshInstance",
+"language": "GDScript",
+"path": "res://systems/navigation/detour_navigation_mesh_instance.gd"
+}, {
+"base": "Reference",
+"class": "DistanceToTarget",
+"language": "GDScript",
+"path": "res://craft/test/DistanceToTarget.gd"
+}, {
+"base": "Listener",
+"class": "Ears",
+"language": "GDScript",
+"path": "res://systems/sound/ears/ears.gd"
+}, {
+"base": "Node",
+"class": "FakeThreadPool",
+"language": "GDScript",
+"path": "res://addons/thread_pool/fake_thread_pool.gd"
+}, {
+"base": "Appender",
+"class": "FileAppender",
+"language": "GDScript",
+"path": "res://addons/gs_logger/appenders/file_appender.gd"
+}, {
+"base": "Node",
+"class": "FutureThreadPool",
+"language": "GDScript",
+"path": "res://addons/thread_pool/future_thread_pool.gd"
+}, {
+"base": "Resource",
+"class": "GOAPAction",
+"language": "GDScript",
+"path": "res://addons/goapher/resources/goap_action.gd"
+}, {
+"base": "Node",
+"class": "GOAPActionInstance",
+"language": "GDScript",
+"path": "res://addons/goapher/goap_action.gd"
+}, {
+"base": "Resource",
+"class": "GOAPGoal",
+"language": "GDScript",
+"path": "res://addons/goapher/resources/goap_goal.gd"
+}, {
+"base": "Node",
+"class": "GOAPPlanner",
+"language": "GDScript",
+"path": "res://addons/goapher/goap_planner.gd"
+}, {
+"base": "Resource",
+"class": "GOAPState",
+"language": "GDScript",
+"path": "res://addons/goapher/resources/goap_state.gd"
+}, {
+"base": "SmartObjectAction",
+"class": "GenericSmartObjectAction",
+"language": "GDScript",
+"path": "res://systems/utility_ai/actions/generic_use_object_action.gd"
+}, {
+"base": "BooleanConsideration",
+"class": "HasBlackboardValues",
+"language": "GDScript",
+"path": "res://characters/prefabs/HasBlackboardValue.gd"
+}, {
+"base": "Layout",
+"class": "HtmlLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/html_layout.gd"
+}, {
+"base": "LiquidLayer",
+"class": "LavaLayer",
+"language": "GDScript",
+"path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/lava.gd"
+}, {
+"base": "Reference",
+"class": "Layout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layout.gd"
+}, {
+"base": "Reference",
+"class": "LightingStore",
+"language": "GDScript",
+"path": "res://craft/test/lighting_store.gd"
+}, {
+"base": "Area",
+"class": "LiquidLayer",
+"language": "GDScript",
+"path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid.gd"
+}, {
+"base": "Reference",
+"class": "Message",
+"language": "GDScript",
+"path": "res://addons/gs_logger/message.gd"
+}, {
+"base": "Reference",
+"class": "Mission",
+"language": "GDScript",
+"path": "res://craft/mission.gd"
+}, {
+"base": "Reference",
+"class": "MissionDefinition",
+"language": "GDScript",
+"path": "res://craft/mission_definition.gd"
+}, {
+"base": "QodotWorldspawnLayer",
+"class": "NavigableWorldspawnLayer",
+"language": "GDScript",
+"path": "res://layers/navigable/resource.gd"
+}, {
+"base": "Node",
+"class": "NetworkNode",
+"language": "GDScript",
+"path": "res://systems/networking/network_node.gd"
+}, {
+"base": "Position3D",
+"class": "PatrolPoint",
+"language": "GDScript",
+"path": "res://objects/points_of_interest/patrol_point.gd"
+}, {
+"base": "AIBehavior",
+"class": "PatrolSetRoute",
+"language": "GDScript",
+"path": "res://systems/jobs/security/patrol_set_route.gd"
+}, {
+"base": "Layout",
+"class": "PatternLayout",
+"language": "GDScript",
+"path": "res://addons/gs_logger/layouts/pattern_layout.gd"
+}, {
+"base": "SmartObject",
+"class": "Phone",
+"language": "GDScript",
+"path": "res://objects/phone/phone.gd"
+}, {
+"base": "PhysicsEntity",
+"class": "PhysicsBall",
+"language": "GDScript",
+"path": "res://addons/qodot/game_definitions/fgd/point_classes/physics_ball.gd"
+}, {
+"base": "RigidBody",
+"class": "PhysicsEntity",
+"language": "GDScript",
+"path": "res://addons/qodot/game_definitions/fgd/solid_classes/physics.gd"
+}, {
+"base": "AudioStreamPlayer3D",
+"class": "PropagatedSound",
+"language": "GDScript",
+"path": "res://systems/sound/sound/propagated_sound.gd"
+}, {
+"base": "Reference",
+"class": "QodotDependencies",
+"language": "GDScript",
+"path": "res://addons/qodot/src/util/qodot_dependencies.gd"
+}, {
+"base": "QodotSpatial",
+"class": "QodotEntity",
+"language": "GDScript",
+"path": "res://addons/qodot/src/nodes/qodot_entity.gd"
+}, {
+"base": "QodotFGDClass",
+"class": "QodotFGDBaseClass",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_base_class.gd"
+}, {
+"base": "Resource",
+"class": "QodotFGDClass",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_class.gd"
+}, {
+"base": "Resource",
+"class": "QodotFGDFile",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_file.gd"
+}, {
+"base": "QodotFGDClass",
+"class": "QodotFGDPointClass",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_point_class.gd"
+}, {
+"base": "QodotFGDClass",
+"class": "QodotFGDSolidClass",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/game-definitions/fgd/qodot_fgd_solid_class.gd"
+}, {
+"base": "QodotEntity",
+"class": "QodotLight",
+"language": "GDScript",
+"path": "res://addons/qodot/game_definitions/fgd/point_classes/light.gd"
+}, {
+"base": "QodotSpatial",
+"class": "QodotMap",
+"language": "GDScript",
+"path": "res://addons/qodot/src/nodes/qodot_map.gd"
+}, {
+"base": "EditorPlugin",
+"class": "QodotPlugin",
+"language": "GDScript",
+"path": "res://addons/qodot/src/qodot_plugin.gd"
+}, {
+"base": "KinematicBody",
+"class": "QodotRotateEntity",
+"language": "GDScript",
+"path": "res://addons/qodot/game_definitions/fgd/solid_classes/rotate.gd"
+}, {
+"base": "Spatial",
+"class": "QodotSpatial",
+"language": "GDScript",
+"path": "res://addons/qodot/src/nodes/qodot_spatial.gd"
+}, {
+"base": "Reference",
+"class": "QodotTextureLoader",
+"language": "GDScript",
+"path": "res://addons/qodot/src/util/qodot_texture_loader.gd"
+}, {
+"base": "Reference",
+"class": "QodotUtil",
+"language": "GDScript",
+"path": "res://addons/qodot/src/util/qodot_util.gd"
+}, {
+"base": "Resource",
+"class": "QodotWorldspawnLayer",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/worldspawn_layer.gd"
+}, {
+"base": "Resource",
+"class": "QuakeMapFile",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/quake_map_file.gd"
+}, {
+"base": "EditorImportPlugin",
+"class": "QuakeMapImportPlugin",
+"language": "GDScript",
+"path": "res://addons/qodot/src/import_plugins/quake_map_import_plugin.gd"
+}, {
+"base": "Resource",
+"class": "QuakePaletteFile",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/quake_palette_file.gd"
+}, {
+"base": "EditorImportPlugin",
+"class": "QuakePaletteImportPlugin",
+"language": "GDScript",
+"path": "res://addons/qodot/src/import_plugins/quake_palette_import_plugin.gd"
+}, {
+"base": "Resource",
+"class": "QuakeWadFile",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/quake_wad_file.gd"
+}, {
+"base": "EditorImportPlugin",
+"class": "QuakeWadImportPlugin",
+"language": "GDScript",
+"path": "res://addons/qodot/src/import_plugins/quake_wad_import_plugin.gd"
+}, {
+"base": "LiquidLayer",
+"class": "SlimeLayer",
+"language": "GDScript",
+"path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/slime.gd"
+}, {
+"base": "Spatial",
+"class": "SmartObject",
+"language": "GDScript",
+"path": "res://systems/utility_ai/smart_objects/smart_object.gd"
+}, {
+"base": "AIAction",
+"class": "SmartObjectAction",
+"language": "GDScript",
+"path": "res://systems/utility_ai/smart_objects/smart_object_action.gd"
+}, {
+"base": "AIBehavior",
+"class": "SmartObjectBehaviors",
+"language": "GDScript",
+"path": "res://objects/phone/smart_object_behaviors.gd"
+}, {
+"base": "Sound",
+"class": "SmartObjectSound",
+"language": "GDScript",
+"path": "res://systems/sound/smart_object_sound.gd"
+}, {
+"base": "PropagatedSound",
+"class": "SmartSound",
+"language": "GDScript",
+"path": "res://systems/sound/sound/smart_sound.gd"
+}, {
+"base": "Reference",
+"class": "Splerger",
+"language": "GDScript",
+"path": "res://addons/splerger/splerger.gd"
+}, {
+"base": "Resource",
+"class": "Stat",
+"language": "GDScript",
+"path": "res://systems/utility_ai/stats/stat.gd"
+}, {
+"base": "Consideration",
+"class": "StatEffects",
+"language": "GDScript",
+"path": "res://systems/utility_ai/considerations/stats_effect_consideration.gd"
+}, {
+"base": "Node",
+"class": "StatInstance",
+"language": "GDScript",
+"path": "res://systems/utility_ai/stats/stat_instance.gd"
+}, {
+"base": "Node",
+"class": "Statistic",
+"language": "GDScript",
+"path": "res://characters/statistics/statistic.gd"
+}, {
+"base": "Resource",
+"class": "StatisticState",
+"language": "GDScript",
+"path": "res://characters/statistics/statistic_state.gd"
+}, {
+"base": "Node",
+"class": "Stats",
+"language": "GDScript",
+"path": "res://systems/utility_ai/stats/stats.gd"
+}, {
+"base": "Node",
+"class": "ThreadPool",
+"language": "GDScript",
+"path": "res://addons/thread_pool/thread_pool.gd"
+}, {
+"base": "Resource",
+"class": "TrenchBroomFaceAttrib",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/game-definitions/trenchbroom/trenchbroom_face_attrib.gd"
+}, {
+"base": "Resource",
+"class": "TrenchBroomGameConfigFile",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/game-definitions/trenchbroom/trenchbroom_game_config_file.gd"
+}, {
+"base": "Resource",
+"class": "TrenchBroomGameConfigFolder",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/game-definitions/trenchbroom/trenchbroom_game_config_folder.gd"
+}, {
+"base": "Resource",
+"class": "TrenchBroomTag",
+"language": "GDScript",
+"path": "res://addons/qodot/src/resources/game-definitions/trenchbroom/trenchbroom_tag.gd"
+}, {
+"base": "Resource",
+"class": "Voice",
+"language": "GDScript",
+"path": "res://characters/voices/voice.gd"
+}, {
+"base": "LiquidLayer",
+"class": "WaterLayer",
+"language": "GDScript",
+"path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/water.gd"
+}, {
+"base": "StaticBody",
+"class": "WorldspawnLayer",
+"language": "GDScript",
+"path": "res://layers/worldspawn_layer.gd"
+}, {
+"base": "Reference",
+"class": "paramertized_decision",
+"language": "GDScript",
+"path": "res://craft/test/parameterized_decision.gd"
+} ]
+_global_script_class_icons={
+"AIAbility": "",
+"AIAction": "res://systems/utility_ai/icons/ai_action.svg",
+"AIAgent": "",
+"AIAgentBehavior": "",
+"AIBehavior": "res://systems/utility_ai/icons/ai_behavior_set.svg",
+"AIBrain": "res://systems/utility_ai/icons/ai_brain_icon.svg",
+"AIContext": "",
+"AIDecisionContext": "",
+"AIEars": "",
+"AIEventQueue": "",
+"AIOption": "",
+"AIParams": "",
+"ActionCooldown": "",
+"ActionUsage": "",
+"ActorWithinRange": "",
+"Appender": "",
+"AudioMaterial": "",
+"BaseMap": "",
+"Character": "",
+"Consideration": "res://systems/utility_ai/icons/ai_consideration.svg",
+"ConsoleAppender": "",
+"ConstantConsideration": "",
+"DetourNavigation": "",
+"DetourNavigationMesh": "",
+"DetourNavigationMeshInstance": "",
+"DistanceToTarget": "",
+"Ears": "",
+"FakeThreadPool": "",
+"FileAppender": "",
+"FutureThreadPool": "",
+"GOAPAction": "",
+"GOAPActionInstance": "",
+"GOAPGoal": "",
+"GOAPPlanner": "",
+"GOAPState": "",
+"GenericSmartObjectAction": "",
+"HasBlackboardValues": "",
+"HtmlLayout": "",
+"LavaLayer": "",
+"Layout": "",
+"LightingStore": "",
+"LiquidLayer": "",
+"Message": "",
+"Mission": "",
+"MissionDefinition": "",
+"NavigableWorldspawnLayer": "",
+"NetworkNode": "",
+"PatrolPoint": "",
+"PatrolSetRoute": "",
+"PatternLayout": "",
+"Phone": "",
+"PhysicsBall": "",
+"PhysicsEntity": "",
+"PropagatedSound": "",
+"QodotDependencies": "",
+"QodotEntity": "",
+"QodotFGDBaseClass": "",
+"QodotFGDClass": "",
+"QodotFGDFile": "",
+"QodotFGDPointClass": "",
+"QodotFGDSolidClass": "",
+"QodotLight": "",
+"QodotMap": "",
+"QodotPlugin": "",
+"QodotRotateEntity": "",
+"QodotSpatial": "res://addons/qodot/icons/icon_qodot_spatial.svg",
+"QodotTextureLoader": "",
+"QodotUtil": "",
+"QodotWorldspawnLayer": "",
+"QuakeMapFile": "",
+"QuakeMapImportPlugin": "",
+"QuakePaletteFile": "",
+"QuakePaletteImportPlugin": "",
+"QuakeWadFile": "",
+"QuakeWadImportPlugin": "",
+"SlimeLayer": "",
+"SmartObject": "",
+"SmartObjectAction": "",
+"SmartObjectBehaviors": "",
+"SmartObjectSound": "",
+"SmartSound": "",
+"Splerger": "",
+"Stat": "",
+"StatEffects": "",
+"StatInstance": "res://systems/utility_ai/icons/stat_icon.svg",
+"Statistic": "",
+"StatisticState": "",
+"Stats": "res://systems/utility_ai/icons/stats_icon.svg",
+"ThreadPool": "",
+"TrenchBroomFaceAttrib": "",
+"TrenchBroomGameConfigFile": "",
+"TrenchBroomGameConfigFolder": "",
+"TrenchBroomTag": "",
+"Voice": "",
+"WaterLayer": "",
+"WorldspawnLayer": "",
+"paramertized_decision": ""
+}
+
+[WAT]
+
+Test_Directory="res://tests"
+Results_Directory="res://tests/results/WAT"
+Minimize_Window_When_Running_Tests=false
+TestStrategy={
+}
+Tags=PoolStringArray(  )
+Display=8
+
+[application]
+
+config/name="Systemnauts"
+run/main_scene="res://main.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+Logger="*res://addons/gs_logger/logger.gd"
+SyncRoot="*res://addons/sync_sys/sync_root.gd"
+Server="*res://systems/networking/server.gd"
+Client="*res://systems/networking/client.gd"
+
+[debug]
+
+settings/fps/force_fps=60
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/gs_logger/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/imjp94.yafsm/plugin.cfg", "res://addons/qodot/plugin.cfg", "res://addons/splerger/plugin.cfg", "res://addons/sync_sys/plugin.cfg", "res://addons/thread_pool/plugin.cfg" )
+
+[input]
+
+move_forward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":44,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_backward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":79,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+3d_physics/layer_1="level"
+3d_physics/layer_2="objects"
+3d_physics/layer_3="npc"
+3d_physics/layer_4="player"
+3d_physics/layer_6="sound"
+3d_physics/layer_7="listener"
+
+[logger]
+
+level="DEBUG"
+format="FULL"
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

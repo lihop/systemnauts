@@ -1,0 +1,35 @@
+<Project Sdk="Godot.NET.Sdk/3.2.4">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <RootNamespace>Systemnauts</RootNamespace>
+    <LangVersion>9</LangVersion>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">
+      <Version>1.0.0</Version>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="System.CodeDom">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Collections.Immutable">
+      <Version>5.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="MQTTnet">
+      <Version>3.0.13</Version>
+    </PackageReference>
+    <PackageReference Include="SIPSorcery">
+      <Version>5.0.3</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Fluid-HTN">
+      <HintPath>../thirdparty/fluid-hierarchical-task-network-ext/Fluid-HTN-Ext/bin/Release/netstandard2.0/Fluid-HTN.dll</HintPath>
+    </Reference>
+    <Reference Include="Fluid-HTN-Ext">
+      <HintPath>../thirdparty/fluid-hierarchical-task-network-ext/Fluid-HTN-Ext/bin/Release/netstandard2.0/Fluid-HTN-Ext.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# An example hook script to store metadata information using
+# metastore on each commit.
+#
+# WARNING:
+#
+# If the commit is aborted (e.g. by not entering any synopsis),
+# then updated metastore file (.metadata by default) is not reverted,
+# so its new version remains in the index.
+# To undo any changes in metastore file written since HEAD commit,
+# you may want to reset and checkout HEAD version of the file:
+#
+#     git reset HEAD -- .metadata
+#     git checkout HEAD -- .metadata
+
+cd ../../
+
+MSFILE=".metadata"
+
+exit_on_fail() {
+	"$@"
+	if [ $? -ne 0 ]; then
+		echo "Failed to execute: $@" >&2
+		exit 1
+	fi
+}
+
+exit_on_fail \
+	metastore -s -f "$MSFILE"
+
+# If it's first metastore commit, store again to include $MSFILE in $MSFILE.
+if ! git-ls-tree --name-only HEAD 2>/dev/null | grep -Fqx "$MSFILE"; then
+	exit_on_fail \
+		metastore -s -f "$MSFILE"
+fi
+
+if [ ! -e "$MSFILE" ]; then
+	echo "\"$MSFILE\" missing" >&2
+	exit 1
+fi
+
+exit_on_fail \
+	git-add "$MSFILE"
+
+exit 0

@@ -1,0 +1,88 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" type="Script" id=1]
+[ext_resource path="res://systems/utility_ai/considerations/stats_effect_consideration.gd" type="Script" id=2]
+[ext_resource path="res://systems/utility_ai/actions/generic_use_object_action.gd" type="Script" id=3]
+[ext_resource path="res://addons/imjp94.yafsm/src/states/State.gd" type="Script" id=4]
+[ext_resource path="res://addons/imjp94.yafsm/src/transitions/Transition.gd" type="Script" id=5]
+[ext_resource path="res://addons/imjp94.yafsm/src/states/StateMachine.gd" type="Script" id=6]
+[ext_resource path="res://addons/imjp94.yafsm/src/conditions/Condition.gd" type="Script" id=7]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 4 )
+__meta__ = {
+"graph_offset": Vector2( -40, -60 )
+}
+name = "Entry"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 4 )
+__meta__ = {
+"graph_offset": Vector2( 180, -60 )
+}
+name = "GoTo"
+
+[sub_resource type="Resource" id=9]
+script = ExtResource( 4 )
+__meta__ = {
+"graph_offset": Vector2( 480, -60 )
+}
+name = "UseSmartObject"
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 5 )
+from = "Entry"
+to = "GoTo"
+conditions = {
+}
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 5 )
+from = "Entry"
+to = "GoTo"
+conditions = {
+}
+
+[sub_resource type="Resource" id=7]
+script = ExtResource( 7 )
+name = "arrived"
+
+[sub_resource type="Resource" id=8]
+script = ExtResource( 5 )
+from = "GoTo"
+to = "UseSmartObject"
+conditions = {
+"arrived": SubResource( 7 )
+}
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 6 )
+name = ""
+states = {
+"Entry": SubResource( 1 ),
+"GoTo": SubResource( 2 ),
+"UseSmartObject": SubResource( 9 )
+}
+transitions = {
+"Entry": {
+"GoTo": SubResource( 4 ),
+"State": SubResource( 3 )
+},
+"GoTo": {
+"UseSmartObject": SubResource( 8 )
+}
+}
+
+[node name="GenericUseObjectAction" type="Node"]
+script = ExtResource( 3 )
+
+[node name="StatEffects" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="StateMachinePlayer" type="Node" parent="."]
+script = ExtResource( 1 )
+state_machine = SubResource( 5 )
+process_mode = 0
+
+[connection signal="transited" from="StateMachinePlayer" to="." method="_on_StateMachinePlayer_transited"]
+[connection signal="updated" from="StateMachinePlayer" to="." method="_on_StateMachinePlayer_updated"]

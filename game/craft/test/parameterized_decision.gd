@@ -1,0 +1,2 @@
+class_name paramertized_decision
+extends Decision

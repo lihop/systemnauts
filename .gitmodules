@@ -1,0 +1,42 @@
+[submodule "thirdparty/fluid-hierarchical-task-network-ext"]
+	path = thirdparty/fluid-hierarchical-task-network-ext
+	url = https://github.com/lihop/fluid-hierarchical-task-network-ext
+[submodule "thirdparty/fluid-hierarchical-task-network"]
+	path = thirdparty/fluid-hierarchical-task-network
+	url = https://github.com/lihop/fluid-hierarchical-task-network
+[submodule "engine"]
+	path = engine
+	url = https://github.com/lihop/godot
+[submodule "thirdparty/godothreadpool"]
+	path = thirdparty/godothreadpool
+	url = https://github.com/lihop/godothreadpool
+[submodule "thirdparty/godotdetour"]
+	path = thirdparty/godotdetour
+	url = https://github.com/lihop/godotdetour
+[submodule "thirdparty/qodot-plugin"]
+	path = thirdparty/qodot-plugin
+	url = https://github.com/lihop/qodot-plugin
+[submodule "thirdparty/godot-splerger"]
+	path = thirdparty/godot-splerger
+	url = https://github.com/lawnjelly/godot-splerger
+[submodule "thirdparty/Gut"]
+	path = thirdparty/Gut
+	url = https://github.com/bitwes/Gut
+[submodule "thirdparty/gs-logger"]
+	path = thirdparty/gs-logger
+	url = https://gitlab.com/godot-stuff/gs-logger.git
+[submodule "thirdparty/godot-logger"]
+	path = thirdparty/godot-logger
+	url = https://github.com/KOBUGE-Games/godot-logger
+[submodule "thirdparty/godot-FirstPersonStarter"]
+	path = thirdparty/godot-FirstPersonStarter
+	url = https://github.com/Whimfoome/godot-FirstPersonStarter
+[submodule "thirdparty/gd-YAFSM"]
+	path = thirdparty/gd-YAFSM
+	url = https://github.com/imjp94/gd-YAFSM
+[submodule "nixpkgs"]
+	path = nixpkgs
+	url = https://github.com/lihop/nixpkgs
+[submodule "thirdparty/godot-networked-instancing-example"]
+	path = thirdparty/godot-networked-instancing-example
+	url = https://github.com/Razzeeyy/godot-networked-instancing-example

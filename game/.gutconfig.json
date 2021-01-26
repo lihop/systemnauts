@@ -1,0 +1,8 @@
+{
+  "dirs": [
+    "res://"
+  ],
+  "prefix": "",
+  "suffix": ".test.gd",
+  "include_subdirs": true
+}

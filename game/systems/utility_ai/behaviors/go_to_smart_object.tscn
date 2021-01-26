@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://systems/utility_ai/ai_action.gd" type="Script" id=1]
+[ext_resource path="res://systems/utility_ai/considerations/consideration.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Node
+
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
+
+[node name="GoToSmartObject" type="Node"]
+script = SubResource( 1 )
+
+[node name="WalkToSmartObject" type="Node" parent="."]
+script = ExtResource( 1 )
+weight = 5.0
+tags = [ "LEGS" ]
+
+[node name="HasPathToSmartObject" type="Node" parent="WalkToSmartObject"]
+script = ExtResource( 2 )
+
+[node name="RunToSmartObject_TODO" type="Node" parent="."]
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "TODO: Disabled for now."
+}
+enabled = false
+weight = 6.0
+tags = [ "LEGS" ]
+
+[node name="HasPathToSmartObject" type="Node" parent="RunToSmartObject_TODO"]
+script = ExtResource( 2 )

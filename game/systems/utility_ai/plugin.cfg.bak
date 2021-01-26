@@ -1,0 +1,8 @@
+[plugin]
+
+name="GodotIAUS"
+description="Utility AI for Godot.
+Based on Dave Mark's Infinite Axis Utility System architecture."
+author="Leroy Hopson"
+version="0.0.0"
+script="plugin.gd"

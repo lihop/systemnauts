@@ -1,0 +1,6 @@
+[gd_resource type="Curve" format=2]
+
+[resource]
+resource_local_to_scene = true
+bake_resolution = 1000
+_data = [ Vector2( 0, 1 ), 0.0, -3.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]

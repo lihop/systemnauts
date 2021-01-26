@@ -1,0 +1,86 @@
+@BaseClass = Target[
+]
+
+@BaseClass = Targetname[
+]
+
+@BaseClass color(255 255 40) = Light[
+	_color(color255) : "Light color"  : "255 255 255"
+	delay(choices) : "Attenuation"  = [
+		1 : "Inverse distance falloff"
+		2 : "Inverse distance squared"
+		5 : "Inverse distance squared B"
+		0 : "Linear falloff (Default)"
+		4 : "Local minlight"
+		3 : "No falloff"
+	]
+	light(integer) : "Brightness"  : 300
+	mangle(string) : "Spotlight angle"  : "0.005 0 0"
+	wait(integer) : "Fade distance multiplier"  : 1
+]
+
+@PointClass size(-8 -8 -8, 8 8 8) base(Targetname, Target) = signal : "Signal" [
+	signal_name(string) : "Signal to target"  : ""
+]
+
+@PointClass size(-8 -8 -8, 8 8 8) base(Targetname, Target) = receiver : "Receiver" [
+	receiver_name(string) : ""  : ""
+]
+
+@PointClass size(-8 -8 -8, 8 8 8) base(Light) = light : "Invisible light source" [
+	angle(float) : "Rotation Angle"  : 0
+]
+
+@PointClass size(-8 -8 -8, 8 8 8) = physics_ball : "Physics Ball" [
+	mass(float) : ""  : 1
+	size(float) : ""  : 1
+	velocity(string) : "Initial velocity"  : "0 0 0"
+]
+
+@SolidClass = worldspawn : "World Entity" [
+]
+
+@SolidClass = group : "Brush Group" [
+]
+
+@SolidClass = detail : "Detail Brush" [
+]
+
+@SolidClass = illusionary : "Non-colliding Brush" [
+]
+
+@SolidClass = wall : "Basic entity brush." [
+]
+
+@SolidClass = trigger : "Trigger Volume" [
+]
+
+@SolidClass = mover : "Moving brush." [
+	rotation(string) : ""  : "0 0 0"
+	scale(string) : ""  : "1 1 1"
+	speed(float) : ""  : 1
+	translation(string) : ""  : "0 0 0"
+]
+
+@SolidClass = rotate : "Rotating Brush" [
+	axis(string) : "Rotation Axis"  : "0 1 0"
+	speed(float) : "Rotation Speed"  : 360
+]
+
+@SolidClass = physics : "Physics Brush" [
+	mass(float) : ""  : 1
+	velocity(string) : ""  : "0 0 0"
+]
+
+@SolidClass = button : "Interactive button brush." [
+	axis(string) : ""  : "0 -1 0"
+	depth(float) : ""  : 0.8
+	press_signal_delay(float) : ""  : 0
+	release_delay(float) : ""  : 0
+	release_signal_delay(float) : ""  : 0
+	speed(float) : ""  : 8
+	trigger_signal_delay(float) : ""  : 0
+]
+
+@PointClass color(119 200 0) model("maps/models/palm.obj") size(-128 -128 0, 128 128 704) = Palm : "Palm Tree" [
+]

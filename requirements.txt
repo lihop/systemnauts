@@ -1,0 +1,1 @@
+git+git://github.com/Scony/godot-gdscript-toolkit@60b8ef34ac36a2fa7ad109a2dd6a76e65627a45e

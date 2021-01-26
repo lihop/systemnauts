@@ -1,0 +1,11 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://addons/qodot/src/resources/worldspawn_layer.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+texture = ""
+node_class = ""
+build_visuals = true
+collision_shape_type = 1

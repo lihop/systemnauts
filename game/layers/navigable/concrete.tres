@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource path="res://layers/navigable/resource.gd" type="Script" id=1]
+[ext_resource path="res://systems/sound/audio_material.gd" type="Script" id=2]
+[ext_resource path="res://layers/worldspawn_layer.gd" type="Script" id=3]
+
+[sub_resource type="AudioEffectAmplify" id=1]
+volume_db = -3.0
+
+[sub_resource type="AudioEffectLowPassFilter" id=2]
+cutoff_hz = 300.0
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+effects = [ SubResource( 1 ), SubResource( 2 ) ]
+footstep_sounds = [  ]
+
+[resource]
+script = ExtResource( 1 )
+name = "Concrete"
+texture = "layers/concrete"
+node_class = "StaticBody"
+build_visuals = true
+collision_shape_type = 1
+script_class = ExtResource( 3 )
+area_type = 0
+audio_material = SubResource( 3 )

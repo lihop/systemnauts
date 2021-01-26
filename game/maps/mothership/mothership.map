@@ -1,0 +1,25 @@
+// Game: Systemnauts
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/base;textures/layers;textures/materials;textures/pbr;textures/shaders;textures/special"
+// brush 0
+{
+( -320 -896 -80 ) ( -320 -895 -80 ) ( -320 -896 -79 ) layers/concrete 768 0 0 1 1
+( 512 -1344 -80 ) ( 512 -1344 -79 ) ( 513 -1344 -80 ) layers/concrete -512 0 0 1 1
+( 512 -896 -64 ) ( 513 -896 -64 ) ( 512 -895 -64 ) layers/concrete -512 -768 0 1 1
+( 640 -768 0 ) ( 640 -767 0 ) ( 641 -768 0 ) layers/concrete -512 -768 0 1 1
+( 640 320 -48 ) ( 641 320 -48 ) ( 640 320 -47 ) layers/concrete -512 0 0 1 1
+( 1280 -768 -48 ) ( 1280 -768 -47 ) ( 1280 -767 -48 ) layers/concrete 768 0 0 1 1
+}
+// brush 1
+{
+( -320 -1344 0 ) ( -320 -1343 0 ) ( -320 -1344 1 ) base/uv_test 256 0 0 1 1
+( 0 -1344 0 ) ( 0 -1344 1 ) ( 1 -1344 0 ) base/uv_test 0 0 0 1 1
+( 0 -1344 0 ) ( 1 -1344 0 ) ( 0 -1343 0 ) base/uv_test 0 -256 0 1 1
+( 1280 -1296 448 ) ( 1280 -1295 448 ) ( 1281 -1296 448 ) base/uv_test 0 -256 0 1 1
+( 1280 -1296 16 ) ( 1281 -1296 16 ) ( 1280 -1296 17 ) base/uv_test 0 0 0 1 1
+( 1280 -1296 16 ) ( 1280 -1296 17 ) ( 1280 -1295 16 ) base/uv_test 256 0 0 1 1
+}
+}

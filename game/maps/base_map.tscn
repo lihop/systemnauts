@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
+[ext_resource path="res://definitions/fgd/qodot_fgd.tres" type="Resource" id=3]
+[ext_resource path="res://layers/navigable/concrete.tres" type="Resource" id=5]
+[ext_resource path="res://layers/navigable/asphalt.tres" type="Resource" id=6]
+[ext_resource path="res://systems/navigation/detour_navigation.gd" type="Script" id=9]
+[ext_resource path="res://systems/navigation/detour_navigation_mesh_instance.gd" type="Script" id=10]
+[ext_resource path="res://maps/base_map.gd" type="Script" id=11]
+[ext_resource path="res://systems/navigation/detour_navigation_mesh.gd" type="Script" id=12]
+
+[sub_resource type="SpatialMaterial" id=1]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 12 )
+cellSize = Vector2( 0.1, 0.1 )
+maxNumAgents = 256
+maxAgentSlope = 45.0
+maxAgentHeight = 2.0
+maxAgentClimb = 0.5
+maxAgentRadius = 0.6
+maxEdgeLength = 12.0
+maxSimplificationError = 1.3
+minNumCellsPerIsland = 8
+minCellSpanCount = 20
+maxVertsPerPoly = 6
+tileSize = 42
+layersPerTile = 4
+detailSampleDistance = 6.0
+detailSampleMaxError = 1.0
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 12 )
+cellSize = Vector2( 0.5, 0.35 )
+maxNumAgents = 128
+maxAgentSlope = 45.0
+maxAgentHeight = 4.0
+maxAgentClimb = 0.5
+maxAgentRadius = 2.5
+maxEdgeLength = 12.0
+maxSimplificationError = 1.3
+minNumCellsPerIsland = 8
+minCellSpanCount = 20
+maxVertsPerPoly = 6
+tileSize = 42
+layersPerTile = 4
+detailSampleDistance = 6.0
+detailSampleMaxError = 1.0
+
+[node name="Mission" type="Spatial"]
+script = ExtResource( 11 )
+
+[node name="Navigation" type="Spatial" parent="."]
+script = ExtResource( 9 )
+_num_nav_meshes = 2
+
+[node name="Map" type="Spatial" parent="Navigation"]
+script = ExtResource( 1 )
+map_file = ""
+inverse_scale_factor = 64.0
+entity_fgd = ExtResource( 3 )
+base_texture_dir = "res://textures"
+texture_file_extension = "png"
+worldspawn_layers = [ ExtResource( 6 ), ExtResource( 5 ) ]
+brush_clip_texture = "special/clip"
+face_skip_texture = "special/skip"
+texture_wads = [  ]
+material_file_extension = "tres"
+default_material = SubResource( 1 )
+uv_unwrap_texel_size = 1.0
+print_profiling_data = false
+use_trenchbroom_group_hierarchy = false
+tree_attach_batch_size = 16
+set_owner_batch_size = 16
+
+[node name="SmallNavMesh" type="Spatial" parent="Navigation"]
+script = ExtResource( 10 )
+navmesh = SubResource( 2 )
+
+[node name="LargeNavMesh" type="Spatial" parent="Navigation"]
+script = ExtResource( 10 )
+navmesh = SubResource( 3 )
+
+[connection signal="build_complete" from="Navigation/Map" to="Navigation" method="bake_navigation"]

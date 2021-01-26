@@ -1,0 +1,5 @@
+{
+    "godot_tools.editor_path": "/home/leroy/projects/mainframe-ninjas/engine/bin/godot.x11.opt.tools.64.mono",
+    "gut-extension.additionalOptions": "-d --no-window",
+    "nixEnvSelector.nixShellConfig": "NOT_MODIFIED_ENV"
+}
