@@ -40,13 +40,9 @@ get_credit() {
 
 
 # Generate licenses.txt files throughout the various subdirectories.
-cd ../../
+find ./game/* ./thirdparty/assets/* -name 'licenses.txt' -delete
 
-modified=$(git diff --dirstat=files,0 HEAD~1 | sed 's/^[ 0-9.]\+% //g')*
-
-find $modified -name 'licenses.txt' -delete
-
-for file in $modified; do
+for file in ./game/**/* ./thirdparty/assets/*; do
 	if [[ ! -f "$file" ]]; then
 		continue
 	fi
@@ -58,5 +54,4 @@ for file in $modified; do
 	fi
 
 	echo $(basename $file), $credit >> $(echo "$(dirname "$file")/licenses.txt")
-	git-add $(echo "$(dirname "$file")/licenses.txt")
 done
