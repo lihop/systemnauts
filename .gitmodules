@@ -24,7 +24,7 @@
 	url = https://github.com/lihop/Gut
 [submodule "thirdparty/gs-logger"]
 	path = thirdparty/gs-logger
-	url = https://gitlab.com/godot-stuff/gs-logger.git
+	url = https://github.com/lihop/gs-logger
 [submodule "thirdparty/godot-logger"]
 	path = thirdparty/godot-logger
 	url = https://github.com/lihop/godot-logger
