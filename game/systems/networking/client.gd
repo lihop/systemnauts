@@ -26,6 +26,6 @@ func join_game(server_address: String) -> void:
 	if result == OK:
 		get_tree().multiplayer.network_peer = peer
 		Logger.info("Joined game", Logger.CATEGORY_NETWORK)
-		get_tree().change_scene("res://maps/mothership/mothership.tscn")
+		get_tree().change_scene("res://servers/mothership/mothership.tscn")
 	else:
 		Logger.error("Could not connect to server: %s" % result, Logger.CATEGORY_NETWORK)

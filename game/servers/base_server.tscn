@@ -6,7 +6,7 @@
 [ext_resource path="res://layers/navigable/asphalt.tres" type="Resource" id=6]
 [ext_resource path="res://systems/navigation/detour_navigation.gd" type="Script" id=9]
 [ext_resource path="res://systems/navigation/detour_navigation_mesh_instance.gd" type="Script" id=10]
-[ext_resource path="res://maps/base_map.gd" type="Script" id=11]
+[ext_resource path="res://servers/base_server.gd" type="Script" id=11]
 [ext_resource path="res://systems/navigation/detour_navigation_mesh.gd" type="Script" id=12]
 
 [sub_resource type="SpatialMaterial" id=1]

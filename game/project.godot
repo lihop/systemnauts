@@ -95,9 +95,9 @@ _global_script_classes=[ {
 "path": "res://systems/sound/audio_material.gd"
 }, {
 "base": "Spatial",
-"class": "BaseMap",
+"class": "BaseServer",
 "language": "GDScript",
-"path": "res://maps/base_map.gd"
+"path": "res://servers/base_server.gd"
 }, {
 "base": "Node",
 "class": "CCTV",
@@ -517,7 +517,7 @@ _global_script_class_icons={
 "ActorWithinRange": "",
 "Appender": "",
 "AudioMaterial": "",
-"BaseMap": "",
+"BaseServer": "",
 "CCTV": "",
 "Character": "",
 "Consideration": "res://systems/utility_ai/icons/ai_consideration.svg",

@@ -1,4 +1,4 @@
-class_name BaseMap
+class_name BaseServer
 extends Spatial
 # The root node of a Mission scene.
 

@@ -17,4 +17,4 @@ func _ready():
 
 func _on_Connect_pressed():
 	Client.join_game("ss.nix.nz")
-	get_tree().change_scene("res://maps/mothership/mothership.tscn")
+	get_tree().change_scene("res://servers/mothership/mothership.tscn")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://textures/layers/concrete.png" type="Texture" id=1]
-[ext_resource path="res://maps/mothership/mothership.tscn" type="PackedScene" id=2]
+[ext_resource path="res://servers/mothership/mothership.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/ReGoap/Godot/ReGoapMemory.cs" type="Script" id=3]
 [ext_resource path="res://addons/ReGoap/Godot/ReGoapAgent.cs" type="Script" id=4]
 [ext_resource path="res://addons/ReGoap/Godot/ReGoapGoal.cs" type="Script" id=5]

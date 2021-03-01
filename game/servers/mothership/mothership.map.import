@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/mothership.map-7f977bb7ced85dad346a3a9ae77713f0.tres"
+
+[deps]
+
+source_file="res://servers/mothership/mothership.map"
+dest_files=[ "res://.import/mothership.map-7f977bb7ced85dad346a3a9ae77713f0.tres" ]
+
+[params]
+
