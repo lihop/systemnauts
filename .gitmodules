@@ -27,7 +27,7 @@
 	url = https://gitlab.com/godot-stuff/gs-logger.git
 [submodule "thirdparty/godot-logger"]
 	path = thirdparty/godot-logger
-	url = https://github.com/KOBUGE-Games/godot-logger
+	url = https://github.com/lihop/godot-logger
 [submodule "thirdparty/godot-FirstPersonStarter"]
 	path = thirdparty/godot-FirstPersonStarter
 	url = https://github.com/Whimfoome/godot-FirstPersonStarter
