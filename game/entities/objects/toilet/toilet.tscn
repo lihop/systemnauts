@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://objects/toilet/toilet.gd" type="Script" id=1]
+[ext_resource path="res://entities/objects/toilet/toilet.gd" type="Script" id=1]
 [ext_resource path="res://addons/imjp94.yafsm/src/StateMachinePlayer.gd" type="Script" id=2]
 [ext_resource path="res://systems/utility_ai/ai_behavior.gd" type="Script" id=3]
 [ext_resource path="res://addons/imjp94.yafsm/src/conditions/BooleanCondition.gd" type="Script" id=4]

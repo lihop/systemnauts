@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://maps/test/DistanceToTarget.gd" type="Script" id=1]
-[ext_resource path="res://objects/phone/phone.gd" type="Script" id=3]
+[ext_resource path="res://entities/objects/phone/phone.gd" type="Script" id=3]
 [ext_resource path="res://systems/sound/sound/smart_sound.tscn" type="PackedScene" id=4]
-[ext_resource path="res://objects/phone/assets/final/ringing.wav" type="AudioStream" id=5]
-[ext_resource path="res://objects/phone/SIPClient.cs" type="Script" id=8]
-[ext_resource path="res://objects/phone/smart_object_behaviors.gd" type="Script" id=9]
+[ext_resource path="res://entities/objects/phone/assets/final/ringing.wav" type="AudioStream" id=5]
+[ext_resource path="res://entities/objects/phone/SIPClient.cs" type="Script" id=8]
+[ext_resource path="res://entities/objects/phone/smart_object_behaviors.gd" type="Script" id=9]
 [ext_resource path="res://systems/utility_ai/smart_objects/smart_object_action.gd" type="Script" id=10]
 [ext_resource path="res://systems/utility_ai/considerations/object_state_consideration.gd" type="Script" id=13]
 

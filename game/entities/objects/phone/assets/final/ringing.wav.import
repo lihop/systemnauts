@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ringing.wav-9786311c808ab56a931fd1864a3d0830.sample"
+
+[deps]
+
+source_file="res://entities/objects/phone/assets/final/ringing.wav"
+dest_files=[ "res://.import/ringing.wav-9786311c808ab56a931fd1864a3d0830.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
