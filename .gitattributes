@@ -66,3 +66,4 @@
 
 # Misc
 *.bin filter=lfs diff=lfs merge=lfs -text
+.metadata filter=lfs diff=lfs merge=lfs -text
