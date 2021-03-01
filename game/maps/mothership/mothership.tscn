@@ -6,10 +6,10 @@
 [ext_resource path="res://systems/sound/audio_material.gd" type="Script" id=9]
 [ext_resource path="res://layers/worldspawn_layer.gd" type="Script" id=10]
 
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=1]
 albedo_texture = ExtResource( 4 )
 
-[sub_resource type="ArrayMesh" id=5]
+[sub_resource type="ArrayMesh" id=2]
 surfaces/0 = {
 "aabb": AABB( -21, 0, 0, 0.75, 7.00001, 20 ),
 "array_data": PoolByteArray( 0, 0, 168, 193, 0, 0, 224, 64, 0, 0, 0, 0, 0, 0, 129, 0, 127, 0, 0, 129, 64, 192, 0, 187, 0, 0, 168, 193, 0, 0, 0, 128, 0, 0, 0, 128, 0, 0, 129, 0, 127, 0, 0, 129, 64, 192, 0, 0, 0, 0, 162, 193, 0, 0, 0, 0, 0, 0, 0, 128, 0, 0, 129, 0, 127, 0, 0, 129, 16, 192, 0, 0, 0, 0, 162, 193, 0, 0, 224, 64, 0, 0, 0, 0, 0, 0, 129, 0, 127, 0, 0, 129, 16, 192, 0, 187, 0, 0, 168, 193, 0, 0, 224, 64, 0, 0, 0, 0, 129, 0, 0, 0, 0, 0, 127, 127, 0, 0, 0, 187, 0, 0, 168, 193, 0, 0, 224, 64, 0, 0, 160, 65, 129, 0, 0, 0, 0, 0, 127, 127, 0, 65, 0, 187, 0, 0, 168, 193, 0, 0, 0, 0, 0, 0, 160, 65, 129, 0, 0, 0, 0, 0, 127, 127, 0, 65, 0, 0, 0, 0, 168, 193, 0, 0, 0, 128, 0, 0, 0, 128, 129, 0, 0, 0, 0, 0, 127, 127, 0, 0, 0, 0, 0, 0, 162, 193, 0, 0, 0, 0, 0, 0, 0, 128, 0, 129, 0, 0, 0, 0, 127, 129, 0, 0, 16, 64, 0, 0, 168, 193, 0, 0, 0, 128, 0, 0, 0, 128, 0, 129, 0, 0, 0, 0, 127, 129, 0, 0, 64, 64, 0, 0, 168, 193, 0, 0, 0, 0, 0, 0, 160, 65, 0, 129, 0, 0, 0, 0, 127, 129, 0, 65, 64, 64, 0, 0, 162, 193, 0, 0, 0, 0, 0, 0, 160, 65, 0, 129, 0, 0, 0, 0, 127, 129, 0, 65, 16, 64, 0, 0, 162, 193, 0, 0, 224, 64, 0, 0, 0, 0, 0, 127, 0, 0, 0, 0, 127, 127, 0, 0, 16, 64, 0, 0, 162, 193, 0, 0, 224, 64, 0, 0, 160, 65, 0, 127, 0, 0, 0, 0, 127, 127, 0, 65, 16, 64, 0, 0, 168, 193, 0, 0, 224, 64, 0, 0, 160, 65, 0, 127, 0, 0, 0, 0, 127, 127, 0, 65, 64, 64, 0, 0, 168, 193, 0, 0, 224, 64, 0, 0, 0, 0, 0, 127, 0, 0, 0, 0, 127, 127, 0, 0, 64, 64, 0, 0, 162, 193, 0, 0, 224, 64, 0, 0, 0, 0, 127, 0, 0, 0, 0, 0, 127, 129, 0, 0, 0, 187, 0, 0, 162, 193, 0, 0, 0, 0, 0, 0, 0, 128, 127, 0, 0, 0, 0, 0, 127, 129, 0, 0, 0, 0, 0, 0, 162, 193, 0, 0, 0, 0, 0, 0, 160, 65, 127, 0, 0, 0, 0, 0, 127, 129, 0, 65, 0, 0, 0, 0, 162, 193, 0, 0, 224, 64, 0, 0, 160, 65, 127, 0, 0, 0, 0, 0, 127, 129, 0, 65, 0, 187, 0, 0, 168, 193, 0, 0, 224, 64, 0, 0, 160, 65, 0, 0, 127, 0, 127, 0, 0, 127, 64, 192, 0, 187, 0, 0, 162, 193, 0, 0, 224, 64, 0, 0, 160, 65, 0, 0, 127, 0, 127, 0, 0, 127, 16, 192, 0, 187, 0, 0, 162, 193, 0, 0, 0, 0, 0, 0, 160, 65, 0, 0, 127, 0, 127, 0, 0, 127, 16, 192, 0, 0, 0, 0, 168, 193, 0, 0, 0, 0, 0, 0, 160, 65, 0, 0, 127, 0, 127, 0, 0, 127, 64, 192, 0, 0 ),
@@ -17,24 +17,24 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 97559,
 "index_count": 36,
-"material": SubResource( 4 ),
+"material": SubResource( 1 ),
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 24
 }
 
-[sub_resource type="ConvexPolygonShape" id=6]
+[sub_resource type="ConvexPolygonShape" id=3]
 points = PoolVector3Array( -21, 7, 0, -21, 0, 0, -20.25, 0, 0, -20.25, 7, 0, -21, 7, 20, -21, 0, 20, -20.25, 0, 20, -20.25, 7, 20 )
 
-[sub_resource type="AudioEffectAmplify" id=1]
+[sub_resource type="AudioEffectAmplify" id=4]
 volume_db = -3.0
 
-[sub_resource type="AudioEffectLowPassFilter" id=2]
+[sub_resource type="AudioEffectLowPassFilter" id=5]
 cutoff_hz = 300.0
 
-[sub_resource type="Resource" id=3]
+[sub_resource type="Resource" id=6]
 script = ExtResource( 9 )
-effects = [ SubResource( 1 ), SubResource( 2 ) ]
+effects = [ SubResource( 4 ), SubResource( 5 ) ]
 footstep_sounds = [  ]
 
 [sub_resource type="SpatialMaterial" id=7]
@@ -66,19 +66,18 @@ map_file = "res://maps/mothership/mothership.map"
 
 [node name="entity_0_mesh_instance" type="MeshInstance" parent="Navigation/Map/entity_0_worldspawn" index="0"]
 use_in_baked_light = true
-mesh = SubResource( 5 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="entity_0_brush_1_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="1"]
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="entity_0_Concrete" type="StaticBody" parent="Navigation/Map" index="1"]
 script = ExtResource( 10 )
-audio_material = SubResource( 3 )
+audio_material = SubResource( 6 )
 
 [node name="entity_0_Asphalt" type="StaticBody" parent="Navigation/Map" index="2"]
 script = ExtResource( 10 )
-audio_material = null
 
 [node name="entity_0_Concrete_mesh_instance" type="MeshInstance" parent="Navigation/Map/entity_0_Asphalt" index="0"]
 use_in_baked_light = true
