@@ -18,7 +18,7 @@
 	url = https://github.com/lihop/qodot-plugin
 [submodule "thirdparty/godot-splerger"]
 	path = thirdparty/godot-splerger
-	url = https://github.com/lawnjelly/godot-splerger
+	url = https://github.com/lihop/godot-splerger
 [submodule "thirdparty/Gut"]
 	path = thirdparty/Gut
 	url = https://github.com/lihop/Gut
