@@ -28,9 +28,6 @@
 [submodule "thirdparty/godot-logger"]
 	path = thirdparty/godot-logger
 	url = https://github.com/lihop/godot-logger
-[submodule "thirdparty/godot-FirstPersonStarter"]
-	path = thirdparty/godot-FirstPersonStarter
-	url = https://github.com/Whimfoome/godot-FirstPersonStarter
 [submodule "thirdparty/gd-YAFSM"]
 	path = thirdparty/gd-YAFSM
 	url = https://github.com/imjp94/gd-YAFSM
