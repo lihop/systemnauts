@@ -29,7 +29,7 @@ if [ ! -f ./modules/mono/glue/mono_glue.gen.cpp ]; then
 	rm -rf ./bin/*.so
 fi
 if [ ! -z "$DISPLAY" ]; then
-	scons target=release platform=x11 tools=no module_mono_enabled=yes mono_prefix=$MONO_PREFIX -j$(nproc)
+	scons target=release_debug platform=x11 tools=yes module_mono_enabled=yes mono_prefix=$MONO_PREFIX -j$(nproc)
 fi
 rm -rf ./bin/*.so
 
