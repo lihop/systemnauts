@@ -35,6 +35,8 @@
         TERM = "xterm";
       };
       systemPackages = with pkgs; [
+        # Game.
+        zmap
 
         # Development.
         busybox

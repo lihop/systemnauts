@@ -25,6 +25,13 @@ func _unhandled_input(event):
 		head.rotate_x(-event.relative.y * mouse_sensitivity)
 		head.rotation.x = clamp(head.rotation.x, -1.2, 1.2)
 
+	if event.is_action_released("toggle_mouse_mode"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		get_tree().set_input_as_handled()
+
 
 func _physics_process(delta):
 	if not is_network_master():
