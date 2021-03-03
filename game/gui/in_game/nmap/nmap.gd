@@ -35,14 +35,10 @@ func _rand_coord() -> Vector2:
 
 master func scan():
 	print("scanning the thing")
+	$ZMap.Scan()
 
 	_rng = RandomNumberGenerator.new()
 	_rng.seed = ("%s/%d" % [address, netmask]).hash()
-
-	for i in range(0, 255):
-		var host = yield(add_host("0.0.0.0", null), "completed")
-		rpc("add_host", "0.0.0.0", host.position)
-	print("done")
 
 sync func add_host(ip_address: String, position):
 	var host: NMapHost = Host.instance()
@@ -70,5 +66,10 @@ sync func add_host(ip_address: String, position):
 
 
 func _on_ScanButton_pressed():
-	# Test this: scan()
 	rpc_id(Server.SERVER_ID, "scan")
+
+
+func _on_ZMap_HostFound(ip_address: String):
+	if ip_address and not ip_address.empty():
+		var host = yield(add_host(ip_address, null), "completed")
+		rpc("add_host", ip_address, host.position)
