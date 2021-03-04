@@ -23,9 +23,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Connect" type="Button" parent="VBoxContainer"]
+[node name="ConnectDO" type="Button" parent="VBoxContainer"]
 margin_right = 296.0
 margin_bottom = 20.0
-text = "Connect"
+text = "Connect DO"
 
-[connection signal="pressed" from="VBoxContainer/Connect" to="." method="_on_Connect_pressed"]
+[node name="ConnectVBox" type="Button" parent="VBoxContainer"]
+margin_top = 24.0
+margin_right = 296.0
+margin_bottom = 44.0
+text = "Connect VBOX"
+
+[connection signal="pressed" from="VBoxContainer/ConnectDO" to="." method="_on_Connect_pressed"]
+[connection signal="pressed" from="VBoxContainer/ConnectVBox" to="." method="_on_Connect_pressed" binds= [ "VBOX" ]]

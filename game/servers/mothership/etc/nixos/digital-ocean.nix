@@ -1,10 +1,10 @@
 {
   resources.sshKeyPairs.ssh-key = {
-    publicKey = builtins.readFile /home/leroy/.ssh/id_rsa.pub;
-    privateKey = builtins.readFile /home/leroy/.ssh/id_rsa;
+    publicKey = builtins.readFile ~/.ssh/id_rsa.pub;
+    privateKey = builtins.readFile ~/.ssh/id_rsa;
   };
 
-  mothership = { config, pkgs, ... }: {
+  do = { config, pkgs, ... }: {
     imports = [
       ./systemd-digitalocean/module.nix
     ];
@@ -13,5 +13,7 @@
     deployment.droplet.enableIpv6 = true;
     deployment.droplet.region = "sgp1";
     deployment.droplet.size = "s-2vcpu-2gb";
+
+    services.do-agent.enable = true;
   };
 }
