@@ -421,7 +421,7 @@ func bake_navmesh():
 	pass  # Replace with function body.
 
 
-func add_agent(agent: AIAgent):
+func add_agent(agent: BaseCharacter):
 	var params = DetourCrowdAgentParameters.new()
 	params.position = agent.global_transform.origin * Vector3(1, 0.5, 1)
 	params.radius = 0.7
@@ -437,9 +437,6 @@ func add_agent(agent: AIAgent):
 	params.obstacleAvoidance = 1
 	params.separationWeight = 1.0
 	var nav_agent = navigation.addAgent(params)
-	print('got the agent =>>> ', nav_agent)
-	agent.nav_agent = nav_agent
-	print('NTHSTHTOHEUSTEHOSTUHSOETUHSOETHUt')
 	return nav_agent
 
 

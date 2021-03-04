@@ -82,5 +82,6 @@
 	trigger_signal_delay(float) : ""  : 0
 ]
 
-@PointClass color(119 200 0) model("maps/models/palm.obj") size(-128 -128 0, 128 128 704) = Palm : "Palm Tree" [
+@PointClass color(255 0 255) size(-32 -32 -32, 32 32 32) = SpawnPoint : "Position3D where things can be spawned" [
+	name(string) : "The name of this SpawnPoint. Should be unique."  : ""
 ]

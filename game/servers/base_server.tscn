@@ -50,7 +50,9 @@ detailSampleMaxError = 1.0
 [node name="Mission" type="Spatial"]
 script = ExtResource( 11 )
 
-[node name="Navigation" type="Spatial" parent="."]
+[node name="Navigation" type="Spatial" parent="." groups=[
+"navigation",
+]]
 script = ExtResource( 9 )
 _num_nav_meshes = 2
 

@@ -23,7 +23,7 @@ func take_photo() -> Image:
 		% [nameweekday[dayofweek], day, namemonth[month - 1], year, hour, minute, second]
 	)
 
-	timestamp.text = dateRFC1123
+	timestamp.text = "%s %s" % [name, dateRFC1123]
 	var image: Image = viewport.get_texture().get_data()
 	image.flip_y()
 	return image
