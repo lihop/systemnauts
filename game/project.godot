@@ -89,6 +89,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/appender.gd"
 }, {
+"base": "WorkCredit",
+"class": "ArtCredit",
+"language": "GDScript",
+"path": "res://addons/godot_credits/art_credit.gd"
+}, {
 "base": "Resource",
 "class": "AudioMaterial",
 "language": "GDScript",
@@ -128,6 +133,16 @@ _global_script_classes=[ {
 "class": "ConstantConsideration",
 "language": "GDScript",
 "path": "res://craft/test/constant_consideration.gd"
+}, {
+"base": "Resource",
+"class": "Credits",
+"language": "GDScript",
+"path": "res://addons/godot_credits/credits.gd"
+}, {
+"base": "Node",
+"class": "CreditsGenerator",
+"language": "GDScript",
+"path": "res://addons/godot_credits/credits_generator.gd"
 }, {
 "base": "Spatial",
 "class": "DetourNavigation",
@@ -219,6 +234,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/gs_logger/layout.gd"
 }, {
+"base": "Resource",
+"class": "License",
+"language": "GDScript",
+"path": "res://addons/godot_credits/license_credit.gd"
+}, {
 "base": "Node",
 "class": "LightingStore",
 "language": "GDScript",
@@ -243,6 +263,11 @@ _global_script_classes=[ {
 "class": "MissionDefinition",
 "language": "GDScript",
 "path": "res://craft/mission_definition.gd"
+}, {
+"base": "WorkCredit",
+"class": "MusicCredit",
+"language": "GDScript",
+"path": "res://addons/godot_credits/music_credit.gd"
 }, {
 "base": "Area2D",
 "class": "NMapHost",
@@ -273,6 +298,11 @@ _global_script_classes=[ {
 "class": "PatternLayout",
 "language": "GDScript",
 "path": "res://addons/gs_logger/layouts/pattern_layout.gd"
+}, {
+"base": "Resource",
+"class": "PersonCredit",
+"language": "GDScript",
+"path": "res://addons/godot_credits/person_credit.gd"
 }, {
 "base": "Reference",
 "class": "Phone",
@@ -399,6 +429,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/src/import_plugins/quake_wad_import_plugin.gd"
 }, {
+"base": "WorkCredit",
+"class": "SFXCredit",
+"language": "GDScript",
+"path": "res://addons/godot_credits/sfx_credit.gd"
+}, {
 "base": "LiquidLayer",
 "class": "SlimeLayer",
 "language": "GDScript",
@@ -428,6 +463,11 @@ _global_script_classes=[ {
 "class": "SmartSound",
 "language": "GDScript",
 "path": "res://systems/sound/sound/smart_sound.gd"
+}, {
+"base": "WorkCredit",
+"class": "SoftwareCredit",
+"language": "GDScript",
+"path": "res://addons/godot_credits/software_credit.gd"
 }, {
 "base": "Position3D",
 "class": "SpawnPoint",
@@ -469,6 +509,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://systems/utility_ai/stats/stats.gd"
 }, {
+"base": "Reference",
+"class": "TPut",
+"language": "GDScript",
+"path": "res://addons/godot_xterm/util/tput.gd"
+}, {
 "base": "Node",
 "class": "ThreadPool",
 "language": "GDScript",
@@ -504,6 +549,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/game_definitions/worldspawn_layers/liquid/water.gd"
 }, {
+"base": "Resource",
+"class": "WorkCredit",
+"language": "GDScript",
+"path": "res://addons/godot_credits/credit.gd"
+}, {
 "base": "StaticBody",
 "class": "WorldspawnLayer",
 "language": "GDScript",
@@ -531,6 +581,7 @@ _global_script_class_icons={
 "ActionUsage": "",
 "ActorWithinRange": "",
 "Appender": "",
+"ArtCredit": "",
 "AudioMaterial": "",
 "BaseCharacter": "",
 "BaseServer": "",
@@ -539,6 +590,8 @@ _global_script_class_icons={
 "Consideration": "res://systems/utility_ai/icons/ai_consideration.svg",
 "ConsoleAppender": "",
 "ConstantConsideration": "",
+"Credits": "",
+"CreditsGenerator": "",
 "DetourNavigation": "res://systems/navigation/icon_navigation.svg",
 "DetourNavigationMesh": "res://systems/navigation/icon_navigation_mesh.svg",
 "DetourNavigationMeshInstance": "res://systems/navigation/icon_navigation_mesh_instance.svg",
@@ -557,17 +610,20 @@ _global_script_class_icons={
 "HtmlLayout": "",
 "LavaLayer": "",
 "Layout": "",
+"License": "",
 "LightingStore": "",
 "LiquidLayer": "",
 "Message": "",
 "Mission": "",
 "MissionDefinition": "",
+"MusicCredit": "",
 "NMapHost": "",
 "NavigableWorldspawnLayer": "",
 "NetworkNode": "",
 "PatrolPoint": "",
 "PatrolSetRoute": "",
 "PatternLayout": "",
+"PersonCredit": "",
 "Phone": "",
 "PhysicsBall": "",
 "PhysicsEntity": "",
@@ -593,12 +649,14 @@ _global_script_class_icons={
 "QuakePaletteImportPlugin": "",
 "QuakeWadFile": "",
 "QuakeWadImportPlugin": "",
+"SFXCredit": "",
 "SlimeLayer": "",
 "SmartObject": "",
 "SmartObjectAction": "",
 "SmartObjectBehaviors": "",
 "SmartObjectSound": "",
 "SmartSound": "",
+"SoftwareCredit": "",
 "SpawnPoint": "",
 "Splerger": "",
 "Stat": "",
@@ -607,6 +665,7 @@ _global_script_class_icons={
 "Statistic": "",
 "StatisticState": "",
 "Stats": "res://systems/utility_ai/icons/stats_icon.svg",
+"TPut": "",
 "ThreadPool": "",
 "TrenchBroomFaceAttrib": "",
 "TrenchBroomGameConfigFile": "",
@@ -614,6 +673,7 @@ _global_script_class_icons={
 "TrenchBroomTag": "",
 "Voice": "",
 "WaterLayer": "",
+"WorkCredit": "",
 "WorldspawnLayer": "",
 "paramertized_decision": ""
 }
@@ -654,6 +714,10 @@ window/size/height=1080
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/gs_logger/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/imjp94.yafsm/plugin.cfg", "res://addons/qodot/plugin.cfg", "res://addons/splerger/plugin.cfg", "res://addons/sync_sys/plugin.cfg", "res://addons/thread_pool/plugin.cfg" )
+
+[godot_credits]
+
+path_prefix="/"
 
 [input]
 

@@ -40,3 +40,9 @@
 [submodule "thirdparty/systemd-digitalocean"]
 	path = thirdparty/systemd-digitalocean
 	url = https://github.com/lihop/systemd-digitalocean
+[submodule "thirdparty/godot-credits"]
+	path = thirdparty/godot-credits
+	url = https://github.com/lihop/godot-credits
+[submodule "thirdparty/godot-xterm"]
+	path = thirdparty/godot-xterm
+	url = https://github.com/lihop/godot-xterm
