@@ -421,25 +421,9 @@ func bake_navmesh():
 	pass  # Replace with function body.
 
 
-func add_agent(agent: BaseCharacter):
-	var params = DetourCrowdAgentParameters.new()
-	params.position = agent.global_transform.origin * Vector3(1, 0.5, 1)
-	params.radius = 0.7
-	params.height = 1.6
-	params.maxAcceleration = 6.0 * 10
-	params.maxSpeed = 3.0 * 10
-	params.filterName = "default"
-	params.anticipateTurns = true
-	params.optimizeVisibility = true
-	params.optimizeTopology = true
-	params.avoidObstacles = true
-	params.avoidOtherAgents = true
-	params.obstacleAvoidance = 1
-	params.separationWeight = 1.0
-	var nav_agent = navigation.addAgent(params)
-	return nav_agent
+func add_agent(params):
+	return navigation.addAgent(params)
 
 
-func remove_agent(agent: AIAgent):
-	navigation.removeAgent(agent.nav_agent)
-	agent.nav_agent = null
+func remove_agent(agent):
+	navigation.removeAgent(agent)

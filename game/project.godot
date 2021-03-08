@@ -274,6 +274,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://gui/in_game/nmap/host.gd"
 }, {
+"base": "KinematicBody",
+"class": "NPC",
+"language": "GDScript",
+"path": "res://characters/npcs/base_npc/base_npc.gd"
+}, {
 "base": "QodotWorldspawnLayer",
 "class": "NavigableWorldspawnLayer",
 "language": "GDScript",
@@ -618,6 +623,7 @@ _global_script_class_icons={
 "MissionDefinition": "",
 "MusicCredit": "",
 "NMapHost": "",
+"NPC": "",
 "NavigableWorldspawnLayer": "",
 "NetworkNode": "",
 "PatrolPoint": "",
@@ -744,6 +750,11 @@ move_right={
 toggle_mouse_mode={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"unicode":0,"echo":false,"script":null)
+ ]
+}
+test={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":89,"unicode":0,"echo":false,"script":null)
  ]
 }
 

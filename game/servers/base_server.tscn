@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://addons/qodot/src/nodes/qodot_map.gd" type="Script" id=1]
 [ext_resource path="res://definitions/fgd/qodot_fgd.tres" type="Resource" id=3]
@@ -13,30 +13,12 @@
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 12 )
-cellSize = Vector2( 0.1, 0.1 )
+cellSize = Vector2( 0.3, 0.2 )
 maxNumAgents = 256
 maxAgentSlope = 45.0
 maxAgentHeight = 2.0
-maxAgentClimb = 0.5
-maxAgentRadius = 0.6
-maxEdgeLength = 12.0
-maxSimplificationError = 1.3
-minNumCellsPerIsland = 8
-minCellSpanCount = 20
-maxVertsPerPoly = 6
-tileSize = 42
-layersPerTile = 4
-detailSampleDistance = 6.0
-detailSampleMaxError = 1.0
-
-[sub_resource type="Resource" id=3]
-script = ExtResource( 12 )
-cellSize = Vector2( 0.5, 0.35 )
-maxNumAgents = 128
-maxAgentSlope = 45.0
-maxAgentHeight = 4.0
-maxAgentClimb = 0.5
-maxAgentRadius = 2.5
+maxAgentClimb = 0.3
+maxAgentRadius = 1.0
 maxEdgeLength = 12.0
 maxSimplificationError = 1.3
 minNumCellsPerIsland = 8
@@ -78,9 +60,5 @@ set_owner_batch_size = 16
 [node name="SmallNavMesh" type="Spatial" parent="Navigation"]
 script = ExtResource( 10 )
 navmesh = SubResource( 2 )
-
-[node name="LargeNavMesh" type="Spatial" parent="Navigation"]
-script = ExtResource( 10 )
-navmesh = SubResource( 3 )
 
 [connection signal="build_complete" from="Navigation/Map" to="Navigation" method="bake_navigation"]

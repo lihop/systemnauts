@@ -1,26 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://systems/sound/ears/ears.tscn" type="PackedScene" id=1]
 [ext_resource path="res://entities/characters/player/player.gd" type="Script" id=2]
 [ext_resource path="res://addons/sync_sys/sync_transform_3d.gd" type="Script" id=3]
-[ext_resource path="res://entities/characters/assets/final/base_character.glb" type="PackedScene" id=4]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.6
 height = 1.75
 
-[sub_resource type="SpatialMaterial" id=2]
-albedo_color = Color( 0, 1, 0.227451, 1 )
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.027451, 0.176471, 0.0117647, 1 )
-
-[sub_resource type="SpatialMaterial" id=4]
-albedo_color = Color( 0.027451, 0.176471, 0.0117647, 1 )
-
 [node name="Player" type="KinematicBody" groups=[
 "players",
 ]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5019, 0 )
 collision_layer = 2
 collision_mask = 3
 script = ExtResource( 2 )
@@ -42,17 +33,3 @@ current = true
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 0, 0 )
 shape = SubResource( 1 )
-
-[node name="base_character" parent="." instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
-
-[node name="Cube" parent="base_character" index="0"]
-material/0 = SubResource( 2 )
-
-[node name="Cube001" parent="base_character" index="2"]
-material/0 = SubResource( 3 )
-
-[node name="Cube002" parent="base_character" index="3"]
-material/0 = SubResource( 4 )
-
-[editable path="base_character"]

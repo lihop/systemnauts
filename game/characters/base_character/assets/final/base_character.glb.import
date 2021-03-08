@@ -2,17 +2,17 @@
 
 importer="scene"
 type="PackedScene"
-path="res://.import/base_character.glb-e191e2c3f0da8915c1c0d4528a0203e0.scn"
+path="res://.import/base_character.glb-14f704932d80da61b092b520f976b65f.scn"
 
 [deps]
 
-source_file="res://entities/characters/assets/final/base_character.glb"
-dest_files=[ "res://.import/base_character.glb-e191e2c3f0da8915c1c0d4528a0203e0.scn" ]
+source_file="res://characters/base_character/assets/final/base_character.glb"
+dest_files=[ "res://.import/base_character.glb-14f704932d80da61b092b520f976b65f.scn" ]
 
 [params]
 
-nodes/root_type="Spatial"
-nodes/root_name="Scene Root"
+nodes/root_type="KinematicBody"
+nodes/root_name="BaseCharacter"
 nodes/root_scale=1.0
 nodes/custom_script=""
 nodes/storage=0
