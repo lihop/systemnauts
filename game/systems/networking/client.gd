@@ -12,7 +12,7 @@ func _connected():
 
 
 func _disconnected():
-	SyncRoot.clear()
+	get_tree().current_scene.sync_root.clear()
 
 
 func join_game(server_address: String) -> void:

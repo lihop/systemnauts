@@ -1,5 +1,5 @@
 class_name NPC
-extends KinematicBody
+extends BaseCharacter
 
 const DetourCrowdAgentParameters: NativeScript = preload("res://addons/godotdetour/detourcrowdagentparameters.gdns")
 
@@ -18,14 +18,14 @@ var _target_range
 func _unhandled_input(event):
 	if event.is_action_pressed("test"):
 		var player = get_tree().get_nodes_in_group("players")[0]
-		go_to(player.global_transform.origin)
+		#go_to(player.global_transform.origin)
+		rpc_id(get_network_master(), "go_to", player.global_transform.origin)
 
 
 func init_navigation(navigation: DetourNavigation):
 	var params = DetourCrowdAgentParameters.new()
 
 	params.position = global_transform.origin
-	#params.position = Vector3.ZERO
 	params.radius = 0.3
 	params.height = HEIGHT
 	params.maxAcceleration = 6.0
@@ -45,8 +45,7 @@ func init_navigation(navigation: DetourNavigation):
 
 func _physics_process(delta):
 	if _nav_agent and _nav_agent.isMoving:
-		var blend_amount = range_lerp(_nav_agent.velocity.length(), 0, MAX_SPEED, -1, 1)
-		$AnimationTree.set("parameters/iwr_blend/blend_amount", blend_amount)
+		velocity = _nav_agent.velocity
 
 		translation = _nav_agent.position
 		var look_target = translation + _nav_agent.velocity
@@ -60,7 +59,7 @@ func _physics_process(delta):
 				emit_signal("arrived_at_target")
 
 
-func go_to(position, target_range := 0.5):
+master func go_to(position, target_range := 0.5):
 	_nav_agent.moveTowards(position)
 	_target = position
 	_target_range = target_range
@@ -73,4 +72,4 @@ func _exit_tree():
 func _on_arrived_at_target():
 	if _nav_agent.isMoving:
 		_nav_agent.stop()
-		$AnimationTree.set("parameters/iwr_blend/blend_amount", -1)
+		velocity = Vector3.ZERO

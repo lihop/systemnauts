@@ -2,28 +2,20 @@ class_name BaseServer
 extends Spatial
 # The root node of a Mission scene.
 
-onready var navigation: DetourNavigation = $Navigation
-onready var map: QodotMap = $Navigation/Map
+onready var navigation: DetourNavigation = $SyncRoot/Navigation
+onready var map: QodotMap = $SyncRoot/Navigation/Map
+onready var sync_root = $SyncRoot
 
 
 func _ready():
+	if not is_network_master():
+		$SyncRoot.clear_sync_nodes()
+
 	var SSHD = get_node("/root/SSHD")
 	SSHD.connect("SSHDStarted", self, "_on_SSHDStarted")
 	SSHD.connect("SSHDStopped", self, "_on_SSHDStopped")
 	SSHD.connect("HostConnected", self, "_on_HostConnected")
 	pass
-
-	var weights: Dictionary = {}
-	weights[0] = 10.0  # Ground
-	weights[1] = 5.0  # Road
-	weights[2] = 10001.0  # Water
-	weights[3] = 10.0  # Door
-	weights[4] = 100.0  # Grass
-	weights[5] = 150.0  # Jump
-	navigation.navigation.setQueryFilter(0, "default", weights)
-
-	for npc in get_tree().get_nodes_in_group("npcs"):
-		npc.init_navigation($Navigation)
 
 
 #	for object in get_tree().get_nodes_in_group("smart_objects"):
@@ -63,8 +55,9 @@ func _on_HostConnected(ip_address):
 
 
 master func _spawn_visitor():
+	return
 	var visitor = preload("res://entities/characters/npcs/visitor/visitor.tscn").instance()
 	var spawn_point: SpawnPoint = SpawnPoint.get_spawn_point("PassportControl_SpawnPoint_0")
 
-	SyncRoot.add_child(visitor, true)
+	get_tree().current_scene.sync_root.add_child(visitor, true)
 	visitor.global_transform.origin = spawn_point.global_transform.origin

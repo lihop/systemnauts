@@ -12,13 +12,13 @@ func _ready():
 
 
 func _peer_connected(id: int) -> void:
-	SyncRoot.sync_client(id)
+	get_tree().current_scene.sync_root.sync_client(id)
 
 
 func _peer_disconnected(id: int) -> void:
-	var player = SyncRoot.get_node_or_null(str(id))
+	var player = get_tree().current_scene.sync_root.get_node_or_null(str(id))
 	if player:
-		SyncRoot.remove_child(player)
+		get_tree().current_scene.sync_root.remove_child(player)
 
 
 func start():
@@ -34,3 +34,7 @@ func start():
 		Logger.info("Server started. Listening on port %d" % SERVER_PORT, Logger.CATEGORY_NETWORK)
 	else:
 		Logger.error("Error starting server: %d" % result, Logger.CATEGORY_NETWORK)
+
+
+func _exit_tree():
+	print("linux is the best")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=53 format=2]
 
-[ext_resource path="res://servers/base_server.tscn" type="PackedScene" id=1]
+[ext_resource path="res://servers/base_server/base_server.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/layers/concrete.png" type="Texture" id=2]
 [ext_resource path="res://entities/objects/camera/camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://textures/base/uv_test.png" type="Texture" id=4]
@@ -214,113 +214,109 @@ transform = Transform( 0.956182, 0.0204506, -0.292057, 0.111996, 0.896135, 0.429
 [node name="CCTV_Cam_1" parent="CCTV" index="1" instance=ExtResource( 3 )]
 transform = Transform( 0.594284, 0.404524, -0.695117, 0.00794365, 0.861304, 0.508027, 0.804216, -0.307434, 0.508646, 31.8806, 11.5919, 29.078 )
 
-[node name="Navigation" parent="." index="2"]
-_num_nav_meshes = 1
-
-[node name="Map" parent="Navigation" index="0"]
+[node name="Map" parent="SyncRoot/Navigation" index="0"]
 map_file = "res://servers/mothership/mothership.map"
 
-[node name="entity_0_worldspawn" type="StaticBody" parent="Navigation/Map" index="0"]
+[node name="entity_0_worldspawn" type="StaticBody" parent="SyncRoot/Navigation/Map" index="0"]
 
-[node name="entity_0_mesh_instance" type="MeshInstance" parent="Navigation/Map/entity_0_worldspawn" index="0"]
+[node name="entity_0_mesh_instance" type="MeshInstance" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="0"]
 use_in_baked_light = true
 mesh = SubResource( 8 )
 material/0 = null
 material/1 = null
 material/2 = null
 
-[node name="entity_0_brush_1_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="1"]
+[node name="entity_0_brush_1_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="1"]
 shape = SubResource( 9 )
 
-[node name="entity_0_brush_4_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="2"]
+[node name="entity_0_brush_4_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="2"]
 shape = SubResource( 10 )
 
-[node name="entity_0_brush_5_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="3"]
+[node name="entity_0_brush_5_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="3"]
 shape = SubResource( 11 )
 
-[node name="entity_0_brush_6_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="4"]
+[node name="entity_0_brush_6_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="4"]
 shape = SubResource( 12 )
 
-[node name="entity_0_brush_7_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="5"]
+[node name="entity_0_brush_7_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="5"]
 shape = SubResource( 13 )
 
-[node name="entity_0_brush_8_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="6"]
+[node name="entity_0_brush_8_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="6"]
 shape = SubResource( 14 )
 
-[node name="entity_0_brush_9_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="7"]
+[node name="entity_0_brush_9_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="7"]
 shape = SubResource( 15 )
 
-[node name="entity_0_brush_15_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="8"]
+[node name="entity_0_brush_15_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="8"]
 shape = SubResource( 16 )
 
-[node name="entity_0_brush_16_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="9"]
+[node name="entity_0_brush_16_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="9"]
 shape = SubResource( 17 )
 
-[node name="entity_0_brush_17_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="10"]
+[node name="entity_0_brush_17_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="10"]
 shape = SubResource( 18 )
 
-[node name="entity_0_brush_18_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="11"]
+[node name="entity_0_brush_18_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="11"]
 shape = SubResource( 19 )
 
-[node name="entity_0_brush_19_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="12"]
+[node name="entity_0_brush_19_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="12"]
 shape = SubResource( 20 )
 
-[node name="entity_0_brush_20_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="13"]
+[node name="entity_0_brush_20_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="13"]
 shape = SubResource( 21 )
 
-[node name="entity_0_brush_22_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="14"]
+[node name="entity_0_brush_22_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="14"]
 shape = SubResource( 22 )
 
-[node name="entity_0_brush_23_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="15"]
+[node name="entity_0_brush_23_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="15"]
 shape = SubResource( 23 )
 
-[node name="entity_0_brush_24_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="16"]
+[node name="entity_0_brush_24_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="16"]
 shape = SubResource( 24 )
 
-[node name="entity_0_brush_25_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_worldspawn" index="17"]
+[node name="entity_0_brush_25_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="17"]
 shape = SubResource( 25 )
 
-[node name="entity_0_Concrete" type="StaticBody" parent="Navigation/Map" index="1"]
+[node name="entity_0_Concrete" type="StaticBody" parent="SyncRoot/Navigation/Map" index="1"]
 script = ExtResource( 10 )
 audio_material = SubResource( 28 )
 
-[node name="entity_0_Asphalt" type="StaticBody" parent="Navigation/Map" index="2"]
+[node name="entity_0_Asphalt" type="StaticBody" parent="SyncRoot/Navigation/Map" index="2"]
 script = ExtResource( 10 )
-audio_material = null
 
-[node name="entity_0_Concrete_mesh_instance" type="MeshInstance" parent="Navigation/Map/entity_0_Asphalt" index="0"]
+[node name="entity_0_Concrete_mesh_instance" type="MeshInstance" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="0"]
 use_in_baked_light = true
 mesh = SubResource( 30 )
 material/0 = null
 
-[node name="entity_0_Asphalt_brush_0_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_Asphalt" index="1"]
+[node name="entity_0_Asphalt_brush_0_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="1"]
 shape = SubResource( 31 )
 
-[node name="entity_0_Asphalt_brush_2_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_Asphalt" index="2"]
+[node name="entity_0_Asphalt_brush_2_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="2"]
 shape = SubResource( 32 )
 
-[node name="entity_0_Asphalt_brush_3_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_Asphalt" index="3"]
+[node name="entity_0_Asphalt_brush_3_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="3"]
 shape = SubResource( 33 )
 
-[node name="entity_0_Asphalt_brush_10_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_Asphalt" index="4"]
+[node name="entity_0_Asphalt_brush_10_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="4"]
 shape = SubResource( 34 )
 
-[node name="entity_0_Asphalt_brush_11_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_Asphalt" index="5"]
+[node name="entity_0_Asphalt_brush_11_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="5"]
 shape = SubResource( 35 )
 
-[node name="entity_0_Asphalt_brush_12_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_Asphalt" index="6"]
+[node name="entity_0_Asphalt_brush_12_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="6"]
 shape = SubResource( 36 )
 
-[node name="entity_0_Asphalt_brush_13_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_Asphalt" index="7"]
+[node name="entity_0_Asphalt_brush_13_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="7"]
 shape = SubResource( 37 )
 
-[node name="entity_0_Asphalt_brush_14_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_Asphalt" index="8"]
+[node name="entity_0_Asphalt_brush_14_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="8"]
 shape = SubResource( 38 )
 
-[node name="entity_0_Asphalt_brush_21_collision_shape" type="CollisionShape" parent="Navigation/Map/entity_0_Asphalt" index="9"]
+[node name="entity_0_Asphalt_brush_21_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="9"]
 shape = SubResource( 39 )
 
-[node name="PassportControl_SpawnPoint_0" parent="Navigation/Map" index="3" instance=ExtResource( 13 )]
+[node name="PassportControl_SpawnPoint_0" parent="SyncRoot/Navigation/Map" index="3" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 60.5, 1.5, 25.5 )
 properties = {
 "classname": "SpawnPoint",
@@ -328,7 +324,7 @@ properties = {
 "origin": "1632 3872 96"
 }
 
-[node name="Player_SpawnPoint_0" parent="Navigation/Map" index="4" instance=ExtResource( 13 )]
+[node name="Player_SpawnPoint_0" parent="SyncRoot/Navigation/Map" index="4" instance=ExtResource( 13 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.5, 4.5, 27.5 )
 properties = {
 "classname": "SpawnPoint",
@@ -336,5 +332,8 @@ properties = {
 "origin": "1760 1696 288"
 }
 
-[node name="BaseNPC" parent="." index="3" instance=ExtResource( 12 )]
+[node name="SmallNavMesh" parent="SyncRoot/Navigation" index="1"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -1.90735e-06, 0, 9.53674e-07 )
+
+[node name="BaseNPC" parent="SyncRoot/Navigation" index="2" instance=ExtResource( 12 )]
 transform = Transform( 0.695725, 0, -0.718309, 0, 1, 0, 0.718309, 0, 0.695725, 27.9344, 0.0416121, 14.2665 )
