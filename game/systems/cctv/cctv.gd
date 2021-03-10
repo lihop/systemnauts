@@ -3,6 +3,7 @@ extends Node
 
 
 func _ready():
+	return  # Disable until we can make this not cause lag (i.e. run in seperate thread).
 	while true:
 		if OS.has_feature("Server"):
 			# Server doesn't have graphics card so can't "see" anything.
