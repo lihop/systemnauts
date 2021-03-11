@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://servers/base_server/base_server.tscn" type="PackedScene" id=1]
 [ext_resource path="res://textures/layers/concrete.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://textures/base/grid.png" type="Texture" id=11]
 [ext_resource path="res://characters/npcs/base_npc/base_npc.tscn" type="PackedScene" id=12]
 [ext_resource path="res://entities/misc/spawn_point.tscn" type="PackedScene" id=13]
+[ext_resource path="res://servers/mothership/CLIThing.cs" type="Script" id=14]
 
 [sub_resource type="QuadMesh" id=1]
 size = Vector2( 7.68, 4.32 )
@@ -337,3 +338,6 @@ transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, -1.90735e
 
 [node name="BaseNPC" parent="SyncRoot/Navigation" index="2" instance=ExtResource( 12 )]
 transform = Transform( 0.695725, 0, -0.718309, 0, 1, 0, 0.718309, 0, 0.695725, 27.9344, 0.0416121, 14.2665 )
+
+[node name="CLIThing" type="Node" parent="." index="3"]
+script = ExtResource( 14 )

@@ -34,7 +34,3 @@ func start():
 		Logger.info("Server started. Listening on port %d" % SERVER_PORT, Logger.CATEGORY_NETWORK)
 	else:
 		Logger.error("Error starting server: %d" % result, Logger.CATEGORY_NETWORK)
-
-
-func _exit_tree():
-	print("linux is the best")
