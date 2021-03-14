@@ -1,11 +1,14 @@
 using System;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Godot;
 using CommandLine;
+using ShellProgressBar;
+using Godot.Collections;
+using System.Collections.Generic;
 
+[Tool]
 public class CLIThing : Node
 {
     // Declare member variables here. Examples:
@@ -17,7 +20,10 @@ public class CLIThing : Node
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
     {
-        RunREPL();
+        if (IsNetworkMaster() && OS.HasFeature("Server"))
+        {
+            RunREPL();
+        }
     }
 
     class AutoCompletionHandler : IAutoCompleteHandler
@@ -27,10 +33,15 @@ public class CLIThing : Node
         public string[] GetSuggestions(string text, int index)
         {
             if (text.StartsWith("s"))
-                return new string[] { "shutdown" };
+                return new string[] { "save", "shutdown" };
             else
                 return null;
         }
+    }
+
+    [Verb("save", HelpText = "Save the current state of the server.")]
+    class SaveOptions
+    {
     }
 
     [Verb("shutdown", HelpText = "Shutdown the server. State will be saved.")]
@@ -74,8 +85,15 @@ public class CLIThing : Node
     {
         switch (obj)
         {
+            case SaveOptions sv:
+                GetTree().CurrentScene.Call("save");
+                break;
             case ShutdownOptions s:
-                GD.Print("Server shutting down...");
+                GD.Print("Server will shut down...");
+                GD.Print("Saving...");
+                GetTree().CurrentScene.Call("save");
+                GD.Print("Saved!");
+                GD.Print("Server shutdown imminent!");
                 quit_requested = true;
                 break;
             case ListPlayerOptions lp:
@@ -90,10 +108,4 @@ public class CLIThing : Node
                 break;
         }
     }
-
-    //  // Called every frame. 'delta' is the elapsed time since the previous frame.
-    //  public override void _Process(float delta)
-    //  {
-    //      
-    //  }
 }

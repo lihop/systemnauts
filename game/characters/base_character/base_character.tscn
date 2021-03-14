@@ -33,7 +33,9 @@ node_connections = [ "output", 0, "iwr_blend", "iwr_blend", 0, "idle", "iwr_blen
 radius = 0.3
 height = 1.39
 
-[node name="BaseCharacter" instance=ExtResource( 1 )]
+[node name="BaseCharacter" groups=[
+"persist",
+] instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2"]
