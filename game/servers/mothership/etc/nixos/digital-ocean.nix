@@ -12,7 +12,7 @@
     deployment.targetEnv = "droplet";
     deployment.droplet.enableIpv6 = true;
     deployment.droplet.region = "sgp1";
-    deployment.droplet.size = "s-2vcpu-2gb";
+    deployment.droplet.size = "s-1vcpu-1gb-intel";
 
     services.do-agent.enable = true;
   };

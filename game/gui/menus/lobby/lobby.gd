@@ -15,11 +15,11 @@ func _ready():
 #	pass
 
 
-func _on_Connect_pressed(type := "DO"):
+func _on_Connect_pressed(type := "REMOTE"):
 	match type:
 		"VBOX":
 			Client.join_game("192.168.56.131")
-		"DO":
+		"REMOTE":
 			Client.join_game("ss.nix.nz")
 
 	get_tree().change_scene("res://servers/mothership/mothership.tscn")

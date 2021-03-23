@@ -24,6 +24,7 @@ let
         zmap
 
         # Development.
+        bind
         busybox
         git
         git-lfs
@@ -50,5 +51,5 @@ in
 {
   network.description = "Systemnauts dev";
   vbox = mothership;
-  do = mothership;
+  vultr = mothership;
 }
