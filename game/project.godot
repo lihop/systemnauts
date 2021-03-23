@@ -74,7 +74,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://craft/test/Consideration.gd"
 }, {
-"base": "Reference",
+"base": "Spatial",
 "class": "ActionUsage",
 "language": "GDScript",
 "path": "res://entities/objects/phone/usage_ranges.gd"
@@ -289,7 +289,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://systems/networking/network_node.gd"
 }, {
-"base": "Reference",
+"base": "Position3D",
 "class": "PatrolPoint",
 "language": "GDScript",
 "path": "res://entities/objects/points_of_interest/patrol_point.gd"
@@ -309,7 +309,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot_credits/person_credit.gd"
 }, {
-"base": "Reference",
+"base": "SmartObject",
 "class": "Phone",
 "language": "GDScript",
 "path": "res://entities/objects/phone/phone.gd"
@@ -459,7 +459,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://systems/utility_ai/smart_objects/smart_object_action.gd"
 }, {
-"base": "Reference",
+"base": "AIBehavior",
 "class": "SmartObjectBehaviors",
 "language": "GDScript",
 "path": "res://entities/objects/phone/smart_object_behaviors.gd"

@@ -39,7 +39,7 @@ cd thirdparty/godotdetour
 if [ ! -f godot-cpp/bin/libgodot-cpp.linux.release.64.a ]; then
 	cd godot-cpp
 	if [ ! -z "$DISPLAY" ]; then
-		scons platform=x11 generate_bindings=yes bits=64 target=release -j$(nproc)
+		scons platform=linux generate_bindings=yes bits=64 target=release -j$(nproc)
 	else
 		scons platform=server generate_bindings=yes bits=64 target=release -j$(nproc)
 	fi
