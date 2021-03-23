@@ -36,7 +36,7 @@
 	url = https://github.com/lihop/nixpkgs
 [submodule "thirdparty/godot-networked-instancing-example"]
 	path = thirdparty/godot-networked-instancing-example
-	url = https://github.com/Razzeeyy/godot-networked-instancing-example
+	url = https://github.com/lihop/godot-networked-instancing-example
 [submodule "thirdparty/systemd-digitalocean"]
 	path = thirdparty/systemd-digitalocean
 	url = https://github.com/lihop/systemd-digitalocean
