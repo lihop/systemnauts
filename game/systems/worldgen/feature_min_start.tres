@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://systems/worldgen/feature_room_definition.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+chance = 1.0
+open_neighbors = true
+allow_transforms = false
+allow_unavailable = false
+ignore_fit = true
+slice = Vector3( 0, 0, 0 )
+slice_min = Vector3( 2, 0, 0 )
+slice_max = Vector3( 2, 0, 0 )
+room_defs = [ "res://rooms/min/basic-1-n.map" ]

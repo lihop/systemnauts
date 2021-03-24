@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/basic-0-x.1.map-e1bc4dfaa3fd4bcd09eb462ed6472597.tres"
+
+[deps]
+
+source_file="res://rooms/min/autosave/basic-0-x.1.map"
+dest_files=[ "res://.import/basic-0-x.1.map-e1bc4dfaa3fd4bcd09eb462ed6472597.tres" ]
+
+[params]
+

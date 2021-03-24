@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/basic-15-nsew.map-a15754405342e045bb41b43fcd2f2161.tres"
+
+[deps]
+
+source_file="res://rooms/min/basic-15-nsew.map"
+dest_files=[ "res://.import/basic-15-nsew.map-a15754405342e045bb41b43fcd2f2161.tres" ]
+
+[params]
+

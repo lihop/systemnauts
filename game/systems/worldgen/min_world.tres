@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://systems/worldgen/world_gen_def.gd" type="Script" id=1]
+[ext_resource path="res://systems/worldgen/feature_min_start.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+follow_last_node_ratio = 0.5
+horizontal_ratio = 0.75
+open_loops_ratio = 0.2
+themes = [ "min" ]
+theme_bias = 3.0
+feature_room_defs = [ ExtResource( 2 ) ]
+room_defs = [ "res://rooms/min/basic-0-x.map", "res://rooms/min/basic-1-n.map", "res://rooms/min/basic-3-ns.map", "res://rooms/min/basic-5-ne.map", "res://rooms/min/basic-7-nse.map", "res://rooms/min/basic-15-nsew.map", "res://rooms/min/basic-16-u.map", "res://rooms/min/basic-17-nu.map", "res://rooms/min/basic-19-nsu.map", "res://rooms/min/basic-21-neu.map", "res://rooms/min/basic-23-nseu.map", "res://rooms/min/basic-31-nsewu.map", "res://rooms/min/basic-32-d.map", "res://rooms/min/basic-33-nd.map", "res://rooms/min/basic-35-nsd.map", "res://rooms/min/basic-37-ned.map", "res://rooms/min/basic-39-nsed.map", "res://rooms/min/basic-47-nsewd.map", "res://rooms/min/basic-48-ud.map", "res://rooms/min/basic-49-nud.map", "res://rooms/min/basic-51-nsud.map", "res://rooms/min/basic-53-neud.map", "res://rooms/min/basic-55-nseud.map", "res://rooms/min/basic-63-nsewud.map" ]
+start_room_def = ""

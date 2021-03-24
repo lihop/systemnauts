@@ -174,6 +174,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/thread_pool/fake_thread_pool.gd"
 }, {
+"base": "Resource",
+"class": "FeatureRoomDef",
+"language": "GDScript",
+"path": "res://systems/worldgen/feature_room_definition.gd"
+}, {
 "base": "Appender",
 "class": "FileAppender",
 "language": "GDScript",
@@ -439,6 +444,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/qodot/src/import_plugins/quake_wad_import_plugin.gd"
 }, {
+"base": "Resource",
+"class": "RoomDef",
+"language": "GDScript",
+"path": "res://systems/worldgen/room_def.gd"
+}, {
 "base": "WorkCredit",
 "class": "SFXCredit",
 "language": "GDScript",
@@ -564,6 +574,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/godot_credits/credit.gd"
 }, {
+"base": "Spatial",
+"class": "WorldGen",
+"language": "GDScript",
+"path": "res://systems/worldgen/worldgen.gd"
+}, {
+"base": "Resource",
+"class": "WorldGenDef",
+"language": "GDScript",
+"path": "res://systems/worldgen/world_gen_def.gd"
+}, {
 "base": "StaticBody",
 "class": "WorldspawnLayer",
 "language": "GDScript",
@@ -608,6 +628,7 @@ _global_script_class_icons={
 "DistanceToTarget": "",
 "Ears": "",
 "FakeThreadPool": "",
+"FeatureRoomDef": "",
 "FileAppender": "",
 "FutureThreadPool": "",
 "GOAPAction": "",
@@ -661,6 +682,7 @@ _global_script_class_icons={
 "QuakePaletteImportPlugin": "",
 "QuakeWadFile": "",
 "QuakeWadImportPlugin": "",
+"RoomDef": "",
 "SFXCredit": "",
 "SlimeLayer": "",
 "SmartObject": "",
@@ -686,6 +708,8 @@ _global_script_class_icons={
 "Voice": "",
 "WaterLayer": "",
 "WorkCredit": "",
+"WorldGen": "",
+"WorldGenDef": "",
 "WorldspawnLayer": "",
 "paramertized_decision": ""
 }

@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/basic-23-nseu.map-dac588e8d67110cbfa18b4eb8fdb789a.tres"
+
+[deps]
+
+source_file="res://rooms/min/basic-23-nseu.map"
+dest_files=[ "res://.import/basic-23-nseu.map-dac588e8d67110cbfa18b4eb8fdb789a.tres" ]
+
+[params]
+

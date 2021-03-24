@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/basic-39-nsed.map-2bc2e0f5fb3eec913ca673aa0d136d50.tres"
+
+[deps]
+
+source_file="res://rooms/min/basic-39-nsed.map"
+dest_files=[ "res://.import/basic-39-nsed.map-2bc2e0f5fb3eec913ca673aa0d136d50.tres" ]
+
+[params]
+

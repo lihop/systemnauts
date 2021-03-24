@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://systems/worldgen/worldgen.gd" type="Script" id=1]
+[ext_resource path="res://systems/worldgen/min_world.tres" type="Resource" id=2]
+
+[node name="WorldGen" type="Spatial"]
+script = ExtResource( 1 )
+debug = true
+world_gen_def = ExtResource( 2 )
