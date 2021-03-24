@@ -117,7 +117,6 @@ var room_map := Dictionary()
 var themes := Array()
 var theme_bias := 0.0
 
-
 func build(val):
 	if val:
 		initialize(world_gen_def)
@@ -206,6 +205,11 @@ class GenRoom:
 	var use_prescribed_room := false
 	var prescribed_filename := ""
 	var prescribed_transform: int = RoomTransform.NONE
+
+
+class RoomDefLookup:
+	var room_index: int # Index into room_defs
+	var room_transform: int # Transform applied to make this room fit the exit configuration we need
 
 
 func generate(sim_generation := false) -> void:
@@ -560,12 +564,31 @@ func expand_maze(open_room_index: int, unopen_room_index: int, direction: int, o
 
 
 func populate_world():
+	for child in get_children():
+		if child is preload("./gen_room_map.gd"):
+			child.queue_free()
+	
+	# TODO Elect a theme for this world.
+	var elected_theme = ""
+	
 	for room_index in range(num_rooms):
 		var gen_room: GenRoom = generated_rooms[room_index]
 		
-		var room_filename: String
-		var room_transform: int
-		get_room_filename_and_transform(gen_room, room_filename, room_transform, null)
+		var result: Array = get_room_filename_and_transform(gen_room, elected_theme)
+		var room_filename: String = result[0]
+		var room_transform: int = result[1]
+		
+		print(room_filename, ' ', room_transform)
+		
+		var room_map = preload("./gen_room_map.gd").new()
+		room_map.inverse_scale_factor = 64
+		room_map.map_file = room_filename
+		add_child(room_map)
+		room_map.owner = get_tree().edited_scene_root
+		room_map.global_transform.origin = Vector3(13, 9, 13) * get_room_coords(room_index)
+		room_map.verify_and_build()
+		yield(room_map, "build_complete")
+		room_map.apply_transform(room_transform)
 
 
 func get_neighbor_indices(room_index: int, neighbors: NeighborIndices) -> void:
@@ -667,6 +690,24 @@ func initialize_room_defs(p_room_defs, num_room_defs: int, room_map, definition)
 		else:
 			# For the common case, simplify the config file by ignoring subroom fields
 			get_exits_from_filename(room_def.file_name, room_def)
+		
+		if room_map != null:
+			# Add this rooms def's index to the exit config map.
+			var actual_exits: int = room_def.exits
+			for room_transform in range(max_transforms if room_def.allow_transforms else 1):
+				var exits: int = get_precomputed_transformed_exits(actual_exits, room_transform)
+				var rooms_fitting_exit: Array
+				
+				if room_map.has(exits):
+					rooms_fitting_exit = room_map[exits]
+				else:
+					rooms_fitting_exit = []
+					room_map[exits] = rooms_fitting_exit
+				
+				var lookup := RoomDefLookup.new()
+				lookup.room_index = room_index
+				lookup.room_transform = room_transform
+				rooms_fitting_exit.push_back(lookup)
 
 
 func initialize_maze_gen():
@@ -685,10 +726,23 @@ func initialize_maze_gen():
 		unopen_room_set[room_index] = Room.new()
 
 
-func get_room_filename_and_transform(gen_room: GenRoom, _a, _b, _c):
-	# TODO: Other stuff.
+func get_room_filename_and_transform(gen_room: GenRoom, elected_theme: String = "") -> Array:
+	if gen_room.use_prescribed_room:
+		return [gen_room.prescribed_filename, gen_room.prescribed_transform]
+	else:
+		if elected_theme == "":
+			return lookup_random_room(gen_room)
+		else:
+			return lookup_random_theme_room(gen_room)
+
+func lookup_random_room(gen_room: GenRoom) -> Array:
+	assert(room_map.has(gen_room.exits))
+	var rooms_fitting_exit = room_map[gen_room.exits]
 	
-	lookup_random_theme_room(gen_room)
+	var lookup: RoomDefLookup = rooms_fitting_exit[randi() % rooms_fitting_exit.size()]
+	var room_def: RoomDef = room_defs[lookup.room_index]
+	
+	return [room_def.file_name, lookup.room_transform]
 
 
 func lookup_random_theme_room(_a):
@@ -778,7 +832,7 @@ func get_room_dictionary():
 			file_name = dir.get_next()
 	
 	for room in room_dictionary.keys():
-		for room_transform in range(pow(2, RoomTransform.size())):
+		for room_transform in range(pow(2, RoomTransform.size())): # TODO: Is this correct?
 			var transformed_exit = get_transformed_exits(room, room_transform)
 			if not room_dictionary.has(transformed_exit):
 				room_dictionary[transformed_exit] = {file = room_dictionary[room].file, room_transform = room_transform}
