@@ -105,6 +105,7 @@ func bake_navigation():
 	for child in get_children():
 		if child is QodotMap:
 			var map: QodotMap = child
+			var mirrored: bool = child.scale != Vector3.ONE
 			var worldspawn: MeshInstance = map.get_node_or_null(
 				"entity_0_worldspawn/entity_0_mesh_instance"
 			)
@@ -116,9 +117,11 @@ func bake_navigation():
 						"entity_0_%s_mesh_instance" % layer.name
 					)
 					if layer_mesh_instance:
+						layer_mesh_instance.set_meta("mirrored", mirrored)
 						worldspawn_layers.append(layer_mesh_instance)
 
 			if worldspawn:
+				worldspawn.set_meta("mirrored", mirrored)
 				mesh_instances.append(worldspawn)
 			if not worldspawn_layers.empty():
 				mesh_instances.append_array(worldspawn_layers)
@@ -129,10 +132,10 @@ func bake_navigation():
 		1:
 			mesh_instance = mesh_instances[0].duplicate()
 		_:
-			var splerger = Splerger.new()
-			mesh_instance = splerger.merge_meshinstances(mesh_instances, get_parent(), false, false)
+			print(mesh_instances)
+			mesh_instance = MeshMerger.merge_mesh_instances(mesh_instances)
 
-	# Step 3. Initialize navigation using MeshInstance and Parameters.
+	# Step 3. Initialize navigation using MeshInstance and Parameters
 
 	navigation = DetourNavigationNative.new()
 	navigation.initialize(mesh_instance, nav_params)
@@ -186,153 +189,6 @@ func bake_navigation():
 	_setup_debug_meshes()
 
 
-#
-#	var mesh = _mesh if _mesh else Mesh.new()
-#	var navmesh_params := _navmesh_params if _navmesh_params else []
-#	var navigation_areas = _navigation_areas if _navigation_areas else []
-#
-#	if not mesh or navmesh_params.empty() or navigation_areas.empty():
-#		var err_msg := "Cannot initialize navigation:"
-#		if not mesh:
-#			err_msg += "\n\nNo mesh."
-#		if navmesh_params.empty():
-#			err_msg += "\n\nNo navmesh params."
-#		if navigation_areas.empty():
-#			err_msg += "\n\nNo navigation areas."
-#
-#	var mesh_instance = MeshInstance.new()
-#	mesh_instance.mesh = mesh
-#
-#	var nav_params = DetourNavigationParameters.new()
-#	nav_params.ticksPerSecond = ticks_per_second
-#	nav_params.maxObstacles = max_obstacles
-#	nav_params.navMeshParameters = nav_params
-#
-#	navigation = DetourNavigationNative.new()
-#	navigation.initialize(mesh_instance, nav_params)
-
-#export(NodePath) var qodot_map
-#export(int) var ticks_per_second := 60 # How often the navigation is updated per second in its own thread
-#export(int) var max_obstacles := 256 # How many dynamic obstacles can be present at the same time
-#export(Mesh) var mesh
-#export(Array, Resource) var navigation_areas
-
-
-#var navigation = _DetourNavigation.new()
-#
-#func _bake_navigation():
-#	pass
-#
-#
-#onready var map: QodotMap = get_node(qodot_map)
-#
-#
-#func _ready():
-#	var nav_params = _get_nav_params()
-##	if map is QodotMap and _mesh is Mesh and navParams is DetourNavigationMeshParameters:
-##		_init_navigation(map, _mesh, navParams)
-#
-#
-##func _get_property_list():
-##	var properties := []
-##	properties.append({
-##		name = "mesh",
-##		type = TYPE_OBJECT,
-##		usage = PROPERTY_USAGE_STORAGE
-##	})
-##	return properties
-#
-#
-#func _init_navigation(map) -> void:
-#	var nav_params = _get_nav_params()
-#	#var markers = _get_markers()
-#	var mesh_instance = _get_mesh_instance()
-#
-#
-#func _get_nav_params():
-#	var nav_params := DetourNavigationParameters.new()
-#	nav_params.ticksPerSecond = ticks_per_second
-#	nav_params.maxObstacles = max_obstacles
-#
-#	# Create the parameters for each navmesh.
-#	for child in get_children():
-#		if child is DetourNavigationMeshInstance and child.navmesh:
-#			var navmesh_params := DetourNavigationMeshParameters.new()
-#			var resource := Resource.new()
-#			for property in child.navmesh.get_property_list():
-#				if property.name in navmesh_params and not property.name in resource:
-#					navmesh_params.set(property.name, child.navmesh.get(property.name))
-#			#navParams.navMeshParameters.append(navmesh_params)
-#
-#	#return nav_params
-#
-#
-#func _get_mesh_instance():
-#	var meshes := []
-#
-#	if meshes.size() == 1:
-#		return meshes[0]
-#	elif meshes.size() >= 2:
-#		return
-#	else:
-#		return null
-#
-#
-#func _add_meshes_for_map(meshes: Array, map: QodotMap):
-#
-#	var mesh_instance := MeshInstance.new()
-#	#var map = get_node(qodot_map)
-#
-#	var splerger = Splerger.new()
-#	var entity_mesh_instances = map.entity_mesh_instances.values()
-#
-#	var worldspawn = map.get_node_or_null("entity_0_worldspawn/entity_0_mesh_instance")
-#	var layers = map.worldspawn_layer_mesh_instances.values()
-#
-#	if worldspawn:
-#		layers.append(worldspawn)
-#
-#	#var mesh_instance: MeshInstance
-#
-#	if layers.size() == 1:
-#		mesh_instance = layers[0].duplicate()
-#	elif layers.size() > 1:
-#		mesh_instance = splerger.merge_meshinstances(layers, get_parent(), false, false)
-#	else:
-#		push_error("Could not find suitable MeshInstance(s) for generating navigation mesh.")
-#		return
-#
-#	# Initialize the navigation with the mesh instance and the parameters.
-#	#navigation.initialize(mesh_instance, navParams)
-#	mesh_instance.queue_free()
-#
-#
-#func _build_areas():
-#	for layer in map.worldspawn_layers:
-#		var entity = map.get_node("entity_0_%s" % layer.name)
-#		var collision_shapes = []
-#		for child in entity.get_children():
-#			if child is CollisionShape:
-#				collision_shapes.append(child)
-#
-#		for collision_shape in collision_shapes:
-#			var shape = collision_shape.shape
-#			var points = shape.get_points()
-#
-#			# Create an AABB around points of the shape.
-#			var aabb = AABB(points[0], Vector3.ZERO)
-#			for point in points:
-#				aabb = aabb.expand(point)
-#
-#			var vertices := []
-#			vertices.append(aabb.get_endpoint(0))
-#			vertices.append(aabb.get_endpoint(4))
-#			vertices.append(aabb.get_endpoint(5))
-#			vertices.append(aabb.get_endpoint(1))
-#
-#			var marker_id = navigation.markConvexArea(vertices, 6, layer.area_type)
-#
-#
 func _on_navmesh_debug_toggled(
 	debug_enabled: bool, navmesh: DetourNavigationMeshInstance, index: int
 ):
@@ -362,35 +218,6 @@ func _on_navmesh_debug_toggled(
 			navmesh.add_child(mesh_instance)
 
 
-#func _build_navigation():
-#	pass
-#
-#
-#func _load_navigation():
-#	#var nav_params := _get_nav_params()
-#
-#	var mesh_instance := MeshInstance.new()
-#	mesh_instance.mesh = mesh
-#
-#	#navigation.initialize(mesh_instance, navParams)
-#
-#	_generate_debug_meshes()
-#	#_generate_areas()
-#
-#
-##func _ready():
-##	map: QodotMap = get_node(qodot_map)
-##	print(navigation)
-##	_generate_debug_meshes()
-#
-#
-##func _on_Map_build_complete():
-##	if get_node(qodot_map) is QodotMap:
-##		_bake_navmesh()
-#
-#
-
-
 func _get_property_list():
 	return [
 		{
@@ -399,26 +226,6 @@ func _get_property_list():
 			usage = PROPERTY_USAGE_STORAGE | PROPERTY_USAGE_SCRIPT_VARIABLE
 		}
 	]
-
-
-#
-#
-#class NavigationMeshArea:
-#	extends Resource
-#
-#	export(Array) var vertices
-#	export(float) var height
-#	export(NavigableWorldspawnLayer.AreaType) var type
-#
-#
-#	func _init(p_vertices := [], p_height := 6, p_type = NavigableWorldspawnLayer.AREA_TYPE_GROUND):
-#		vertices = p_vertices
-#		height = p_height
-#		type = p_type
-
-
-func bake_navmesh():
-	pass  # Replace with function body.
 
 
 func add_agent(params):

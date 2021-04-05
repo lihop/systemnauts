@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<testsuites failures="0" name="TestXML" tests="2" time="0">
+	<testsuite name="RoomAtlasTest" failures="0"  tests="6" time="0">
+		<testcase name="RoomAtlasCreated" time="0"></testcase>
+		<testcase name="RoomsWithTransformNone" time="0"></testcase>
+		<testcase name="RoomsWithTransformMirrorX" time="0"></testcase>
+		<testcase name="RoomsWithTransformMirrorZ" time="0"></testcase>
+		<testcase name="RoomsWithRotate90" time="0"></testcase>
+		<testcase name="RoomsWithMirrorXMirrorZRotate90" time="0"></testcase>
+	</testsuite>
+
+	<testsuite name="MazeTest" failures="0"  tests="5" time="0">
+		<testcase name="TestMazeCreated" time="0"></testcase>
+		<testcase name="TestNumberOfRooms" time="0"></testcase>
+		<testcase name="TestRoomNeighborIndicesOfSingleRoomMap" time="0"></testcase>
+		<testcase name="TestCenterRoomNeighborIndicesOfSingleStoreyMap" time="0"></testcase>
+		<testcase name="TestRoomDirectionTo" time="0"></testcase>
+	</testsuite>
+
+</testsuites>

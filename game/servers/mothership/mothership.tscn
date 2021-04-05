@@ -215,6 +215,9 @@ transform = Transform( 0.956182, 0.0204506, -0.292057, 0.111996, 0.896135, 0.429
 [node name="CCTV_Cam_1" parent="CCTV" index="1" instance=ExtResource( 3 )]
 transform = Transform( 0.594284, 0.404524, -0.695117, 0.00794365, 0.861304, 0.508027, 0.804216, -0.307434, 0.508646, 31.8806, 11.5919, 29.078 )
 
+[node name="Navigation" parent="SyncRoot" index="0"]
+_num_nav_meshes = 1
+
 [node name="Map" parent="SyncRoot/Navigation" index="0"]
 map_file = "res://servers/mothership/mothership.map"
 
@@ -226,6 +229,9 @@ mesh = SubResource( 8 )
 material/0 = null
 material/1 = null
 material/2 = null
+__meta__ = {
+"mirrored": false
+}
 
 [node name="entity_0_brush_1_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_worldspawn" index="1"]
 shape = SubResource( 9 )
@@ -284,11 +290,15 @@ audio_material = SubResource( 28 )
 
 [node name="entity_0_Asphalt" type="StaticBody" parent="SyncRoot/Navigation/Map" index="2"]
 script = ExtResource( 10 )
+audio_material = null
 
 [node name="entity_0_Concrete_mesh_instance" type="MeshInstance" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="0"]
 use_in_baked_light = true
 mesh = SubResource( 30 )
 material/0 = null
+__meta__ = {
+"mirrored": false
+}
 
 [node name="entity_0_Asphalt_brush_0_collision_shape" type="CollisionShape" parent="SyncRoot/Navigation/Map/entity_0_Asphalt" index="1"]
 shape = SubResource( 31 )

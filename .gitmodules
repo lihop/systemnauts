@@ -16,9 +16,6 @@
 [submodule "thirdparty/qodot-plugin"]
 	path = thirdparty/qodot-plugin
 	url = https://github.com/lihop/qodot-plugin
-[submodule "thirdparty/godot-splerger"]
-	path = thirdparty/godot-splerger
-	url = https://github.com/lihop/godot-splerger
 [submodule "thirdparty/Gut"]
 	path = thirdparty/Gut
 	url = https://github.com/lihop/Gut
@@ -46,3 +43,6 @@
 [submodule "thirdparty/godot-xterm"]
 	path = thirdparty/godot-xterm
 	url = https://github.com/lihop/godot-xterm
+[submodule "thirdparty/WAT-Mono"]
+	path = thirdparty/WAT-Mono
+	url = https://github.com/AlexDarigan/WAT-Mono

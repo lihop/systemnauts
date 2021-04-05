@@ -8,7 +8,7 @@
 [ext_resource path="res://servers/base_server/server_navigation.gd" type="Script" id=6]
 [ext_resource path="res://layers/navigable/concrete.tres" type="Resource" id=7]
 [ext_resource path="res://layers/navigable/asphalt.tres" type="Resource" id=8]
-[ext_resource path="res://definitions/fgd/qodot_fgd.tres" type="Resource" id=9]
+[ext_resource path="res://definitions/fgd/systemnauts_fgd.tres" type="Resource" id=9]
 
 [sub_resource type="SpatialMaterial" id=1]
 

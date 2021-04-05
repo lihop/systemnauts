@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/basic-32-d.map-7109ab74c4593112092251b18d1801b6.tres"
+
+[deps]
+
+source_file="res://rooms/min/basic-32-d.map"
+dest_files=[ "res://.import/basic-32-d.map-7109ab74c4593112092251b18d1801b6.tres" ]
+
+[params]
+

@@ -6,6 +6,11 @@
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="addons/WAT/core/assertions/Assertion.cs"/>
+    <Content Include="addons/WAT/core/assertions/Recorder.cs"/>
+    <Content Include="addons/WAT/core/assertions/Test.cs"/>
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies">
       <Version>1.0.0</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
