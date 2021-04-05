@@ -1,0 +1,4 @@
+Tiles042_1K_Color.png, "Tiles 042" by Lennart Demes, from cc0.link/a/Tiles042, released under Creative Commons: Public Domain Dedication https://creativecommons.org/publicdomain/zero/1.0/
+Tiles042_1K-JPG.zip, "Tiles 042" by Lennart Demes, from cc0.link/a/Tiles042, released under Creative Commons: Public Domain Dedication https://creativecommons.org/publicdomain/zero/1.0/
+Tiles042_1K_Normal.png, "Tiles 042" by Lennart Demes, from cc0.link/a/Tiles042, released under Creative Commons: Public Domain Dedication https://creativecommons.org/publicdomain/zero/1.0/
+Tiles042_1K_Roughness.png, "Tiles 042" by Lennart Demes, from cc0.link/a/Tiles042, released under Creative Commons: Public Domain Dedication https://creativecommons.org/publicdomain/zero/1.0/

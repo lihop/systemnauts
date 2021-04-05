@@ -1,0 +1,43 @@
+// Game: Systemnauts
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures/base;textures/layers;textures/material;textures/pbr"
+// brush 0
+{
+( -384 -320 448 ) ( -384 -319 448 ) ( -384 -320 449 ) material/office_wall_white 0 0 0 1 1
+( -320 -384 448 ) ( -320 -384 449 ) ( -319 -384 448 ) material/office_wall_white 0 0 0 1 1
+( -320 -320 448 ) ( -319 -320 448 ) ( -320 -319 448 ) material/office_wall_white 0 0 0 1 1
+( 320 320 512 ) ( 320 321 512 ) ( 321 320 512 ) material/office_wall_white 0 0 0 1 1
+( 320 384 512 ) ( 321 384 512 ) ( 320 384 513 ) material/office_wall_white 0 0 0 1 1
+( 384 320 512 ) ( 384 320 513 ) ( 384 321 512 ) material/office_wall_white 0 0 0 1 1
+}
+// brush 1
+{
+( -384 -320 32 ) ( -384 -320 33 ) ( -384 -321 32 ) material/office_wall_white 0 0 180 1 -1
+( 384 -384 64 ) ( 384 -384 65 ) ( 385 -384 64 ) material/office_wall_white 0 0 0 1 1
+( 256 -320 64 ) ( 256 -321 64 ) ( 257 -320 64 ) material/office_wall_white 0 0 270 1 1
+( 384 -448 448 ) ( 385 -448 448 ) ( 384 -449 448 ) material/office_wall_white 0 0 270 1 1
+( 256 -320 32 ) ( 257 -320 32 ) ( 256 -320 33 ) material/office_wall_white 0 0 0 1 1
+( 320 -448 64 ) ( 320 -449 64 ) ( 320 -448 65 ) material/office_wall_white 0 0 180 1 -1
+}
+// brush 2
+{
+( 320 256 32 ) ( 320 257 32 ) ( 320 256 33 ) material/office_wall_white 0 0 0 1 1
+( 320 -384 32 ) ( 320 -384 33 ) ( 321 -384 32 ) material/office_wall_white 0 0 0 1 1
+( 320 256 64 ) ( 321 256 64 ) ( 320 257 64 ) material/office_wall_white 0 0 0 1 1
+( 448 384 448 ) ( 448 385 448 ) ( 449 384 448 ) material/office_wall_white 0 0 0 1 1
+( 448 384 64 ) ( 449 384 64 ) ( 448 384 65 ) material/office_wall_white 0 0 0 1 1
+( 384 384 64 ) ( 384 384 65 ) ( 384 385 64 ) material/office_wall_white 0 0 0 1 1
+}
+// brush 3
+{
+( -384 0 0 ) ( -384 1 0 ) ( -384 0 1 ) pbr/tiles_042 0 0 0 0.25 0.25
+( -256 -384 0 ) ( -256 -384 1 ) ( -255 -384 0 ) pbr/tiles_042 0 0 0 0.25 0.25
+( -256 0 0 ) ( -255 0 0 ) ( -256 1 0 ) pbr/tiles_042 0 0 0 0.25 0.25
+( 320 320 64 ) ( 320 321 64 ) ( 321 320 64 ) pbr/tiles_042 0 0 0 0.25 0.25
+( 320 384 64 ) ( 321 384 64 ) ( 320 384 65 ) pbr/tiles_042 0 0 0 0.25 0.25
+( 384 320 64 ) ( 384 320 65 ) ( 384 321 64 ) pbr/tiles_042 0 0 0 0.25 0.25
+}
+}

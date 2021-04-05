@@ -1,0 +1,117 @@
+// Game: Systemnauts
+// Format: Standard
+// entity 0
+{
+"classname" "worldspawn"
+"_tb_textures" "textures;textures/base;textures/layers;textures/material;textures/pbr"
+"_tb_def" "builtin:Systemnauts.fgd"
+// brush 0
+{
+( -384 -320 448 ) ( -384 -319 448 ) ( -384 -320 449 ) material/office_wall_white 0 0 0 1 1
+( -320 -384 448 ) ( -320 -384 449 ) ( -319 -384 448 ) material/office_wall_white 0 0 0 1 1
+( -320 -320 448 ) ( -319 -320 448 ) ( -320 -319 448 ) material/office_wall_white 0 0 0 1 1
+( 320 320 512 ) ( 320 321 512 ) ( 321 320 512 ) material/office_wall_white 0 0 0 1 1
+( 320 384 512 ) ( 321 384 512 ) ( 320 384 513 ) material/office_wall_white 0 0 0 1 1
+( 384 320 512 ) ( 384 320 513 ) ( 384 321 512 ) material/office_wall_white 0 0 0 1 1
+}
+// brush 1
+{
+( -384 -320 32.125 ) ( -384 -320 33.125 ) ( -384 -321 32.125 ) _defaultMat 0 0.125 180 1 -1
+( 384 -384 64.125 ) ( 384 -384 65.125 ) ( 385 -384 64.125 ) _defaultMat 0 0.125 0 1 1
+( 256 -320 64.125 ) ( 256 -321 64.125 ) ( 257 -320 64.125 ) _defaultMat 0 0 270 1 1
+( 384 -448 448.125 ) ( 385 -448 448.125 ) ( 384 -449 448.125 ) _defaultMat 0 0 270 1 1
+( 256 -320 32.125 ) ( 257 -320 32.125 ) ( 256 -320 33.125 ) _defaultMat 0 0.125 0 1 1
+( 320 -448 64.125 ) ( 320 -449 64.125 ) ( 320 -448 65.125 ) _defaultMat 0 0.125 180 1 -1
+}
+// brush 2
+{
+( 320 256 32 ) ( 320 257 32 ) ( 320 256 33 ) material/office_wall_white 0 0 0 1 1
+( 320 -384 32 ) ( 320 -384 33 ) ( 321 -384 32 ) material/office_wall_white 0 0 0 1 1
+( 320 256 64 ) ( 321 256 64 ) ( 320 257 64 ) material/office_wall_white 0 0 0 1 1
+( 448 384 448 ) ( 448 385 448 ) ( 449 384 448 ) material/office_wall_white 0 0 0 1 1
+( 448 320 64 ) ( 449 320 64 ) ( 448 320 65 ) material/office_wall_white 0 0 0 1 1
+( 384 384 64 ) ( 384 384 65 ) ( 384 385 64 ) material/office_wall_white 0 0 0 1 1
+}
+// brush 3
+{
+( -384 384 32 ) ( -384 384 33 ) ( -384 383 32 ) material/office_wall_white 0 0 180 1 -1
+( 384 368 64 ) ( 384 368 65 ) ( 385 368 64 ) material/office_wall_white 0 0 0 1 1
+( 256 384 64 ) ( 256 383 64 ) ( 257 384 64 ) material/office_wall_white 0 0 270 1 1
+( 384 256 448 ) ( 385 256 448 ) ( 384 255 448 ) material/office_wall_white 0 0 270 1 1
+( 256 384 32 ) ( 257 384 32 ) ( 256 384 33 ) material/office_wall_white 0 0 0 1 1
+( 384 256 64 ) ( 384 255 64 ) ( 384 256 65 ) material/office_wall_white 0 0 180 1 -1
+}
+// brush 4
+{
+( -384 0 0 ) ( -384 1 0 ) ( -384 0 1 ) carpetBlue 0 0 0 0.25 0.25
+( -256 -384 0 ) ( -256 -384 1 ) ( -255 -384 0 ) carpetBlue 0 0 0 0.25 0.25
+( -256 0 0 ) ( -255 0 0 ) ( -256 1 0 ) carpetBlue 0 0 0 0.25 0.25
+( 320 320 64 ) ( 320 321 64 ) ( 321 320 64 ) carpetBlue 0 0 0 0.25 0.25
+( 320 384 64 ) ( 321 384 64 ) ( 320 384 65 ) carpetBlue 0 0 0 0.25 0.25
+( 384 320 64 ) ( 384 320 65 ) ( 384 321 64 ) carpetBlue 0 0 0 0.25 0.25
+}
+// brush 5
+{
+( -384 -128 224 ) ( -384 -127 224 ) ( -384 -128 225 ) carpetWhite 0 0 0 1 1
+( 240 -128 224 ) ( 240 -128 225 ) ( 241 -128 224 ) carpetWhite 0 0 0 1 1
+( 240 -128 224 ) ( 241 -128 224 ) ( 240 -127 224 ) carpetWhite 0 0 0 1 1
+( 320 -16 240 ) ( 320 -15 240 ) ( 321 -16 240 ) carpetWhite 0 0 0 1 1
+( 320 368 240 ) ( 321 368 240 ) ( 320 368 241 ) carpetWhite 0 0 0 1 1
+( 320 -16 240 ) ( 320 -16 241 ) ( 320 -15 240 ) carpetWhite 0 0 0 1 1
+}
+}
+// entity 1
+{
+"classname" "Bathroom_Sink"
+"origin" "-198.8 -297.2 104.552"
+}
+// entity 2
+{
+"classname" "Bed_Single"
+"origin" "40.2 -216.2 90.6"
+"angle" "90"
+}
+// entity 3
+{
+"classname" "Cabinet_Bed_Drawer_Table"
+"origin" "-211 -131 84.3486"
+}
+// entity 4
+{
+"classname" "Bed_Double"
+"origin" "-308.375 28.375 89.25"
+}
+// entity 5
+{
+"classname" "Dryer"
+"origin" "-101.75 -298.25 95.625"
+}
+// entity 6
+{
+"classname" "Desk_Corner"
+"origin" "-262.5 -254.5 89.875"
+}
+// entity 7
+{
+"classname" "Wall_Half"
+"origin" "-353.625 -161.625 150.75"
+"angle" "270"
+}
+// entity 8
+{
+"classname" "Wall_Half"
+"origin" "-353.625 -97.625 150.75"
+"angle" "270"
+}
+// entity 9
+{
+"classname" "Wall_Half"
+"origin" "-353.625 -225.625 150.75"
+"angle" "270"
+}
+// entity 10
+{
+"classname" "Stairs_Corner"
+"origin" "215.25 -215.25 149.875"
+"angle" "180"
+}

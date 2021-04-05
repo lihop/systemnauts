@@ -1,0 +1,2 @@
+tiles_042_normal.png, "Tiles 042" by Lennart Demes, from cc0.link/a/Tiles042, released under Creative Commons: Public Domain Dedication https://creativecommons.org/publicdomain/zero/1.0/
+tiles_042_roughness.png, "Tiles 042" by Lennart Demes, from cc0.link/a/Tiles042, released under Creative Commons: Public Domain Dedication https://creativecommons.org/publicdomain/zero/1.0/

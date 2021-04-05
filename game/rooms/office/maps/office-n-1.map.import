@@ -1,0 +1,13 @@
+[remap]
+
+importer="qodot.map"
+type="Resource"
+path="res://.import/office-n-1.map-ab08e56393fa255a487d835ed94c67f6.tres"
+
+[deps]
+
+source_file="res://rooms/office/maps/office-n-1.map"
+dest_files=[ "res://.import/office-n-1.map-ab08e56393fa255a487d835ed94c67f6.tres" ]
+
+[params]
+

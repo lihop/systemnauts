@@ -70,7 +70,7 @@
 @PointClass color(140 69 18) mangle() model("objects/furniture/stairsCorner.obj") size(-119.25 -119.25 -90.125, 119.25 119.25 90.125) = Stairs_Corner[
 ]
 
-@PointClass color(140 69 18) mangle() model("objects/furniture/books.obj") size(-12.625 -12.625 -9.25, 12.625 12.625 9.25) = Books[
+@PointClass color(140 69 18) mangle() model("objects/furniture/books.obj") size(-10.125 -10.125 -7, 10.125 10.125 7) = Books[
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/showerRound.obj") size(-37.875 -37.875 -73.625, 37.875 37.875 73.625) = Shower_Round[
@@ -82,7 +82,7 @@
 @PointClass color(140 69 18) mangle() model("objects/furniture/loungeChair.obj") size(-33 -33 -31, 33 33 31) = Lounge_Chair[
 ]
 
-@PointClass color(140 69 18) mangle() model("objects/furniture/computerKeyboard.obj") size(-21.125 -21.125 -2, 21.125 21.125 2) = Computer_Keyboard[
+@PointClass color(140 69 18) mangle() model("objects/furniture/computerKeyboard.obj") size(-19 -19 -1.875, 19 19 1.875) = Computer_Keyboard[
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/pottedPlant.obj") size(-16.25 -16.25 -44, 16.25 16.25 44) = Potted_Plant[
@@ -106,7 +106,7 @@
 @PointClass color(140 69 18) mangle() model("objects/furniture/stairsOpenSingle.obj") size(-122.625 -122.625 -90.125, 122.625 122.625 90.125) = Stairs_Open_Single[
 ]
 
-@PointClass color(140 69 18) mangle() model("objects/furniture/desk.obj") size(-50.5 -50.5 -28.875, 50.5 50.5 28.875) = Desk[
+@PointClass color(140 69 18) mangle() model("objects/furniture/desk.obj") size(-49.375 -49.375 -25.875, 49.375 49.375 25.875) = Desk[
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/kitchenFridgeSmall.obj") size(-29 -29 -40.375, 29 29 40.375) = Kitchen_Fridge_Small[
@@ -160,7 +160,7 @@
 @PointClass color(140 69 18) mangle() model("objects/furniture/tableCoffeeGlassSquare.obj") size(-27 -27 -15.5, 27 27 15.5) = Table_Coffee_Glass_Square[
 ]
 
-@PointClass color(140 69 18) mangle() model("objects/furniture/bathroomSink.obj") size(-25.25 -25.25 -40.625, 25.25 25.25 40.625) = Bathroom_Sink[
+@PointClass color(140 69 18) mangle() model("objects/furniture/bathroomSink.obj") size(-22.875 -22.875 -37.75, 22.875 22.875 37.75) = Bathroom_Sink[
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/cardboardBoxClosed.obj") size(-14.375 -14.375 -19, 14.375 14.375 19) = Cardboard_Box_Closed[
@@ -223,7 +223,7 @@
 @PointClass color(140 69 18) mangle() model("objects/furniture/loungeSofaCorner.obj") size(-65.875 -65.875 -31, 65.875 65.875 31) = Lounge_Sofa_Corner[
 ]
 
-@PointClass color(140 69 18) mangle() model("objects/furniture/chairDesk.obj") size(-25.25 -25.25 -48.75, 25.25 25.25 48.75) = Chair_Desk[
+@PointClass color(140 69 18) mangle() model("objects/furniture/chairDesk.obj") size(-22.625 -22.625 -40.875, 22.625 22.625 40.875) = Chair_Desk[
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/kitchenCabinetDrawer.obj") size(-30.25 -30.25 -30.25, 30.25 30.25 30.25) = Kitchen_Cabinet_Drawer[
@@ -244,10 +244,10 @@
 @PointClass color(140 69 18) mangle() model("objects/furniture/speaker.obj") size(-10 -10 -42.875, 10 10 42.875) = Speaker[
 ]
 
-@PointClass color(140 69 18) mangle() model("objects/furniture/bathroomMirror.obj") size(-21 -21 -38, 21 21 38) = Bathroom_Mirror[
+@PointClass color(140 69 18) mangle() model("objects/furniture/bathroomMirror.obj") size(-20.375 -20.375 -29.25, 20.375 20.375 29.25) = Bathroom_Mirror[
 ]
 
-@PointClass color(140 69 18) mangle() model("objects/furniture/computerScreen.obj") size(-29.5 -29.5 -23.875, 29.5 29.5 23.875) = Computer_Screen[
+@PointClass color(140 69 18) mangle() model("objects/furniture/computerScreen.obj") size(-26.5 -26.5 -19.875, 26.5 26.5 19.875) = Computer_Screen[
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/hoodLarge.obj") size(-29 -29 -24.875, 29 29 24.875) = Hood_Large[
@@ -260,6 +260,9 @@
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/kitchenStoveElectric.obj") size(-30.25 -30.25 -30.25, 30.25 30.25 30.25) = Kitchen_Stove_Electric[
+]
+
+@PointClass color(140 69 18) mangle() model("objects/furniture/lampSquareCeiling.obj") size(-8.125 -8.125 -15.5, 8.125 8.125 15.5) = Lamp_Square_Ceiling[
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/wallHalf.obj") size(-33.625 -33.625 -86.75, 33.625 33.625 86.75) = Wall_Half[
@@ -310,7 +313,7 @@
 @PointClass color(140 69 18) mangle() model("objects/furniture/kitchenFridgeLarge.obj") size(-35 -35 -61.875, 35 35 61.875) = Kitchen_Fridge_Large[
 ]
 
-@PointClass color(140 69 18) mangle() model("objects/furniture/bedSingle.obj") size(-88.25 -88.25 -26.625, 88.25 88.25 26.625) = Bed_Single[
+@PointClass color(140 69 18) mangle() model("objects/furniture/bedSingle.obj") size(-75.625 -75.625 -25.25, 75.625 75.625 25.25) = Bed_Single[
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/bookcaseClosedWide.obj") size(-53.875 -53.875 -53.125, 53.875 53.875 53.125) = Bookcase_Closed_Wide[
@@ -385,7 +388,7 @@
 @PointClass color(140 69 18) mangle() model("objects/furniture/coatRack.obj") size(-30.125 -30.125 -18.875, 30.125 30.125 18.875) = Coat_Rack[
 ]
 
-@PointClass color(140 69 18) mangle() model("objects/furniture/cabinetBedDrawerTable.obj") size(-21 -21 -20.375, 21 21 20.375) = Cabinet_Bed_Drawer_Table[
+@PointClass color(140 69 18) mangle() model("objects/furniture/cabinetBedDrawerTable.obj") size(-18 -18 -17.75, 18 18 17.75) = Cabinet_Bed_Drawer_Table[
 ]
 
 @PointClass color(140 69 18) mangle() model("objects/furniture/washer.obj") size(-26.25 -26.25 -31.625, 26.25 26.25 31.625) = Washer[
