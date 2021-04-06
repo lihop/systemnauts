@@ -26,7 +26,7 @@ signal generated
 
 export (Resource) var world_definition
 export (bool) var debug = false
-export (NodePath) var attach_to: NodePath = get_path()
+export (NodePath) var attach_to: NodePath
 export (bool) var generate = false setget set_generate  # Psuedo-button for in-editor world generation.
 
 
@@ -77,6 +77,9 @@ func generate():
 	maze.OpenLoopsRatio = world_definition.open_loops_ratio
 	maze.Debug = debug
 	maze.Generate()
+
+	if not attach_to:
+		attach_to = get_path()
 
 	# Now we have a maze, start filling it with rooms.
 	for child in get_node(attach_to).get_children():
