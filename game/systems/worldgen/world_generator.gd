@@ -80,7 +80,7 @@ func generate():
 
 	# Now we have a maze, start filling it with rooms.
 	for child in get_node(attach_to).get_children():
-		if child.get_meta("generated"):
+		if child.has_meta("generated"):
 			child.free()
 
 	var room_atlas = RoomAtlas.New(world_definition.rooms)

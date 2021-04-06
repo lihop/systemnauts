@@ -1,8 +1,8 @@
 # Used to merge multiple MeshInstances of QodotMaps for use by TheSHEEEP's
 # godotdetour navigation library.
 #
-# It can be used with meshes that have been mirrored. Such meshes need to be
-# have a "mirrored" metadata entry which is set to true.
+# It can be used with meshes that have been mirrored. Such meshes need to
+# have a "mirrored" metadata entry.
 #
 # Based on https://gist.github.com/d3is/6bddc5b88570366cbf23afaf191577e2
 # which is in turn based on https://github.com/lawnjelly/godot-splerger but
@@ -58,7 +58,7 @@ static func _merge_mesh_instance(
 
 		for f in range(n_faces):
 			# Mirrored meshes need to be processed in reverse order.
-			for i in range(2, -1, -1) if mesh_instance.get_meta("mirrored") else range(3):
+			for i in range(2, -1, -1) if mesh_instance.has_meta("mirrored") else range(3):
 				var ind: int = mdt.get_face_vertex(f, i)
 				surface_tool.add_index(ind + vertex_count)
 
