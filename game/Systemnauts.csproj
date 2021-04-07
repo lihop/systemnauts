@@ -41,12 +41,4 @@
       <Version>5.0.3</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Fluid-HTN">
-      <HintPath>../thirdparty/fluid-hierarchical-task-network-ext/Fluid-HTN-Ext/bin/Release/netstandard2.0/Fluid-HTN.dll</HintPath>
-    </Reference>
-    <Reference Include="Fluid-HTN-Ext">
-      <HintPath>../thirdparty/fluid-hierarchical-task-network-ext/Fluid-HTN-Ext/bin/Release/netstandard2.0/Fluid-HTN-Ext.dll</HintPath>
-    </Reference>
-  </ItemGroup>
 </Project>

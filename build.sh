@@ -22,15 +22,11 @@ cd $GODOT_ENGINE_DIR
 rm -rf ./bin/*.so
 if [ ! -f ./modules/mono/glue/mono_glue.gen.cpp ]; then
 	# Generate Mono glue.
-	if [ ! -z "$DISPLAY" ];	then
-		scons target=release_debug platform=x11 tools=yes module_mono_enabled=yes mono_glue=no mono_prefix=$MONO_PREFIX -j$(nproc)
-		./bin/godot.x11.opt.tools.64.mono --generate-mono-glue modules/mono/glue
-	fi
+	scons target=release_debug platform=x11 tools=yes module_mono_enabled=yes mono_glue=no mono_prefix=$MONO_PREFIX -j$(nproc)
+	./bin/godot.x11.opt.tools.64.mono --generate-mono-glue modules/mono/glue
 	rm -rf ./bin/*.so
 fi
-if [ ! -z "$DISPLAY" ]; then
-	scons target=release_debug platform=x11 tools=yes module_mono_enabled=yes mono_prefix=$MONO_PREFIX -j$(nproc)
-fi
+scons target=release_debug platform=x11 tools=yes module_mono_enabled=yes mono_prefix=$MONO_PREFIX -j$(nproc)
 rm -rf ./bin/*.so
 
 # Build thirdparty dependencies.
@@ -38,26 +34,10 @@ cd $PROJECT_DIR
 cd thirdparty/godotdetour
 if [ ! -f godot-cpp/bin/libgodot-cpp.linux.release.64.a ]; then
 	cd godot-cpp
-	if [ ! -z "$DISPLAY" ]; then
-		scons platform=linux generate_bindings=yes bits=64 target=release -j$(nproc)
-	else
-		scons platform=server generate_bindings=yes bits=64 target=release -j$(nproc)
-	fi
+	scons platform=linux generate_bindings=yes bits=64 target=release -j$(nproc)
 	cd ..
 fi
 scons platform=linux target=release -j$(nproc)
-
-cd $PROJECT_DIR
-cd thirdparty/fluid-hierarchical-task-network
-nuget restore
-dotnet msbuild /t:restore
-dotnet msbuild /p:Configuration=Release
-
-cd ../fluid-hierarchical-task-network-ext
-nuget restore
-dotnet msbuild /t:restore
-dotnet msbuild /p:Configuration=Release
-dotnet msbuild /p:Configuration=Release # Fails the first time.
 
 cd $PROJECT_DIR/game
 dotnet msbuild /t:restore
