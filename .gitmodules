@@ -23,7 +23,7 @@
 	path = thirdparty/gd-YAFSM
 	url = https://github.com/imjp94/gd-YAFSM
 [submodule "nixpkgs"]
-	path = nixpkgs
+	path = thirdparty/nixpkgs
 	url = https://github.com/lihop/nixpkgs
 [submodule "thirdparty/godot-networked-instancing-example"]
 	path = thirdparty/godot-networked-instancing-example
