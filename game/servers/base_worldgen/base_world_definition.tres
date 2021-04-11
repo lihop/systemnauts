@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource( 1 )
+rng_seed = ""
 map_size = Vector3( 2, 1, 2 )
 follow_last_node_ratio = 0.5
 horizontal_ratio = 0.75

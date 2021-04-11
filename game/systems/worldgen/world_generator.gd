@@ -71,7 +71,7 @@ static func print_transforms(transforms: int) -> void:
 
 
 func generate():
-	var maze = Maze.New(world_definition.map_size)
+	var maze = Maze.New(world_definition.map_size, world_definition.rng_seed)
 	maze.FollowLastNodeRatio = world_definition.follow_last_node_ratio
 	maze.HorizontalRatio = world_definition.horizontal_ratio
 	maze.OpenLoopsRatio = world_definition.open_loops_ratio
@@ -83,7 +83,7 @@ func generate():
 		if child.get_meta("generated"):
 			child.free()
 
-	var room_atlas = RoomAtlas.New(world_definition.rooms)
+	var room_atlas = RoomAtlas.New(world_definition.rooms, world_definition.rng_seed)
 	for mazeRoom in maze.Rooms:
 		var room = room_atlas.GetRandomRoomWithExits(mazeRoom.Exits)
 		if room == null:

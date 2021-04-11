@@ -8,12 +8,7 @@ namespace Godot.WorldGen
 {
 	public class Maze : Reference
 	{
-		private static Random random = new Random();
-		public static Maze New(Vector3 size) => new Maze(size);
-
-		public class MazeConfig : Reference
-		{
-		}
+		public static Maze New(Vector3 size, string seed = "") => seed.Empty() ? new Maze(size) : new Maze(size, seed);
 
 		private Vector3 size = new Vector3();
 		public Vector3 Size { get => size; set => size = new Vector3((int)value.x, (int)value.y, (int)value.z); }
@@ -38,6 +33,8 @@ namespace Godot.WorldGen
 
 		public Resource worldDefinition;
 
+		private Random random = new Random();
+
 		public Maze() : this(new Vector3(1, 1, 1)) { }
 
 		public Maze(Vector3 size)
@@ -53,6 +50,8 @@ namespace Godot.WorldGen
 			// All rooms start closed.
 			ClosedRooms = new Dictionary<int, Room>(rooms);
 		}
+
+		public Maze(Vector3 size, string seed) : this(size) => random = new Random(GD.Hash(seed));
 
 		public Error Generate()
 		{

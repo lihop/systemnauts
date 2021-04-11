@@ -26,6 +26,7 @@ const MAX_TRANSFORM = (
 	| RoomTransform.ROTATE_90
 )
 
+export (String) var rng_seed := ""
 export (Vector3) var map_size := Vector3(4, 2, 4) setget set_map_size
 export (float) var follow_last_node_ratio := 0.5
 export (float) var horizontal_ratio := 0.75
@@ -77,6 +78,7 @@ func get_rooms() -> Array:
 
 
 func _init(
+	p_rng_seed := "",
 	p_map_size := Vector3(4, 2, 4),
 	p_follow_last_node_ratio := 0.5,
 	p_horizontal_ratio := 0.75,

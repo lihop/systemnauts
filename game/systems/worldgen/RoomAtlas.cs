@@ -15,9 +15,8 @@ namespace Godot.WorldGen
 
 	public class RoomAtlas : Reference
 	{
-		static public Random random = new Random();
 		static int allTransforms = (int)(Transforms.MirrorX | Transforms.MirrorZ | Transforms.Rotate90);
-		static public RoomAtlas New(List<string> filenames) => new RoomAtlas(filenames);
+		static public RoomAtlas New(List<string> filenames, string seed = "") => seed.Empty() ? new RoomAtlas(filenames) : new RoomAtlas(filenames, seed);
 
 		static ImmutableDictionary<char, Directions> CharDirectionMap = new Dictionary<char, Directions>
 		{
@@ -32,6 +31,8 @@ namespace Godot.WorldGen
 
 		public List<Room> Rooms = new List<Room> { };
 
+		private Random random = new Random();
+
 		public RoomAtlas()
 		{
 		}
@@ -41,6 +42,8 @@ namespace Godot.WorldGen
 			foreach (var filename in filenames)
 				AddRoom(filename);
 		}
+
+		public RoomAtlas(List<string> filenames, string seed) : this(filenames) => random = new Random(GD.Hash(seed));
 
 		public void AddRoom(string filename)
 		{
