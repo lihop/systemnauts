@@ -1,5 +1,5 @@
 [submodule "engine"]
-	path = engine
+	path = thirdparty/godot
 	url = https://github.com/lihop/godot
 [submodule "thirdparty/godothreadpool"]
 	path = thirdparty/godothreadpool

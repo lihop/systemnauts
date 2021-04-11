@@ -13,7 +13,7 @@ if command -v nix-shell && [ $NIX_PATH ] && [ -z $IN_NIX_SHELL ]; then
 fi
 
 # Build the Godot engine.
-GODOT_ENGINE_DIR=${PROJECT_DIR}/engine
+GODOT_ENGINE_DIR=${PROJECT_DIR}/thirdparty/godot
 if [ ! -d $GODOT_XTERM_DIR ]; then
 	cd $PROJECT_DIR
 	git submodule update --init --recursive -- $GODOT_XTERM_DIR
@@ -46,6 +46,10 @@ if [ ! -f godot-cpp/bin/libgodot-cpp.linux.release.64.a ]; then
 	cd ..
 fi
 scons platform=linux target=release -j$(nproc)
+
+cd $PROJECT_DIR
+cd thirdparty/godot-xterm/addons/godot_xterm/native
+./build.sh
 
 # Build solution.
 cd $PROJECT_DIR/game
