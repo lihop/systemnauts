@@ -47,18 +47,7 @@ if [ ! -f godot-cpp/bin/libgodot-cpp.linux.release.64.a ]; then
 fi
 scons platform=linux target=release -j$(nproc)
 
-cd $PROJECT_DIR
-cd thirdparty/fluid-hierarchical-task-network
-nuget restore
-dotnet msbuild /t:restore
-dotnet msbuild /p:Configuration=Release
-
-cd ../fluid-hierarchical-task-network-ext
-nuget restore
-dotnet msbuild /t:restore
-dotnet msbuild /p:Configuration=Release
-dotnet msbuild /p:Configuration=Release # Fails the first time.
-
+# Build solution.
 cd $PROJECT_DIR/game
 dotnet msbuild /t:restore
 dotnet msbuild

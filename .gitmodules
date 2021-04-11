@@ -1,9 +1,3 @@
-[submodule "thirdparty/fluid-hierarchical-task-network-ext"]
-	path = thirdparty/fluid-hierarchical-task-network-ext
-	url = https://github.com/lihop/fluid-hierarchical-task-network-ext
-[submodule "thirdparty/fluid-hierarchical-task-network"]
-	path = thirdparty/fluid-hierarchical-task-network
-	url = https://github.com/lihop/fluid-hierarchical-task-network
 [submodule "engine"]
 	path = engine
 	url = https://github.com/lihop/godot
