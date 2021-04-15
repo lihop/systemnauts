@@ -1,16 +1,3 @@
 {
-	"res://tests/mono/systems/worldgen/RoomAtlasTest.cs": {
-		"path": "res://tests/mono/systems/worldgen/RoomAtlasTest.cs",
-		"tags": [
 
-		],
-		"passing": true
-	},
-	"res://tests/mono/systems/worldgen/MazeTest.cs": {
-		"path": "res://tests/mono/systems/worldgen/MazeTest.cs",
-		"tags": [
-
-		],
-		"passing": true
-	}
 }

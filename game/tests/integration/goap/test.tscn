@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://addons/ReGoap/Godot/ReGoapMemory.cs" type="Script" id=2]
-
-[node name="Node" type="Node"]
-
-[node name="ReGoapMemory" type="Node" parent="."]
-script = ExtResource( 2 )
