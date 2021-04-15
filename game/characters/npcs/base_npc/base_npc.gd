@@ -14,6 +14,14 @@ var _target
 var _target_range
 
 
+func place_at(transform := Transform.IDENTITY):
+	global_transform = transform
+
+	# Re-initialize navigation when placing NPC.
+	_navigation.navigation.removeAgent(_nav_agent)
+	init_navigation(_navigation)
+
+
 # Temp: testing movement.
 func _unhandled_input(event):
 	if event.is_action_pressed("test"):

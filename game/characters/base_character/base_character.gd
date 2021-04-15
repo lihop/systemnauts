@@ -10,6 +10,7 @@ func save():
 	var save_dict = {
 		"filename": get_filename(),
 		"parent": get_parent().get_path(),
-		"position": global_transform.origin,
+		"name": name,
+		"global_transform": var2str(global_transform)
 	}
 	return save_dict

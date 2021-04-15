@@ -85,3 +85,31 @@ func save():
 		# Store the save dictionary as a new line in the save file.
 		save_game.store_line(to_json(node_data))
 	save_game.close()
+
+
+func load_game():
+	var save_game = File.new()
+	if not save_game.file_exists("user://savegame.save"):
+		return  # No file to load.
+
+	save_game.open("user://savegame.save", File.READ)
+	while save_game.get_position() < save_game.get_len():
+		var node_data = parse_json(save_game.get_line())
+
+		var new_object = load(node_data["filename"]).instance()
+		new_object.name = node_data["name"]
+
+		var path = "%s/%s" % [node_data["parent"], node_data["name"]]
+
+		# Delete node if it already exists as we want to uses loaded (not initial) state.
+		var existing = get_node_or_null(path)
+		if existing:
+			existing.free()
+
+		get_node(node_data["parent"]).add_child(new_object)
+		new_object.place_at(str2var(node_data["global_transform"]))
+		for k in node_data.keys():
+			if k != "filename" or k != "parent" or k != "global_transform":
+				new_object.set(k, node_data[k])
+
+	save_game.close()

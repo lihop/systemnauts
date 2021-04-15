@@ -22,6 +22,8 @@ public class CLIThing : Node
 	{
 		if (IsNetworkMaster() && OS.HasFeature("Server"))
 		{
+			// Load previously saved game (if any).
+			GetTree().CurrentScene.Call("load_game");
 			RunREPL();
 		}
 	}

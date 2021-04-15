@@ -5,6 +5,7 @@
 
 [node name="BaseNPC" groups=[
 "npcs",
+"persist",
 ] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
