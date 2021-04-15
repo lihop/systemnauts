@@ -34,5 +34,12 @@ margin_right = 296.0
 margin_bottom = 44.0
 text = "Connect VBOX"
 
+[node name="ConnectLocalhost" type="Button" parent="VBoxContainer"]
+margin_top = 48.0
+margin_right = 296.0
+margin_bottom = 68.0
+text = "Connect Localhost"
+
 [connection signal="pressed" from="VBoxContainer/ConnectRemote" to="." method="_on_Connect_pressed" binds= [ "REMOTE" ]]
 [connection signal="pressed" from="VBoxContainer/ConnectVBox" to="." method="_on_Connect_pressed" binds= [ "VBOX" ]]
+[connection signal="pressed" from="VBoxContainer/ConnectLocalhost" to="." method="_on_Connect_pressed" binds= [ "LOCALHOST" ]]

@@ -17,6 +17,8 @@ func _ready():
 
 func _on_Connect_pressed(type := "REMOTE"):
 	match type:
+		"LOCALHOST":
+			Client.join_game("127.0.0.1")
 		"VBOX":
 			Client.join_game("192.168.56.131")
 		"REMOTE":
