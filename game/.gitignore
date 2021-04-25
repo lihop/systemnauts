@@ -3,3 +3,5 @@ PlanDebugger/
 
 exports/osx/
 exports/x11/
+
+tests/mono/test_metadata.json
